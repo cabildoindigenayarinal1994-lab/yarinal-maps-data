@@ -1,1766 +1,848 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>Yarinal | Plan de Vida</title>
 
-<title>
-Yarinal | Einamak+ Uai Jenuano
-</title>
-
-<meta
-name="description"
-content="Portal del Plan de Vida de la Comunidad Indígena Murui de Yarinal"
->
+<meta name="description"
+content="Portal de la Comunidad Indígena Murui de Yarinal - Einamak+ Uai Jenuano - Buscando huellas ancestrales">
 
 <style>
 
-/* =========================================================
-   CONFIGURACIÓN
-========================================================= */
-
 :root{
-
     --verde:#07150f;
-    --verde2:#0d2819;
+    --verde2:#0b2115;
     --verde3:#153c27;
-
+    --verde4:#1c5735;
     --dorado:#d7ad50;
     --dorado2:#f0d889;
-
-    --blanco:#f5f5ef;
+    --blanco:#f4f6ef;
     --gris:#aebcae;
-
     --borde:rgba(215,173,80,.25);
-
-    --rojo:#b94a48;
-
-    --sombra:
-        0 20px 60px rgba(0,0,0,.25);
-
 }
-
 
 *{
-
     box-sizing:border-box;
-
     margin:0;
-
     padding:0;
-
 }
-
 
 html{
-
     scroll-behavior:smooth;
-
 }
-
 
 body{
-
     background:var(--verde);
-
     color:var(--blanco);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    line-height:1.6;
-
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.7;
 }
-
-
-body.modalOpen{
-
-    overflow:hidden;
-
-}
-
 
 a{
-
     color:inherit;
-
     text-decoration:none;
-
 }
-
 
 button,
 input,
-select,
-textarea{
-
+textarea,
+select{
     font:inherit;
-
 }
 
-
-button{
-
-    cursor:pointer;
-
-}
-
-
-/* =========================================================
-   NAVEGACIÓN
-========================================================= */
+/* =========================
+   ENCABEZADO
+========================= */
 
 header{
-
     position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
     z-index:1000;
-
-    background:
-        rgba(4,15,9,.95);
-
-    backdrop-filter:
-        blur(12px);
-
-    border-bottom:
-        1px solid var(--borde);
-
+    top:0;
+    width:100%;
+    background:rgba(5,17,11,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--borde);
 }
-
 
 nav{
-
     max-width:1250px;
-
-    height:72px;
-
+    height:74px;
     margin:auto;
-
-    padding:
-        0 20px;
-
+    padding:0 20px;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
 }
-
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
 }
-
 
 .logoMark{
-
     width:44px;
-
     height:44px;
-
-    border:
-        1px solid var(--dorado);
-
+    border:1px solid var(--dorado);
     border-radius:50%;
-
     display:grid;
-
     place-items:center;
-
     font-size:22px;
-
 }
-
 
 .logo b{
-
     display:block;
-
-    font-size:15px;
-
+    letter-spacing:1px;
 }
-
 
 .logo small{
-
     display:block;
-
     color:var(--dorado2);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
+    font-size:10px;
+    letter-spacing:1.5px;
 }
-
 
 .navlinks{
-
     display:flex;
-
-    gap:20px;
-
+    gap:22px;
     list-style:none;
-
 }
-
 
 .navlinks a{
-
     color:#c7d2c6;
-
     font-size:14px;
-
     transition:.2s;
-
 }
-
 
 .navlinks a:hover{
-
     color:var(--dorado2);
-
 }
-
 
 .menu{
-
     display:none;
-
     background:none;
-
-    border:
-        1px solid var(--borde);
-
+    border:1px solid var(--borde);
     color:white;
-
-    padding:
-        8px 12px;
-
-    border-radius:8px;
-
+    border-radius:9px;
+    padding:7px 11px;
+    cursor:pointer;
 }
 
-
-/* =========================================================
+/* =========================
    PORTADA
-========================================================= */
+========================= */
 
 .hero{
-
     min-height:100vh;
-
-    padding:
-        130px 20px 80px;
-
+    padding:130px 20px 80px;
     display:grid;
-
     place-items:center;
-
     text-align:center;
-
     position:relative;
-
     overflow:hidden;
 
     background:
-
-        linear-gradient(
-            rgba(4,15,9,.45),
-            rgba(4,15,9,.92)
-        ),
-
-        radial-gradient(
-            circle at center,
-            rgba(52,117,71,.35),
-            transparent 65%
-        );
-
-    background-size:cover;
-
-    background-position:center;
-
+    linear-gradient(
+        rgba(4,15,9,.55),
+        rgba(4,15,9,.93)
+    ),
+    radial-gradient(
+        circle at 50% 30%,
+        rgba(52,117,71,.40),
+        transparent 60%
+    );
 }
 
-
-.hero:after{
-
+.hero:before{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:
-
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(215,173,80,.08),
-            transparent 30%
-        );
-
+    linear-gradient(
+        120deg,
+        transparent 35%,
+        rgba(215,173,80,.07),
+        transparent 65%
+    );
     pointer-events:none;
-
 }
-
 
 .heroContent{
-
-    position:relative;
-
-    z-index:2;
-
     max-width:1000px;
-
+    position:relative;
 }
-
 
 .badge{
-
     display:inline-block;
-
-    border:
-        1px solid var(--borde);
-
+    border:1px solid var(--borde);
     border-radius:50px;
-
-    padding:
-        8px 16px;
-
+    padding:7px 16px;
     color:var(--dorado2);
-
     font-size:11px;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
-
 }
 
-
-.hero h1{
-
+h1{
+    font:normal clamp(48px,9vw,105px)/.95 Georgia,serif;
     margin-top:25px;
-
-    font-family:Georgia,serif;
-
-    font-size:
-        clamp(48px,9vw,105px);
-
-    font-weight:normal;
-
-    line-height:.95;
-
     color:#fff8dd;
-
 }
-
 
 .hero h2{
-
-    margin-top:22px;
-
+    font:normal clamp(21px,3vw,34px) Georgia,serif;
     color:var(--dorado2);
-
-    font-family:Georgia,serif;
-
-    font-size:
-        clamp(22px,3vw,35px);
-
-    font-weight:normal;
-
+    margin-top:20px;
 }
-
 
 .hero p{
-
     max-width:800px;
-
     margin:22px auto;
-
     color:#c4cec1;
-
     font-size:18px;
-
 }
-
-
-/* =========================================================
-   BOTONES
-========================================================= */
 
 .buttons{
-
-    margin-top:30px;
-
     display:flex;
-
     justify-content:center;
-
-    flex-wrap:wrap;
-
     gap:12px;
-
+    flex-wrap:wrap;
+    margin-top:28px;
 }
-
 
 .btn{
-
-    display:inline-block;
-
-    padding:
-        12px 20px;
-
-    border:
-        1px solid var(--dorado);
-
+    border:1px solid var(--dorado);
+    padding:12px 20px;
     border-radius:11px;
-
     cursor:pointer;
-
+    display:inline-block;
     transition:.2s;
-
 }
-
 
 .btn:hover{
-
     transform:translateY(-2px);
-
 }
-
 
 .primary{
-
     background:var(--dorado);
-
-    color:#142014;
-
+    color:#152015;
     font-weight:bold;
-
 }
-
 
 .secondary{
-
     background:transparent;
-
     color:white;
-
 }
 
-
-/* =========================================================
+/* =========================
    SECCIONES
-========================================================= */
+========================= */
 
 .section{
-
-    padding:
-        95px 20px;
-
+    padding:95px 20px;
 }
 
-
-.section.dark{
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--verde2),
-            var(--verde)
-        );
-
+.dark{
+    background:rgba(255,255,255,.025);
+    border-block:1px solid rgba(255,255,255,.04);
 }
-
 
 .container{
-
     max-width:1200px;
-
     margin:auto;
-
 }
-
 
 .label{
-
-    display:inline-block;
-
-    color:var(--dorado2);
-
+    color:var(--dorado);
+    text-transform:uppercase;
+    letter-spacing:2px;
     font-size:11px;
-
-    letter-spacing:3px;
-
-    margin-bottom:12px;
-
+    font-weight:bold;
 }
 
-
-.section h2{
-
-    font-family:Georgia,serif;
-
-    font-size:
-        clamp(32px,5vw,54px);
-
-    font-weight:normal;
-
-    color:#fff8dd;
-
-    margin-bottom:20px;
-
+h2{
+    font:normal clamp(30px,5vw,55px)/1.1 Georgia,serif;
+    margin-top:5px;
 }
-
 
 .intro{
-
     max-width:850px;
-
     color:var(--gris);
-
     font-size:17px;
-
-    margin-bottom:35px;
-
+    margin-top:15px;
 }
-
-
-/* =========================================================
-   GRID
-========================================================= */
 
 .grid{
-
     display:grid;
-
     gap:20px;
-
+    margin-top:32px;
 }
-
 
 .g2{
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
 }
-
 
 .g3{
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
 }
-
 
 .g4{
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
 }
 
-
-/* =========================================================
+/* =========================
    TARJETAS
-========================================================= */
+========================= */
 
 .card{
+    background:linear-gradient(
+        145deg,
+        #153c27,
+        #0a1d12
+    );
 
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid var(--borde);
-
-    border-radius:18px;
-
+    border:1px solid var(--borde);
+    border-radius:20px;
     padding:25px;
 
     box-shadow:
-        0 10px 35px rgba(0,0,0,.12);
+    0 15px 40px rgba(0,0,0,.22);
 
+    transition:.25s;
 }
 
-
-.card h3{
-
-    color:var(--dorado2);
-
-    margin:
-        10px 0;
-
-    font-family:Georgia,serif;
-
+.card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(215,173,80,.5);
 }
-
-
-.card p{
-
-    color:var(--gris);
-
-}
-
 
 .icon{
-
-    font-size:32px;
-
+    font-size:35px;
 }
 
+.card h3{
+    font:normal 23px Georgia,serif;
+    color:var(--dorado2);
+    margin:8px 0;
+}
 
-/* =========================================================
+.card p{
+    color:var(--gris);
+}
+
+/* =========================
    PRINCIPIOS
-========================================================= */
+========================= */
 
 .principles{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:20px;
-
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:32px;
 }
-
 
 .principle{
-
     text-align:center;
-
-    padding:25px;
-
-    border:
-        1px solid var(--borde);
-
+    background:#0b2517;
+    border:1px solid var(--borde);
     border-radius:18px;
-
-    background:
-        rgba(255,255,255,.025);
-
+    padding:25px;
 }
-
 
 .principle span{
-
+    font-size:38px;
     display:block;
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
 }
-
 
 .principle b{
-
     color:var(--dorado2);
-
-    font-size:19px;
-
 }
 
-
-.principle p{
-
-    color:var(--gris);
-
-    margin-top:8px;
-
-}
-
-
-/* =========================================================
+/* =========================
    HISTORIA
-========================================================= */
+========================= */
+
+.historyIntro{
+    background:#0b2517;
+    border:1px solid var(--borde);
+    border-radius:20px;
+    padding:28px;
+    margin-top:30px;
+}
+
+.historyIntro p{
+    color:var(--gris);
+    margin-bottom:14px;
+}
 
 .timeline{
-
-    border-left:
-        2px solid var(--dorado);
-
-    margin-left:15px;
-
-    padding-left:30px;
-
+    position:relative;
+    margin-top:40px;
 }
 
+.timeline:before{
+    content:"";
+    position:absolute;
+    left:22px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:
+    linear-gradient(
+        var(--dorado),
+        transparent
+    );
+}
 
 .event{
-
     position:relative;
-
-    margin-bottom:35px;
-
+    padding:0 0 38px 60px;
 }
-
 
 .event:before{
-
     content:"";
-
     position:absolute;
-
-    width:14px;
-
-    height:14px;
-
-    border-radius:50%;
-
+    left:14px;
+    top:7px;
+    width:18px;
+    height:18px;
     background:var(--dorado);
-
-    left:-38px;
-
-    top:5px;
-
+    border-radius:50%;
+    box-shadow:
+    0 0 0 5px rgba(215,173,80,.12);
 }
-
 
 .year{
-
-    color:var(--dorado2);
-
+    color:var(--dorado);
     font-weight:bold;
-
-    font-size:20px;
-
-    margin-bottom:6px;
-
+    font-size:17px;
 }
 
+.event h3{
+    color:var(--dorado2);
+    font:normal 23px Georgia,serif;
+    margin:5px 0;
+}
 
 .event p{
-
     color:var(--gris);
-
-    max-width:850px;
-
 }
 
+/* =========================
+   COSMOVISIÓN
+========================= */
 
-/* =========================================================
-   PROYECTOS
-========================================================= */
-
-.controls{
-
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:30px;
-
-}
-
-
-.controls input,
-.controls select{
-
-    background:
-        rgba(255,255,255,.05);
-
-    color:white;
-
-    border:
-        1px solid var(--borde);
-
-    padding:
-        13px 15px;
-
-    border-radius:10px;
-
-    outline:none;
-
-}
-
-
-.controls input{
-
-    flex:1;
-
-    min-width:220px;
-
-}
-
-
-.controls select{
-
-    min-width:180px;
-
-}
-
-
-.controls option{
-
-    background:#0d2819;
-
-}
-
-
-.projectGrid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-}
-
-
-.project{
-
-    padding:22px;
-
-    border:
-        1px solid var(--borde);
-
-    border-radius:16px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    transition:.2s;
-
-    cursor:pointer;
-
-}
-
-
-.project:hover{
-
-    transform:translateY(-4px);
-
-    border-color:
-        rgba(240,216,137,.6);
-
-}
-
-
-.project small{
-
-    color:var(--dorado2);
-
-}
-
-
-.project h3{
-
-    margin:
-        10px 0;
-
-    color:white;
-
+.quote{
+    margin-top:30px;
+    padding:30px;
+    border-left:4px solid var(--dorado);
+    background:#0b2517;
+    border-radius:0 15px 15px 0;
+    color:#dce4d9;
     font-family:Georgia,serif;
-
+    font-size:20px;
 }
 
-
-.project p{
-
-    color:var(--gris);
-
-    font-size:14px;
-
-    min-height:70px;
-
-}
-
-
-.meta{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-top:15px;
-
-    color:#d8e1d6;
-
-    font-size:13px;
-
-}
-
-
-.bar{
-
-    height:7px;
-
-    background:
-        rgba(255,255,255,.1);
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-top:8px;
-
-}
-
-
-.bar span{
-
-    display:block;
-
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--dorado),
-            var(--dorado2)
-        );
-
-}
-
-
-/* =========================================================
-   TABLERO
-========================================================= */
-
-.dashboard{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:18px;
-
-}
-
-
-.metric{
-
-    text-align:center;
-
-    padding:30px 15px;
-
-    border:
-        1px solid var(--borde);
-
-    border-radius:18px;
-
-    background:
-        rgba(255,255,255,.035);
-
-}
-
-
-.metric strong{
-
-    display:block;
-
-    color:var(--dorado2);
-
-    font-family:Georgia,serif;
-
-    font-size:42px;
-
-}
-
-
-.metric span{
-
-    color:var(--gris);
-
-}
-
-
-/* =========================================================
+/* =========================
    GALERÍA
-========================================================= */
+========================= */
 
 .gallery{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-    margin-bottom:35px;
-
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:28px;
 }
-
 
 .photo{
-
-    position:relative;
-
-    min-height:230px;
-
+    height:220px;
+    border-radius:17px;
     overflow:hidden;
-
-    border-radius:16px;
-
-    border:
-        1px solid var(--borde);
-
-    background:#102217;
-
+    background:#102d1d;
+    border:1px solid var(--borde);
+    position:relative;
 }
-
 
 .photo img{
-
     width:100%;
-
     height:100%;
-
-    min-height:230px;
-
     object-fit:cover;
-
     display:block;
-
 }
 
-
-.caption{
-
+.photo .caption{
     position:absolute;
-
-    bottom:0;
-
     left:0;
-
-    width:100%;
-
-    padding:14px;
-
+    right:0;
+    bottom:0;
+    padding:12px;
     background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.9)
-        );
-
-    color:white;
-
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+    font-size:13px;
 }
 
-
-/* =========================================================
-   FORMULARIOS
-========================================================= */
-
-.form{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-}
-
-
-.formRow{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
-
-}
-
-
-.form input,
-.form select,
-.form textarea,
-.adminBox input,
-.adminBox select,
-.adminBox textarea{
-
-    width:100%;
-
-    padding:13px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    color:white;
-
-    border:
-        1px solid var(--borde);
-
-    border-radius:10px;
-
-    outline:none;
-
-}
-
-
-.form select option,
-.adminBox select option{
-
-    background:#0d2819;
-
-}
-
-
-.form textarea,
-.adminBox textarea{
-
-    min-height:120px;
-
-    resize:vertical;
-
-}
-
+/* =========================
+   ADMIN GALERÍA
+========================= */
 
 .adminBox{
-
+    background:#0a2115;
+    border:1px dashed rgba(215,173,80,.4);
+    border-radius:20px;
     padding:25px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid var(--borde);
-
-    border-radius:18px;
-
-    margin-top:25px;
-
+    margin-top:30px;
 }
 
+.form{
+    display:grid;
+    gap:12px;
+}
+
+.formRow{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form input,
+.form textarea{
+    background:#071a10;
+    color:white;
+    border:1px solid var(--borde);
+    border-radius:10px;
+    padding:12px;
+    width:100%;
+}
+
+.form textarea{
+    min-height:100px;
+}
+
+.file{
+    padding:12px;
+    border:1px dashed var(--borde);
+    border-radius:10px;
+    color:var(--gris);
+}
 
 .note{
-
-    color:#93a493;
-
-    font-size:13px;
-
+    font-size:12px;
+    color:#8fa08f;
 }
 
+/* =========================
+   CERTIFICADOS
+========================= */
 
-/* =========================================================
-   CERTIFICADO
-========================================================= */
+.certificateSearch{
+    max-width:800px;
+    margin:30px auto 0;
+}
 
 .cert{
-
+    background:#f5f1df;
+    color:#182117;
+    border-radius:8px;
+    padding:38px;
+    max-width:780px;
+    margin:30px auto;
+    font-family:Georgia,serif;
     display:none;
-
-    max-width:800px;
-
-    margin:40px auto 0;
-
-    padding:45px;
-
-    background:#fff;
-
-    color:#222;
-
-    text-align:center;
-
-    border:
-        8px double #b99542;
-
-    border-radius:4px;
-
 }
-
 
 .cert.show{
-
     display:block;
-
 }
-
 
 .certHeader{
-
-    border-bottom:
-        2px solid #b99542;
-
-    padding-bottom:20px;
-
+    text-align:center;
+    border-bottom:2px solid #b08b3e;
+    padding-bottom:15px;
 }
 
-
-.certHeader strong{
-
-    font-size:22px;
-
+.cert h3{
+    font-size:28px;
+    margin:20px 0;
 }
-
-
-.certHeader small{
-
-    letter-spacing:2px;
-
-}
-
-
-.certHeader h3{
-
-    margin-top:25px;
-
-    color:#6b5120;
-
-}
-
 
 .certData{
-
-    padding:35px 15px;
-
-    font-size:17px;
-
+    font-family:Arial,sans-serif;
     line-height:2;
-
+    margin:25px 0;
 }
-
-
-.certData strong{
-
-    color:#49370e;
-
-}
-
-
-.qr{
-
-    margin:15px;
-
-}
-
-
-.qr img{
-
-    width:160px;
-
-    height:160px;
-
-}
-
 
 .certFooter{
-
+    border-top:1px solid #999;
+    padding-top:20px;
+    font-family:Arial,sans-serif;
     font-size:12px;
-
-    color:#666;
-
-    border-top:
-        1px solid #ccc;
-
-    padding-top:15px;
-
 }
 
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(0,0,0,.75);
-
-    z-index:2000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
+.qr{
+    width:120px;
+    height:120px;
+    background:white;
+    border:1px solid #333;
+    display:grid;
+    place-items:center;
+    margin:15px auto;
 }
 
-
-.modal.open{
-
-    display:flex;
-
-}
-
-
-.modalBox{
-
-    max-width:650px;
-
+.qr img{
     width:100%;
-
-    background:
-        #102217;
-
-    border:
-        1px solid var(--dorado);
-
-    border-radius:18px;
-
-    padding:30px;
-
-    position:relative;
-
-    box-shadow:var(--sombra);
-
+    height:100%;
 }
 
+/* =========================
+   CONTACTO
+========================= */
 
-.modalBox h2{
+.contactGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:30px;
+}
 
+.contactCard{
+    background:#0b2517;
+    border:1px solid var(--borde);
+    border-radius:20px;
+    padding:28px;
+}
+
+.contactIcon{
+    font-size:35px;
+}
+
+.contactCard h3{
     color:var(--dorado2);
-
-    font-family:Georgia,serif;
-
+    font:normal 22px Georgia,serif;
+    margin:10px 0;
 }
 
-
-.modalBox p{
-
+.contactCard p{
     color:var(--gris);
-
 }
 
-
-.close{
-
-    position:absolute;
-
-    right:15px;
-
-    top:12px;
-
-    background:none;
-
-    border:none;
-
-    color:white;
-
-    font-size:30px;
-
+.contactCard a{
+    color:var(--dorado2);
+    word-break:break-word;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* =========================
+   PIE DE PÁGINA
+========================= */
 
 footer{
-
-    padding:
-        60px 20px 25px;
-
-    background:#040d08;
-
-    border-top:
-        1px solid var(--borde);
-
+    background:#040c08;
+    padding:60px 20px 25px;
+    border-top:1px solid var(--borde);
 }
-
 
 .footerGrid{
-
     max-width:1200px;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr;
-
-    gap:40px;
-
+    grid-template-columns:2fr 1fr 1fr;
+    gap:35px;
 }
 
-
-footer h3{
-
+.footerGrid h3{
+    font:normal 22px Georgia,serif;
     color:var(--dorado2);
-
-    margin-bottom:12px;
-
 }
 
-
-footer p,
-footer li{
-
-    color:var(--gris);
-
-    font-size:14px;
-
+.footerGrid p,
+.footerGrid li{
+    color:#879887;
+    font-size:13px;
 }
 
-
-footer ul{
-
+.footerGrid ul{
     list-style:none;
-
+    padding:0;
 }
 
-
-footer li{
-
-    margin-bottom:7px;
-
+.footerGrid li{
+    margin:7px 0;
 }
-
 
 .copy{
-
     max-width:1200px;
-
-    margin:
-        40px auto 0;
-
-    padding-top:20px;
-
-    border-top:
-        1px solid var(--borde);
-
-    text-align:center;
-
-    color:#788678;
-
-    font-size:12px;
-
+    margin:35px auto 0;
+    border-top:1px solid rgba(255,255,255,.06);
+    padding-top:18px;
+    color:#647364;
+    font-size:11px;
 }
 
-
-/* =========================================================
+/* =========================
    BOTÓN ARRIBA
-========================================================= */
+========================= */
 
 #top{
-
     position:fixed;
-
-    right:20px;
-
-    bottom:20px;
-
-    display:none;
-
-    z-index:1500;
-
-    width:45px;
-
-    height:45px;
-
+    right:18px;
+    bottom:18px;
+    width:44px;
+    height:44px;
     border-radius:50%;
-
-    border:
-        1px solid var(--dorado);
-
-    background:
-        var(--verde2);
-
+    border:1px solid var(--dorado);
+    background:#0a2115;
     color:var(--dorado2);
-
-    font-size:20px;
-
+    display:none;
+    z-index:900;
+    cursor:pointer;
 }
 
-
-/* =========================================================
+/* =========================
    RESPONSIVE
-========================================================= */
+========================= */
 
 @media(max-width:950px){
 
     .g4,
-    .principles{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    .principles,
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
     }
 
-
-    .projectGrid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    .g3{
+        grid-template-columns:repeat(2,1fr);
     }
 
-
-    .dashboard{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    .contactGrid{
+        grid-template-columns:1fr 1fr;
     }
-
 
     .footerGrid{
-
-        grid-template-columns:
-            1fr 1fr;
-
+        grid-template-columns:1fr 1fr;
     }
-
 }
-
 
 @media(max-width:700px){
 
-    nav{
-
-        height:65px;
-
-    }
-
-
     .menu{
-
         display:block;
-
     }
-
 
     .navlinks{
-
-        position:absolute;
-
-        top:65px;
-
-        left:0;
-
-        width:100%;
-
-        background:
-            rgba(4,15,9,.98);
-
         display:none;
-
-        flex-direction:column;
-
+        position:absolute;
+        top:74px;
+        left:0;
+        right:0;
+        background:#07150f;
         padding:20px;
-
-        border-bottom:
-            1px solid var(--borde);
-
+        flex-direction:column;
+        border-bottom:1px solid var(--borde);
     }
-
 
     .navlinks.open{
-
         display:flex;
-
     }
-
 
     .g2,
     .g3,
     .g4,
     .principles,
-    .projectGrid,
-    .dashboard,
-    .gallery{
-
-        grid-template-columns:1fr;
-
-    }
-
-
+    .gallery,
+    .contactGrid,
+    .footerGrid,
     .formRow{
-
         grid-template-columns:1fr;
-
     }
 
-
-    .footerGrid{
-
-        grid-template-columns:1fr;
-
+    .section{
+        padding:75px 17px;
     }
 
-
-    .hero p{
-
-        font-size:16px;
-
+    .hero h1{
+        font-size:52px;
     }
 
+    .photo{
+        height:250px;
+    }
 
     .cert{
-
-        padding:25px 15px;
-
+        padding:22px;
     }
-
 }
 
-
-/* =========================================================
-   IMPRESIÓN
-========================================================= */
+/* =========================
+   IMPRESIÓN CERTIFICADO
+========================= */
 
 @media print{
 
     body *{
-
         visibility:hidden;
-
     }
 
-
-    .cert,
-    .cert *{
-
+    #certificate,
+    #certificate *{
         visibility:visible;
-
     }
 
-
-    .cert{
-
+    #certificate{
         position:absolute;
-
         left:0;
-
         top:0;
-
         width:100%;
-
-        max-width:none;
-
-        margin:0;
-
+        display:block;
     }
 
-
-    .cert .btn{
-
+    #print{
         display:none;
-
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <!-- =====================================================
-     MENÚ
+     ENCABEZADO
 ===================================================== -->
 
 <header>
 
 <nav>
 
-<a href="#inicio" class="logo">
+<a class="logo" href="#inicio">
 
-<div class="logoMark">
-🌿
-</div>
+<div class="logoMark">🌿</div>
 
 <div>
-
 <b>YARINAL</b>
-
-<small>
-EINAMAK+ UAI JENUANO
-</small>
-
+<small>EINAMAK+ UAI JENUANO</small>
 </div>
 
 </a>
 
+<button class="menu" id="menu">☰</button>
 
-<button
-class="menu"
-id="menu"
-type="button">
+<ul class="navlinks" id="navlinks">
 
-☰
+<li><a href="#historia">Historia</a></li>
 
-</button>
+<li><a href="#cosmovision">Cosmovisión</a></li>
 
+<li><a href="#pilares">Plan de Vida</a></li>
 
-<ul
-class="navlinks"
-id="navlinks">
+<li><a href="#galeria">Galería</a></li>
 
-<li>
-<a href="#historia">
-Historia
-</a>
-</li>
+<li><a href="#certificados">Certificados</a></li>
 
-<li>
-<a href="#cosmovision">
-Cosmovisión
-</a>
-</li>
-
-<li>
-<a href="#pilares">
-Plan de Vida
-</a>
-</li>
-
-<li>
-<a href="#proyectos">
-Proyectos
-</a>
-</li>
-
-<li>
-<a href="#galeria">
-Galería
-</a>
-</li>
-
-<li>
-<a href="#certificados">
-Certificados
-</a>
-</li>
-
-<li>
-<a href="#admin">
-Administración
-</a>
-</li>
+<li><a href="#contacto">Contacto</a></li>
 
 </ul>
 
@@ -1773,51 +855,36 @@ Administración
      PORTADA
 ===================================================== -->
 
-<section
-class="hero"
-id="inicio">
+<section class="hero" id="inicio">
 
 <div class="heroContent">
 
 <span class="badge">
-COMUNIDAD INDÍGENA MURUI DE YARINAL
+Comunidad Indígena Murui de Yarinal
 </span>
-
 
 <h1>
 Einamak+ Uai Jenuano
 </h1>
 
-
 <h2>
 “Buscando huellas ancestrales”
 </h2>
 
-
 <p>
-Portal del Plan de Vida de la Comunidad Indígena
-Murui de Yarinal, Alto Resguardo Predio Putumayo,
+Portal institucional de la Comunidad Indígena Murui de Yarinal,
+Alto Resguardo Predio Putumayo,
 Leguízamo – Putumayo.
 </p>
 
-
 <div class="buttons">
 
-<a
-href="#proyectos"
-class="btn primary">
-
-Ver proyectos
-
+<a class="btn primary" href="#historia">
+Conocer nuestra historia
 </a>
 
-
-<a
-href="#certificados"
-class="btn secondary">
-
+<a class="btn secondary" href="#certificados">
 Certificado indígena
-
 </a>
 
 </div>
@@ -1831,48 +898,40 @@ Certificado indígena
      PRESENTACIÓN
 ===================================================== -->
 
-<section
-class="section">
+<section class="section" id="plan">
 
 <div class="container">
 
 <span class="label">
-NUESTRA VISIÓN
+Nuestro Plan de Vida
 </span>
 
-
 <h2>
-Un Plan de Vida para caminar juntos
+Una memoria que orienta nuestro camino
 </h2>
-
 
 <p class="intro">
 
-Este portal organiza y presenta los principales
-elementos del Plan de Vida de la Comunidad Indígena
-Murui de Yarinal, como herramienta para fortalecer
-la memoria, la identidad, el territorio, la
-organización y la proyección comunitaria.
+El Plan de Vida de la Comunidad Indígena de Yarinal recoge
+la memoria, la identidad, la cosmovisión, la organización,
+el territorio y los procesos comunitarios que hacen parte
+de la vida de la comunidad.
 
 </p>
 
-
 <div class="grid g4">
-
 
 <div class="card">
 
-<div class="icon">
-📜
-</div>
+<div class="icon">📜</div>
 
 <h3>
 Memoria
 </h3>
 
 <p>
-Historia, experiencias y memoria colectiva
-de la comunidad.
+La memoria de nuestros ancestros y abuelos constituye
+una parte fundamental de nuestra identidad comunitaria.
 </p>
 
 </div>
@@ -1880,17 +939,15 @@ de la comunidad.
 
 <div class="card">
 
-<div class="icon">
-🪶
-</div>
+<div class="icon">🪶</div>
 
 <h3>
 Cultura
 </h3>
 
 <p>
-Identidad, conocimientos, prácticas y
-tradiciones propias.
+Los conocimientos, prácticas, valores y formas propias
+de comprender la vida fortalecen nuestra identidad.
 </p>
 
 </div>
@@ -1898,17 +955,15 @@ tradiciones propias.
 
 <div class="card">
 
-<div class="icon">
-🌎
-</div>
+<div class="icon">🌎</div>
 
 <h3>
 Territorio
 </h3>
 
 <p>
-Protección, cuidado y manejo del territorio
-como espacio de vida.
+El territorio constituye un espacio de vida, identidad,
+cultura, espiritualidad y organización comunitaria.
 </p>
 
 </div>
@@ -1916,17 +971,15 @@ como espacio de vida.
 
 <div class="card">
 
-<div class="icon">
-🤝
-</div>
+<div class="icon">🤝</div>
 
 <h3>
 Comunidad
 </h3>
 
 <p>
-Participación, organización, gobierno y
-trabajo colectivo.
+La familia y la comunidad son fundamentales para la
+transmisión de conocimientos, valores y principios.
 </p>
 
 </div>
@@ -1942,32 +995,29 @@ trabajo colectivo.
      PRINCIPIOS
 ===================================================== -->
 
-<section
-class="section dark">
+<section class="section dark">
 
 <div class="container">
 
 <span class="label">
-FUNDAMENTOS
+Nuestros fundamentos
 </span>
 
-
 <h2>
-Principios de nuestra comunidad
+Familia, cultura, territorio y comunidad
 </h2>
-
 
 <div class="principles">
 
-
 <div class="principle">
 
-<span>🙏</span>
+<span>👨‍👩‍👧‍👦</span>
 
-<b>Fe</b>
+<b>Familia</b>
 
 <p>
-Orientación de la vida comunitaria.
+Base fundamental para formar comunidad y transmitir
+principios y valores.
 </p>
 
 </div>
@@ -1980,7 +1030,7 @@ Orientación de la vida comunitaria.
 <b>Cultura</b>
 
 <p>
-Identidad y memoria colectiva.
+Conocimientos y prácticas transmitidos entre generaciones.
 </p>
 
 </div>
@@ -1993,7 +1043,7 @@ Identidad y memoria colectiva.
 <b>Territorio</b>
 
 <p>
-Espacio de vida y equilibrio.
+Espacio de vida y de construcción de nuestra identidad.
 </p>
 
 </div>
@@ -2001,12 +1051,12 @@ Espacio de vida y equilibrio.
 
 <div class="principle">
 
-<span>❤️</span>
+<span>🤝</span>
 
-<b>Familia</b>
+<b>Comunidad</b>
 
 <p>
-Base de transmisión intergeneracional.
+Integración, solidaridad, comunicación y pensamiento colectivo.
 </p>
 
 </div>
@@ -2022,30 +1072,35 @@ Base de transmisión intergeneracional.
      HISTORIA
 ===================================================== -->
 
-<section
-class="section"
-id="historia">
+<section class="section" id="historia">
 
 <div class="container">
 
 <span class="label">
-NUESTRA MEMORIA
+Nuestra memoria
 </span>
 
-
 <h2>
-Historia de Yarinal
+Nuestro origen e historia
 </h2>
 
+<div class="historyIntro">
 
-<p class="intro">
-
-La historia comunitaria constituye una parte
-fundamental del Plan de Vida y permite reconocer
-los procesos de organización, permanencia y
-construcción colectiva.
-
+<p>
+La historia de nuestra comunidad como Yarinal es presentada
+en el Plan de Vida como la memoria de una extensa familia.
+La reconstrucción histórica parte de los ancestros y abuelos
+y continúa con los procesos de organización y conformación
+territorial, social y cultural de la comunidad.
 </p>
+
+<p>
+El Plan de Vida señala que este apartado fue construido a
+partir de la reseña histórica del Proyecto Educativo Comunitario
+y de entrevistas realizadas a integrantes de la comunidad.
+</p>
+
+</div>
 
 
 <div class="timeline">
@@ -2057,9 +1112,40 @@ construcción colectiva.
 1903
 </div>
 
+<h3>
+Los primeros antecedentes familiares
+</h3>
+
 <p>
-El Plan de Vida sitúa en este año la llegada
-de Víctor Manuel Charry a la Amazonia.
+El Plan de Vida sitúa en 1903 el momento en que Víctor Manuel
+Charry, procedente del Huila, llega a la región amazónica.
+Posteriormente se relaciona con Regina Hernández, mujer indígena
+vinculada a la Casa Arana. De esta unión nacen Julián Charry
+Hernández y Evaristo Charry Hernández, cuya descendencia
+estaría relacionada con las comunidades que posteriormente
+se reconocen como Yarinal y Bellavista.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+Décadas posteriores
+</div>
+
+<h3>
+La conformación de las familias
+</h3>
+
+<p>
+El relato del Plan de Vida continúa con las relaciones familiares
+entre miembros de origen indígena y colonos, las cuales dieron
+lugar a nuevas generaciones. Entre estas historias se encuentra
+la unión de Cándida Arroyo Calderón y Julián Charry Hernández,
+de cuya descendencia se consolidaron familias vinculadas al
+proceso histórico de Yarinal.
 </p>
 
 </div>
@@ -2071,9 +1157,16 @@ de Víctor Manuel Charry a la Amazonia.
 1969 – 1971
 </div>
 
+<h3>
+Organización comunitaria y educación
+</h3>
+
 <p>
-Se organiza una Junta de Acción Comunal y se
-funda la escuela de Bellavista.
+Durante este periodo se desarrollan procesos de organización
+comunitaria y se conforma una Junta de Acción Comunal.
+También se registra la creación de la escuela de Bellavista,
+marcando un momento importante en el desarrollo social y
+educativo de las familias.
 </p>
 
 </div>
@@ -2085,10 +1178,15 @@ funda la escuela de Bellavista.
 1987 – 1988
 </div>
 
+<h3>
+El nombre Yarinal
+</h3>
+
 <p>
-Los habitantes de la parte baja de Bellavista
-buscan independencia territorial y adoptan
-el nombre Yarinal.
+El proceso histórico narrado en el Plan de Vida señala que
+los habitantes de la parte baja de Bellavista comenzaron
+a buscar una mayor independencia territorial y organizativa.
+En este proceso surge y se consolida el nombre de Yarinal.
 </p>
 
 </div>
@@ -2100,9 +1198,35 @@ el nombre Yarinal.
 1994
 </div>
 
+<h3>
+Conformación del Cabildo
+</h3>
+
 <p>
-La comunidad decide conformarse como cabildo
-indígena y elige su primera gobernadora.
+La comunidad decide conformarse como Cabildo Indígena,
+fortaleciendo su organización propia y sus autoridades
+comunitarias.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+1990 – 2000
+</div>
+
+<h3>
+Procesos de salud y organización
+</h3>
+
+<p>
+El Plan de Vida registra diferentes procesos relacionados
+con la salud comunitaria. A finales de la década de los
+noventa se construye el puesto de salud de la comunidad,
+aunque posteriormente su funcionamiento fue ocasional
+hasta llegar a su cierre definitivo en 2009.
 </p>
 
 </div>
@@ -2114,9 +1238,14 @@ indígena y elige su primera gobernadora.
 2020
 </div>
 
+<h3>
+Participación de los jóvenes
+</h3>
+
 <p>
-Se conforma el Colectivo de Jóvenes de Yarinal
-para fortalecer el rescate y la pervivencia cultural.
+Se registra la conformación del Colectivo de Jóvenes de
+Yarinal, orientado al fortalecimiento del rescate y la
+pervivencia cultural de la comunidad.
 </p>
 
 </div>
@@ -2128,10 +1257,35 @@ para fortalecer el rescate y la pervivencia cultural.
 2021 – 2022
 </div>
 
+<h3>
+Fortalecimiento de espacios comunitarios
+</h3>
+
 <p>
-Se construye el Jumarako y se desarrollan
-proyectos comunitarios. A finales de 2022
-se formula el Plan de Vida.
+Durante este periodo se registra la construcción del
+Jumarako y el desarrollo de diferentes procesos comunitarios.
+El proceso de formulación del Plan de Vida recoge estas
+experiencias y las proyecta hacia el futuro.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<div class="year">
+Plan de Vida
+</div>
+
+<h3>
+Buscando huellas ancestrales
+</h3>
+
+<p>
+El Plan de Vida recoge la memoria histórica, la cosmovisión,
+la organización comunitaria y los procesos territoriales,
+sociales, educativos, culturales y de salud, con el propósito
+de orientar el camino presente y futuro de la comunidad.
 </p>
 
 </div>
@@ -2147,21 +1301,17 @@ se formula el Plan de Vida.
      COSMOVISIÓN
 ===================================================== -->
 
-<section
-class="section dark"
-id="cosmovision">
+<section class="section dark" id="cosmovision">
 
 <div class="container">
 
 <span class="label">
-IDENTIDAD
+Nuestra identidad
 </span>
-
 
 <h2>
 Cosmovisión y palabra
 </h2>
-
 
 <div class="grid g2">
 
@@ -2177,9 +1327,9 @@ Territorio y espiritualidad
 </h3>
 
 <p>
-El territorio se comprende desde relaciones
-naturales, físicas y espirituales y desde la
-necesidad de armonizar las acciones comunitarias.
+La concepción del territorio se relaciona con las dimensiones
+naturales, físicas, culturales y espirituales de la vida
+comunitaria.
 </p>
 
 </div>
@@ -2192,33 +1342,62 @@ necesidad de armonizar las acciones comunitarias.
 </div>
 
 <h3>
-Mambeadero y Ananeko
+Mambeadero
 </h3>
 
 <p>
-Espacios de diálogo, orientación, aprendizaje
-y reflexión bajo la orientación de los mayores.
+Espacio de diálogo, orientación, aprendizaje y reflexión
+donde la palabra de los mayores tiene un papel fundamental.
 </p>
 
 </div>
 
+
+<div class="card">
+
+<div class="icon">
+🌱
 </div>
-
-
-<div
-class="card"
-style="margin-top:20px;text-align:center">
 
 <h3>
-Protección del conocimiento propio
+Plantas de conocimiento
 </h3>
 
 <p>
-Los contenidos culturales y espirituales que
-sean considerados reservados deben publicarse
-únicamente con autorización de las autoridades
-y de la comunidad.
+La coca, el tabaco y la yuca hacen parte de los elementos
+que aparecen dentro de la cosmovisión y las prácticas
+propias descritas por la comunidad.
 </p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+👴🏽
+</div>
+
+<h3>
+Sabiduría de los mayores
+</h3>
+
+<p>
+El conocimiento intergeneracional permite mantener la
+memoria, orientar la vida comunitaria y fortalecer la
+identidad.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="quote">
+
+La familia y el diálogo entre generaciones permiten
+transmitir conocimientos sobre el cuidado del territorio,
+la cultura y la vida comunitaria.
 
 </div>
 
@@ -2231,27 +1410,23 @@ y de la comunidad.
      PILARES
 ===================================================== -->
 
-<section
-class="section"
-id="pilares">
+<section class="section" id="pilares">
 
 <div class="container">
 
 <span class="label">
-PLANIFICACIÓN
+Nuestro presente
 </span>
 
-
 <h2>
-Los pilares del Plan de Vida
+Estructura del Plan de Vida
 </h2>
-
 
 <p class="intro">
 
-Las iniciativas y proyectos se pueden organizar
-en las diferentes dimensiones y líneas de trabajo
-del Plan de Vida.
+El Plan de Vida desarrolla diferentes dimensiones de la vida
+comunitaria, incluyendo la gobernanza, el territorio,
+la educación, la cultura y la salud.
 
 </p>
 
@@ -2266,13 +1441,13 @@ del Plan de Vida.
 </div>
 
 <h3>
-Gobernanza Propia
+Gobernanza y Gobierno Propio
 </h3>
 
 <p>
-Fortalecimiento organizativo, gobierno y justicia
-propia, liderazgo de la mujer, recreación,
-deporte y fortalecimiento de las autoridades.
+Comprende la gobernanza, el gobierno propio, el sistema
+organizativo comunitario, la Asamblea Comunitaria,
+el Consejo de Mayores y el Cabildo.
 </p>
 
 </div>
@@ -2289,8 +1464,9 @@ Territorio y Ambiente
 </h3>
 
 <p>
-Ordenamiento territorial, límites, ambiente,
-reforestación, residuos, REDD+ y economía sostenible.
+Comprende la organización y conformación territorial,
+el cuidado del territorio, el ambiente y las relaciones
+comunitarias con el espacio de vida.
 </p>
 
 </div>
@@ -2307,9 +1483,9 @@ Educación y Cultura Propia
 </h3>
 
 <p>
-Idioma propio, tecnologías, infraestructura
-educativa, PEC, formación docente, educación
-superior y comunicaciones.
+El Plan de Vida aborda los procesos educativos y culturales,
+incluyendo la educación propia y el fortalecimiento de
+los conocimientos comunitarios.
 </p>
 
 </div>
@@ -2326,12 +1502,13 @@ Salud
 </h3>
 
 <p>
-Salud propia comunitaria, prevención,
-infraestructura, medicina tradicional y occidental
-y huerta medicinal.
+Incluye la memoria de los procesos de salud comunitaria,
+la medicina tradicional y la necesidad de fortalecer
+el Sistema de Salud Comunitario Propio.
 </p>
 
 </div>
+
 
 </div>
 
@@ -2341,153 +1518,74 @@ y huerta medicinal.
 
 
 <!-- =====================================================
-     PROYECTOS
+     GOBIERNO PROPIO
 ===================================================== -->
 
-<section
-class="section dark"
-id="proyectos">
+<section class="section dark">
 
 <div class="container">
 
 <span class="label">
-PROYECCIÓN COMUNITARIA
+Organización
 </span>
 
-
 <h2>
-Portafolio de proyectos
+Nuestro Gobierno Propio
 </h2>
 
+<div class="grid g3">
 
-<p class="intro">
 
-Consulta los proyectos registrados. El administrador
-puede posteriormente actualizar su estado y porcentaje
-de avance.
+<div class="card">
 
+<div class="icon">
+🏛️
+</div>
+
+<h3>
+Cabildo
+</h3>
+
+<p>
+Autoridad y estructura fundamental dentro del sistema
+organizativo comunitario de Yarinal.
 </p>
 
-
-<div class="controls">
-
-<input
-type="text"
-id="search"
-placeholder="🔎 Buscar proyecto...">
+</div>
 
 
-<select id="filter">
+<div class="card">
 
-<option value="Todos">
-Todos los pilares
-</option>
+<div class="icon">
+👴🏽
+</div>
 
-<option value="Gobernanza">
-Gobernanza
-</option>
+<h3>
+Consejo de Mayores
+</h3>
 
-<option value="Territorio">
-Territorio
-</option>
-
-<option value="Economía">
-Economía
-</option>
-
-<option value="Educación">
-Educación
-</option>
-
-<option value="Salud">
-Salud
-</option>
-
-</select>
+<p>
+Espacio relacionado con la orientación y transmisión
+de conocimientos y sabiduría comunitaria.
+</p>
 
 </div>
 
 
-<div
-class="projectGrid"
-id="projects">
+<div class="card">
+
+<div class="icon">
+👥
 </div>
 
-</div>
+<h3>
+Asamblea Comunitaria
+</h3>
 
-</section>
-
-
-<!-- =====================================================
-     TABLERO
-===================================================== -->
-
-<section
-class="section">
-
-<div class="container">
-
-<span class="label">
-SEGUIMIENTO
-</span>
-
-
-<h2>
-Tablero del Plan de Vida
-</h2>
-
-
-<div class="dashboard">
-
-
-<div class="metric">
-
-<strong id="total">
-0
-</strong>
-
-<span>
-Proyectos registrados
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<strong>
-5
-</strong>
-
-<span>
-Pilares de proyectos
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<strong>
-26.000
-</strong>
-
-<span>
-Hectáreas referenciadas
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<strong>
-∞
-</strong>
-
-<span>
-Proceso comunitario
-</span>
+<p>
+Espacio de participación y toma de decisiones de la
+comunidad.
+</p>
 
 </div>
 
@@ -2502,141 +1600,71 @@ Proceso comunitario
      GALERÍA
 ===================================================== -->
 
-<section
-class="section dark"
-id="galeria">
+<section class="section" id="galeria">
 
 <div class="container">
 
 <span class="label">
-MEMORIA VISUAL
+Memoria visual
 </span>
-
 
 <h2>
 Galería de Yarinal
 </h2>
 
-
 <p class="intro">
 
-La galería permite organizar fotografías de la
-comunidad. En esta versión las imágenes quedan
-guardadas en el navegador.
+Aquí podrás ir incorporando fotografías de la comunidad,
+actividades, territorio, encuentros, cultura y memoria
+colectiva.
 
 </p>
 
+<div class="gallery" id="gallery">
 
-<div
-class="gallery"
-id="gallery">
 </div>
 
 
 <div class="adminBox">
 
-<h3 style="color:var(--dorado2);margin-bottom:15px">
-
-Agregar fotografía
-
+<h3 style="color:var(--dorado2);margin-bottom:15px;">
+Agregar fotografías
 </h3>
-
 
 <div class="form">
 
+<div class="formRow">
+
 <input
-type="text"
 id="photoTitle"
-placeholder="Título de la fotografía">
-
+type="text"
+placeholder="Título de la fotografía"
+>
 
 <input
-type="file"
 id="photoFile"
-accept="image/*">
+class="file"
+type="file"
+accept="image/*"
+>
 
+</div>
 
 <button
 class="btn primary"
 id="addPhoto"
-type="button">
-
-Agregar fotografía
-
+>
+Agregar a la galería
 </button>
-
 
 <p class="note">
 
-Para la versión institucional se recomienda
-conectar la galería a almacenamiento en servidor.
+IMPORTANTE: esta versión guarda las fotografías
+solamente en el navegador. Para que las fotografías
+queden publicadas para todos los visitantes de GitHub,
+posteriormente conectaremos un almacenamiento en la nube.
 
 </p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PORTADA
-===================================================== -->
-
-<section
-class="section">
-
-<div class="container">
-
-<span class="label">
-IMAGEN INSTITUCIONAL
-</span>
-
-
-<h2>
-Cambiar fotografía de portada
-</h2>
-
-
-<p class="intro">
-
-Esta función permite probar una nueva fotografía
-de portada desde el dispositivo.
-
-</p>
-
-
-<div class="adminBox">
-
-<div class="form">
-
-<input
-type="file"
-id="coverFile"
-accept="image/*">
-
-
-<button
-class="btn primary"
-id="changeCover"
-type="button">
-
-Cambiar portada
-
-</button>
-
-
-<button
-class="btn secondary"
-id="restoreCover"
-type="button">
-
-Restaurar portada original
-
-</button>
 
 </div>
 
@@ -2651,27 +1679,25 @@ Restaurar portada original
      CERTIFICADOS
 ===================================================== -->
 
-<section
-class="section"
-id="certificados">
+<section class="section dark" id="certificados">
 
 <div class="container">
 
 <span class="label">
-SERVICIO COMUNITARIO
+Servicio comunitario
 </span>
 
-
 <h2>
-Certificado de pertenencia indígena
+Certificado de Pertenencia Indígena
 </h2>
-
 
 <p class="intro">
 
-Módulo demostrativo para generar un certificado.
-La emisión oficial debe depender de la validación
-y autorización de la autoridad indígena competente.
+Este módulo queda preparado para la futura conexión con
+la base de datos oficial del Cabildo. La versión actual
+permite visualizar un modelo de certificado, pero no debe
+considerarse como certificado oficial hasta conectarlo
+con la base de datos y autorización del Cabildo.
 
 </p>
 
@@ -2680,62 +1706,53 @@ y autorización de la autoridad indígena competente.
 
 <div class="form">
 
-
 <div class="formRow">
 
 <input
+id="doc"
 type="text"
-id="name"
-placeholder="Nombre completo">
-
+placeholder="Número de documento"
+>
 
 <input
+id="name"
 type="text"
-id="doc"
-placeholder="Número de documento">
+placeholder="Nombre completo"
+>
 
 </div>
 
 
+<div class="formRow">
+
 <input
-type="text"
 id="community"
-value="Comunidad Indígena Murui de Yarinal">
-
+type="text"
+value="Comunidad Indígena Murui de Yarinal"
+>
 
 <input
-type="text"
 id="resguardo"
-value="Alto Resguardo Predio Putumayo">
+type="text"
+value="Alto Resguardo Predio Putumayo"
+>
+
+</div>
 
 
 <button
 class="btn primary"
 id="generate"
-type="button">
-
-Generar certificado
-
+>
+Generar certificado de demostración
 </button>
 
-
-<p class="note">
-
-⚠️ Este certificado es DEMOSTRATIVO.
-No constituye por sí solo un certificado oficial.
-La versión definitiva deberá validar la información
-contra un registro autorizado por el Cabildo.
-
-</p>
-
 </div>
 
 </div>
 
 
-<div
-class="cert"
-id="certificate">
+<div class="cert" id="certificate">
 
 <div class="certHeader">
 
@@ -2749,7 +1766,6 @@ COMUNIDAD INDÍGENA MURUI DE YARINAL
 ALTO RESGUARDO PREDIO PUTUMAYO
 </small>
 
-
 <h3>
 CERTIFICADO DE PERTENENCIA INDÍGENA
 </h3>
@@ -2761,60 +1777,33 @@ CERTIFICADO DE PERTENENCIA INDÍGENA
 
 Se certifica que:
 
-
-<br><br>
-
-
-<strong id="cName">
-NOMBRE
-</strong>
-
-
 <br>
 
+<strong id="cName"></strong>
+
+<br>
 
 Identificado(a) con documento No.
 
-
-<strong id="cDoc">
-DOCUMENTO
-</strong>
-
-
-<br><br>
-
-
-pertenece a la:
-
+<strong id="cDoc"></strong>
 
 <br>
 
+pertenece a la
 
-<strong id="cCommunity">
-COMUNIDAD
-</strong>
-
+<strong id="cCommunity"></strong>.
 
 <br><br>
-
 
 Fecha de expedición:
 
+<strong id="cDate"></strong>
 
-<strong id="cDate">
-FECHA
-</strong>
-
-
-<br><br>
-
+<br>
 
 Número de certificado:
 
-
-<strong id="cNumber">
-CERTIFICADO
-</strong>
+<strong id="cNumber"></strong>
 
 </div>
 
@@ -2823,137 +1812,28 @@ CERTIFICADO
 
 <img
 id="qr"
-alt="Código QR">
+alt="Código QR de verificación"
+>
 
 </div>
 
 
 <div class="certFooter">
 
-La validez oficial deberá ser determinada
-por la autoridad indígena competente.
-
-El sistema institucional deberá contar con
-mecanismos de autenticación y verificación.
+Este modelo es una demostración.
+La emisión oficial del certificado deberá ser realizada,
+validada y autorizada por la autoridad competente de
+la Comunidad Indígena de Yarinal.
 
 </div>
-
-
-<br>
 
 
 <button
 class="btn primary"
 id="print"
-type="button">
-
-Imprimir / Guardar PDF
-
+>
+Imprimir / Guardar como PDF
 </button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     ADMINISTRACIÓN
-===================================================== -->
-
-<section
-class="section dark"
-id="admin">
-
-<div class="container">
-
-<span class="label">
-ADMINISTRACIÓN
-</span>
-
-
-<h2>
-Panel administrativo
-</h2>
-
-
-<p class="intro">
-
-Área de administración del portal. La contraseña
-de esta versión es únicamente para demostración
-y no debe utilizarse como seguridad definitiva.
-
-</p>
-
-
-<button
-class="btn primary"
-id="adminLogin"
-type="button">
-
-🔐 Ingresar como administrador
-
-</button>
-
-
-<div
-id="adminPanel"
-style="display:none;margin-top:25px;">
-
-<div class="adminBox">
-
-<h3
-style="color:var(--dorado2);margin-bottom:20px">
-
-Administración avanzada
-
-</h3>
-
-
-<div class="grid g3">
-
-
-<button
-class="btn primary"
-id="newProjectBtn"
-type="button">
-
-➕ Nuevo proyecto
-
-</button>
-
-
-<button
-class="btn secondary"
-id="exportBtn"
-type="button">
-
-📊 Exportar proyectos
-
-</button>
-
-
-<button
-class="btn secondary"
-id="logoutBtn"
-type="button">
-
-🔒 Cerrar sesión
-
-</button>
-
-</div>
-
-
-<div
-id="projectForm"
-style="margin-top:25px;">
-
-</div>
-
-
-</div>
 
 </div>
 
@@ -2966,31 +1846,146 @@ style="margin-top:25px;">
      CONTACTO
 ===================================================== -->
 
-<section
-class="section">
+<section class="section" id="contacto">
 
 <div class="container">
 
 <span class="label">
-COMUNIDAD
+Contacto oficial
 </span>
 
-
 <h2>
-Memoria, territorio y futuro
+Comunidad Indígena Murui de Yarinal
 </h2>
-
 
 <p class="intro">
 
-El portal busca convertirse en una herramienta
-para fortalecer la información, la participación,
-la memoria y el seguimiento del Plan de Vida.
+Para información institucional, trámites, certificados
+y comunicaciones con el Cabildo.
 
 </p>
 
 
+<div class="contactGrid">
+
+
+<div class="contactCard">
+
+<div class="contactIcon">
+📧
+</div>
+
+<h3>
+Correo electrónico
+</h3>
+
+<p>
+
+<a href="mailto:cabildoindigenayarinal1994@gmail.com">
+
+cabildoindigenayarinal1994@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+
+<div class="contactCard">
+
+<div class="contactIcon">
+📞
+</div>
+
+<h3>
+Teléfono
+</h3>
+
+<p>
+
+<a href="tel:+573106749306">
+
+310 674 9306
+
+</a>
+
+</p>
+
+</div>
+
+
+<div class="contactCard">
+
+<div class="contactIcon">
+📍
+</div>
+
+<h3>
+Ubicación
+</h3>
+
+<p>
+
+Municipio de Leguízamo<br>
+Departamento del Putumayo<br>
+Alto Resguardo Predio Putumayo
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMACIÓN INSTITUCIONAL
+===================================================== -->
+
+<section class="section dark">
+
+<div class="container">
+
 <div class="grid g3">
+
+
+<div class="card">
+
+<div class="icon">
+🏛️
+</div>
+
+<h3>
+Cabildo Indígena
+</h3>
+
+<p>
+Cabildo Indígena de Yarinal del Pueblo Murui.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📄
+</div>
+
+<h3>
+NIT
+</h3>
+
+<p>
+900257303-5
+</p>
+
+</div>
 
 
 <div class="card">
@@ -3004,47 +1999,11 @@ Identidad
 </h3>
 
 <p>
-Fortalecer la identidad cultural y la memoria
-de la comunidad.
+Einamak+ Uai Jenuano — “Buscando huellas ancestrales”.
 </p>
 
 </div>
 
-
-<div class="card">
-
-<div class="icon">
-🤝
-</div>
-
-<h3>
-Participación
-</h3>
-
-<p>
-Facilitar el acceso comunitario a la información
-y a los proyectos.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-🚀
-</div>
-
-<h3>
-Futuro
-</h3>
-
-<p>
-Construir herramientas digitales que acompañen
-la ejecución del Plan de Vida.
-</p>
-
-</div>
 
 </div>
 
@@ -3054,7 +2013,7 @@ la ejecución del Plan de Vida.
 
 
 <!-- =====================================================
-     FOOTER
+     PIE DE PÁGINA
 ===================================================== -->
 
 <footer>
@@ -3084,19 +2043,13 @@ EINAMAK+ UAI JENUANO
 
 </div>
 
-
-<p style="margin-top:20px">
-
+<p style="margin-top:15px;">
 “Buscando huellas ancestrales”.
-
 </p>
 
-
 <p>
-
-Portal del Plan de Vida de la
-Comunidad Indígena Murui de Yarinal.
-
+Portal institucional de la Comunidad Indígena
+Murui de Yarinal.
 </p>
 
 </div>
@@ -3108,7 +2061,6 @@ Comunidad Indígena Murui de Yarinal.
 Portal
 </h3>
 
-
 <ul>
 
 <li>
@@ -3118,14 +2070,14 @@ Historia
 </li>
 
 <li>
-<a href="#pilares">
-Plan de Vida
+<a href="#cosmovision">
+Cosmovisión
 </a>
 </li>
 
 <li>
-<a href="#proyectos">
-Proyectos
+<a href="#pilares">
+Plan de Vida
 </a>
 </li>
 
@@ -3141,6 +2093,12 @@ Certificados
 </a>
 </li>
 
+<li>
+<a href="#contacto">
+Contacto
+</a>
+</li>
+
 </ul>
 
 </div>
@@ -3149,19 +2107,25 @@ Certificados
 <div>
 
 <h3>
-Protección
+Contacto
 </h3>
 
+<p>
+📧
+<a href="mailto:cabildoindigenayarinal1994@gmail.com">
+cabildoindigenayarinal1994@gmail.com
+</a>
+</p>
 
 <p>
-
-Los datos personales y conocimientos propios
-deben manejarse con autorización y controles
-de acceso.
-
+📞
+<a href="tel:+573106749306">
+310 674 9306
+</a>
 </p>
 
 </div>
+
 
 </div>
 
@@ -3169,1826 +2133,236 @@ de acceso.
 <div class="copy">
 
 © 2026 Comunidad Indígena Murui de Yarinal.
-Portal del Plan de Vida.
+Todos los derechos reservados.
+
+<br><br>
+
+El contenido relacionado con conocimientos propios,
+cultura y memoria comunitaria debe ser utilizado
+respetando las autorizaciones correspondientes
+del Cabildo y de la comunidad.
 
 </div>
 
 </footer>
 
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- BOTÓN ARRIBA -->
 
-<div
-class="modal"
-id="modal">
-
-<div class="modalBox">
-
-
-<button
-class="close"
-id="closeModal"
-type="button">
-
-×
-
-</button>
-
-
-<h2 id="modalTitle">
-Proyecto
-</h2>
-
-
-<div
-id="modalBody"
-style="margin-top:20px;">
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     BOTÓN ARRIBA
-===================================================== -->
-
-<button
-id="top"
-type="button">
-
+<button id="top">
 ↑
-
 </button>
 
 
 <!-- =====================================================
-     JAVASCRIPT ÚNICO
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
 
-/* =========================================================
-   CONFIGURACIÓN
-========================================================= */
+/* ==========================================
+   MENÚ PARA CELULAR
+========================================== */
 
-const ADMIN_PASSWORD =
-"Yarinal2026";
+const menu =
+document.getElementById("menu");
 
-let isAdmin = false;
+const navlinks =
+document.getElementById("navlinks");
 
+menu.addEventListener("click",()=>{
 
-/* =========================================================
-   PROYECTOS INICIALES
-========================================================= */
-
-const defaultProjects = [
-
-{
-category:"Gobernanza",
-title:"Casa Cabildo",
-description:"Gestión administrativa para la construcción de la Casa Cabildo.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Gobernanza",
-title:"Casa de Justicia Propia",
-description:"Gestión administrativa para la construcción de la Casa de Justicia Propia.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Gobernanza",
-title:"Casa de la Mujer",
-description:"Gestión administrativa para la construcción de la Casa de la Mujer.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Gobernanza",
-title:"Fortalecimiento de la Guardia Indígena",
-description:"Reestructuración, formación y fortalecimiento de la Guardia Indígena.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Gobernanza",
-title:"Liderazgo de la Mujer Murui",
-description:"Formación de liderazgo de la mujer desde la cosmovisión y conocimientos convencionales.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Gobernanza",
-title:"Motor y bote",
-description:"Gestión para la adquisición de motor y bote para transporte comunitario.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Territorio",
-title:"Acuerdo de límites",
-description:"Ratificación y fortalecimiento del acuerdo de límites con cabildos limitantes.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Territorio",
-title:"Cartografía territorial",
-description:"Capacitación en cartografía y ubicación de mojones.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Territorio",
-title:"Reforestación",
-description:"Siembra de alimentos y árboles frutales y maderables.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Territorio",
-title:"REDD+",
-description:"Continuidad de la ejecución del proyecto REDD+.",
-status:"En proceso",
-progress:0
-},
-
-{
-category:"Territorio",
-title:"Puesto ecológico",
-description:"Implementación de puesto ecológico y formación en manejo de residuos.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Fortalecimiento de Chagras",
-description:"Implementación, producción, recolección, venta y comercialización.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Proyecto Piscícola",
-description:"Proyecto piscícola con tilapias y enfoque agroecológico.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Reactivación del Trapiche",
-description:"Reactivación del trapiche como apuesta productiva.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Infraestructura para arroz",
-description:"Construcción y dotación de infraestructura para producción de arroz.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Proyecto avícola",
-description:"Gallinas ponedoras para seguridad alimentaria y economía solidaria.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Ecoturismo",
-description:"Proyecto identificado dentro de economía y modos de vida.",
-status:"Por definir",
-progress:0
-},
-
-{
-category:"Economía",
-title:"Agua potable",
-description:"Adecuación de infraestructura del tanque elevado.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Fortalecimiento del idioma propio",
-description:"Encuentros de enseñanza y aprendizaje del idioma propio.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Diccionario de idioma propio",
-description:"Creación de un diccionario del idioma propio.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Equipos tecnológicos educativos",
-description:"Adquisición y capacitación para uso de equipos tecnológicos.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Restaurante escolar",
-description:"Construcción y ampliación del restaurante escolar.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Biblioteca educativa",
-description:"Construcción de biblioteca educativa.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Material pedagógico cultural",
-description:"Creación de material pedagógico cultural propio.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Formación de etnoeducadores",
-description:"Formación continua en conocimientos y prácticas culturales.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Educación",
-title:"Formación técnica y tecnológica",
-description:"Gestión de capacitación y formación técnica y tecnológica.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Salud",
-title:"Nuevo puesto de salud",
-description:"Construcción de nuevo puesto de salud con enfoque diferencial.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Salud",
-title:"Prevención comunitaria",
-description:"Charlas educativas, visitas domiciliarias y caracterización.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Salud",
-title:"Medicina tradicional y occidental",
-description:"Fortalecimiento de profesionales, auxiliares y formación comunitaria.",
-status:"Proyección",
-progress:0
-},
-
-{
-category:"Salud",
-title:"Huerta medicinal",
-description:"Implementación de huerta medicinal comunitaria.",
-status:"Proyección",
-progress:0
-}
-
-];
-
-
-let projects =
-JSON.parse(
-localStorage.getItem(
-"yarinalProjects"
-)
-);
-
-
-if(!Array.isArray(projects)){
-
-    projects =
-        defaultProjects;
-
-    saveProjects();
-
-}
-
-
-function saveProjects(){
-
-    localStorage.setItem(
-        "yarinalProjects",
-        JSON.stringify(projects)
-    );
-
-}
-
-
-/* =========================================================
-   SEGURIDAD VISUAL HTML
-========================================================= */
-
-function escapeHTML(value){
-
-    return String(value)
-
-    .replaceAll("&","&amp;")
-
-    .replaceAll("<","&lt;")
-
-    .replaceAll(">","&gt;")
-
-    .replaceAll('"',"&quot;")
-
-    .replaceAll("'","&#039;");
-
-}
-
-
-/* =========================================================
-   RENDERIZAR PROYECTOS
-========================================================= */
-
-const projectsContainer =
-document.getElementById(
-"projects"
-);
-
-
-const search =
-document.getElementById(
-"search"
-);
-
-
-const filter =
-document.getElementById(
-"filter"
-);
-
-
-function renderProjects(){
-
-    const query =
-        search.value
-        .toLowerCase()
-        .trim();
-
-
-    const selected =
-        filter.value;
-
-
-    const results =
-        projects.filter(
-            project => {
-
-                const categoryOK =
-                    selected === "Todos"
-                    ||
-                    project.category === selected;
-
-
-                const text =
-                    (
-                        project.title
-                        +
-                        " "
-                        +
-                        project.description
-                        +
-                        " "
-                        +
-                        project.category
-                    )
-                    .toLowerCase();
-
-
-                return (
-                    categoryOK
-                    &&
-                    text.includes(query)
-                );
-
-            }
-        );
-
-
-    projectsContainer.innerHTML = "";
-
-
-    results.forEach(
-        project => {
-
-            const index =
-                projects.indexOf(
-                    project
-                );
-
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-
-            card.className =
-                "project";
-
-
-            card.innerHTML = `
-
-                <small>
-                    ${escapeHTML(project.category)}
-                    ·
-                    ${project.progress}%
-                </small>
-
-                <h3>
-                    ${escapeHTML(project.title)}
-                </h3>
-
-                <p>
-                    ${escapeHTML(project.description)}
-                </p>
-
-                <div class="meta">
-
-                    <span>
-                        ${escapeHTML(project.status)}
-                    </span>
-
-                    <span>
-                        ${project.progress}%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-
-                    <span
-                    style="width:${project.progress}%">
-                    </span>
-
-                </div>
-
-                ${
-                    isAdmin
-                    ?
-                    `
-                    <div style="
-                    display:flex;
-                    gap:8px;
-                    margin-top:15px;
-                    flex-wrap:wrap;
-                    ">
-
-                        <button
-                        class="btn primary"
-                        onclick="
-                        event.stopPropagation();
-                        editProject(${index});
-                        ">
-                        Editar
-                        </button>
-
-                        <button
-                        class="btn secondary"
-                        onclick="
-                        event.stopPropagation();
-                        deleteProject(${index});
-                        ">
-                        Eliminar
-                        </button>
-
-                    </div>
-                    `
-                    :
-                    ""
-                }
-
-            `;
-
-
-            card.addEventListener(
-                "click",
-                function(){
-
-                    openProject(index);
-
-                }
-            );
-
-
-            projectsContainer.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    document.getElementById(
-        "total"
-    ).textContent =
-        projects.length;
-
-}
-
-
-search.addEventListener(
-"input",
-renderProjects
-);
-
-
-filter.addEventListener(
-"change",
-renderProjects
-);
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-const modal =
-document.getElementById(
-"modal"
-);
-
-
-const modalTitle =
-document.getElementById(
-"modalTitle"
-);
-
-
-const modalBody =
-document.getElementById(
-"modalBody"
-);
-
-
-function openProject(index){
-
-    const project =
-        projects[index];
-
-
-    modalTitle.textContent =
-        project.title;
-
-
-    modalBody.innerHTML = `
-
-        <p style="color:var(--gris)">
-        ${escapeHTML(project.description)}
-        </p>
-
-        <br>
-
-        <p>
-        <strong>
-        Pilar:
-        </strong>
-
-        ${escapeHTML(project.category)}
-        </p>
-
-        <p>
-        <strong>
-        Estado:
-        </strong>
-
-        ${escapeHTML(project.status)}
-        </p>
-
-        <p>
-        <strong>
-        Avance:
-        </strong>
-
-        ${project.progress}%
-        </p>
-
-    `;
-
-
-    modal.classList.add(
-        "open"
-    );
-
-
-    document.body.classList.add(
-        "modalOpen"
-    );
-
-}
-
-
-document
-.getElementById(
-"closeModal"
-)
-.addEventListener(
-"click",
-closeModal
-);
-
-
-modal.addEventListener(
-"click",
-function(event){
-
-    if(
-        event.target === modal
-    ){
-
-        closeModal();
-
-    }
-
-});
-
-
-function closeModal(){
-
-    modal.classList.remove(
-        "open"
-    );
-
-    document.body.classList.remove(
-        "modalOpen"
-    );
-
-}
-
-
-/* =========================================================
-   MENÚ
-========================================================= */
-
-document
-.getElementById(
-"menu"
-)
-.addEventListener(
-"click",
-function(){
-
-    document
-    .getElementById(
-        "navlinks"
-    )
-    .classList
-    .toggle(
-        "open"
-    );
+    navlinks.classList.toggle("open");
 
 });
 
 
 document
-.querySelectorAll(
-".navlinks a"
-)
-.forEach(
-link => {
+.querySelectorAll(".navlinks a")
+.forEach(link=>{
 
-    link.addEventListener(
-        "click",
-        function(){
+    link.addEventListener("click",()=>{
 
-            document
-            .getElementById(
-                "navlinks"
-            )
-            .classList
-            .remove(
-                "open"
-            );
+        navlinks.classList.remove("open");
 
-        }
-    );
+    });
 
 });
 
 
-/* =========================================================
+/* ==========================================
    GALERÍA
-========================================================= */
+========================================== */
 
-function getGallery(){
+const gallery =
+document.getElementById("gallery");
 
-    return JSON.parse(
-        localStorage.getItem(
-            "yarinalGallery"
-        )
-        ||
-        "[]"
+
+function loadGallery(){
+
+    const data =
+    JSON.parse(
+        localStorage.getItem("yarinalGallery") || "[]"
     );
-
-}
-
-
-function saveGallery(
-photos
-){
-
-    localStorage.setItem(
-        "yarinalGallery",
-        JSON.stringify(
-            photos
-        )
-    );
-
-}
-
-
-function renderGallery(){
-
-    const gallery =
-        document.getElementById(
-            "gallery"
-        );
-
-
-    const photos =
-        getGallery();
-
 
     gallery.innerHTML = "";
 
+    data.forEach(photo=>{
 
-    if(
-        photos.length === 0
-    ){
+        const div =
+        document.createElement("div");
 
-        gallery.innerHTML = `
+        div.className = "photo";
 
-            <div class="card">
+        div.innerHTML = `
 
-                <div class="icon">
-                📷
-                </div>
+            <img
+                src="${photo.src}"
+                alt="${photo.title}"
+            >
 
-                <h3>
-                Galería disponible
-                </h3>
-
-                <p>
-                Todavía no se han agregado fotografías.
-                Utilice el formulario para agregar
-                imágenes de la comunidad.
-                </p>
-
+            <div class="caption">
+                ${photo.title}
             </div>
 
         `;
 
-        return;
-
-    }
-
-
-    photos.forEach(
-        (photo,index) => {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className =
-                "photo";
-
-
-            div.innerHTML = `
-
-                <img
-                src="${photo.src}"
-                alt="${escapeHTML(photo.title)}">
-
-
-                <div class="caption">
-
-                    ${escapeHTML(photo.title)}
-
-                    ${
-                        isAdmin
-                        ?
-                        `
-                        <br>
-
-                        <button
-                        class="btn secondary"
-                        style="
-                        padding:5px 9px;
-                        margin-top:7px;
-                        font-size:11px;
-                        "
-                        onclick="
-                        deletePhoto(${index});
-                        event.stopPropagation();
-                        ">
-
-                        Eliminar
-
-                        </button>
-                        `
-                        :
-                        ""
-                    }
-
-                </div>
-
-            `;
-
-
-            gallery.appendChild(
-                div
-            );
-
-        }
-    );
-
-}
-
-
-document
-.getElementById(
-"addPhoto"
-)
-.addEventListener(
-"click",
-function(){
-
-    const file =
-        document
-        .getElementById(
-            "photoFile"
-        )
-        .files[0];
-
-
-    const title =
-        document
-        .getElementById(
-            "photoTitle"
-        )
-        .value
-        .trim();
-
-
-    if(!file){
-
-        alert(
-            "Seleccione una fotografía."
-        );
-
-        return;
-
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(event){
-
-            const photos =
-                getGallery();
-
-
-            photos.push({
-
-                title:
-                    title
-                    ||
-                    "Fotografía de Yarinal",
-
-                src:
-                    event.target.result
-
-            });
-
-
-            try{
-
-                saveGallery(
-                    photos
-                );
-
-
-                renderGallery();
-
-
-                document
-                .getElementById(
-                    "photoFile"
-                )
-                .value = "";
-
-
-                document
-                .getElementById(
-                    "photoTitle"
-                )
-                .value = "";
-
-
-                alert(
-                    "Fotografía agregada correctamente."
-                );
-
-            }catch(error){
-
-                alert(
-                    "El navegador no tiene espacio suficiente para guardar esta imagen."
-                );
-
-            }
-
-        };
-
-
-    reader.readAsDataURL(
-        file
-    );
-
-});
-
-
-function deletePhoto(index){
-
-    if(!isAdmin){
-
-        alert(
-            "Debe iniciar sesión como administrador."
-        );
-
-        return;
-
-    }
-
-
-    if(
-        !confirm(
-            "¿Desea eliminar esta fotografía?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    const photos =
-        getGallery();
-
-
-    photos.splice(
-        index,
-        1
-    );
-
-
-    saveGallery(
-        photos
-    );
-
-
-    renderGallery();
-
-}
-
-
-/* =========================================================
-   PORTADA
-========================================================= */
-
-const hero =
-document.querySelector(
-".hero"
-);
-
-
-const savedCover =
-localStorage.getItem(
-"yarinalCover"
-);
-
-
-function applyCover(
-image
-){
-
-    hero.style.backgroundImage = `
-
-        linear-gradient(
-            rgba(4,15,9,.45),
-            rgba(4,15,9,.92)
-        ),
-
-        url("${image}")
-
-    `;
-
-}
-
-
-if(savedCover){
-
-    applyCover(
-        savedCover
-    );
-
-}
-
-
-document
-.getElementById(
-"changeCover"
-)
-.addEventListener(
-"click",
-function(){
-
-    if(!isAdmin){
-
-        alert(
-            "Debe iniciar sesión como administrador."
-        );
-
-        return;
-
-    }
-
-
-    const file =
-        document
-        .getElementById(
-            "coverFile"
-        )
-        .files[0];
-
-
-    if(!file){
-
-        alert(
-            "Seleccione una fotografía."
-        );
-
-        return;
-
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(event){
-
-            const image =
-                event.target.result;
-
-
-            applyCover(
-                image
-            );
-
-
-            try{
-
-                localStorage.setItem(
-                    "yarinalCover",
-                    image
-                );
-
-
-                alert(
-                    "Portada actualizada."
-                );
-
-            }catch(error){
-
-                alert(
-                    "No fue posible guardar la imagen."
-                );
-
-            }
-
-        };
-
-
-    reader.readAsDataURL(
-        file
-    );
-
-});
-
-
-document
-.getElementById(
-"restoreCover"
-)
-.addEventListener(
-"click",
-function(){
-
-    if(!isAdmin){
-
-        alert(
-            "Debe iniciar sesión como administrador."
-        );
-
-        return;
-
-    }
-
-
-    localStorage.removeItem(
-        "yarinalCover"
-    );
-
-
-    hero.style.backgroundImage = `
-
-        linear-gradient(
-            rgba(4,15,9,.45),
-            rgba(4,15,9,.92)
-        ),
-
-        radial-gradient(
-            circle at center,
-            rgba(52,117,71,.35),
-            transparent 65%
-        )
-
-    `;
-
-
-    alert(
-        "Portada original restaurada."
-    );
-
-});
-
-
-/* =========================================================
-   ADMINISTRACIÓN
-========================================================= */
-
-document
-.getElementById(
-"adminLogin"
-)
-.addEventListener(
-"click",
-function(){
-
-    if(isAdmin){
-
-        alert(
-            "Ya tiene una sesión administrativa activa."
-        );
-
-        return;
-
-    }
-
-
-    const password =
-        prompt(
-            "Ingrese la contraseña de administración:"
-        );
-
-
-    if(
-        password ===
-        ADMIN_PASSWORD
-    ){
-
-        isAdmin =
-            true;
-
-
-        document
-        .getElementById(
-            "adminPanel"
-        )
-        .style
-        .display =
-        "block";
-
-
-        renderProjects();
-
-        renderGallery();
-
-
-        alert(
-            "Acceso administrativo autorizado."
-        );
-
-    }else{
-
-        alert(
-            "Contraseña incorrecta."
-        );
-
-    }
-
-});
-
-
-document
-.getElementById(
-"logoutBtn"
-)
-.addEventListener(
-"click",
-function(){
-
-    isAdmin =
-        false;
-
-
-    document
-    .getElementById(
-        "adminPanel"
-    )
-    .style
-    .display =
-    "none";
-
-
-    renderProjects();
-
-    renderGallery();
-
-
-    alert(
-        "Sesión cerrada."
-    );
-
-});
-
-
-/* =========================================================
-   NUEVO PROYECTO
-========================================================= */
-
-document
-.getElementById(
-"newProjectBtn"
-)
-.addEventListener(
-"click",
-function(){
-
-    if(!isAdmin){
-
-        return;
-
-    }
-
-
-    const form =
-        document.getElementById(
-            "projectForm"
-        );
-
-
-    form.innerHTML = `
-
-        <div class="card">
-
-            <h3>
-            Nuevo proyecto
-            </h3>
-
-
-            <div class="form">
-
-                <input
-                id="newTitle"
-                placeholder="Nombre del proyecto">
-
-
-                <select
-                id="newCategory">
-
-                    <option>
-                    Gobernanza
-                    </option>
-
-                    <option>
-                    Territorio
-                    </option>
-
-                    <option>
-                    Economía
-                    </option>
-
-                    <option>
-                    Educación
-                    </option>
-
-                    <option>
-                    Salud
-                    </option>
-
-                </select>
-
-
-                <textarea
-                id="newDescription"
-                placeholder="Descripción del proyecto">
-                </textarea>
-
-
-                <select
-                id="newStatus">
-
-                    <option>
-                    Proyección
-                    </option>
-
-                    <option>
-                    En proceso
-                    </option>
-
-                    <option>
-                    En ejecución
-                    </option>
-
-                    <option>
-                    Finalizado
-                    </option>
-
-                </select>
-
-
-                <input
-                type="number"
-                id="newProgress"
-                min="0"
-                max="100"
-                value="0"
-                placeholder="Avance %">
-
-
-                <button
-                class="btn primary"
-                id="saveNewProject"
-                type="button">
-
-                Guardar proyecto
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    document
-    .getElementById(
-        "saveNewProject"
-    )
-    .addEventListener(
-        "click",
-        saveNewProject
-    );
-
-});
-
-
-function saveNewProject(){
-
-    const title =
-        document
-        .getElementById(
-            "newTitle"
-        )
-        .value
-        .trim();
-
-
-    const category =
-        document
-        .getElementById(
-            "newCategory"
-        )
-        .value;
-
-
-    const description =
-        document
-        .getElementById(
-            "newDescription"
-        )
-        .value
-        .trim();
-
-
-    const status =
-        document
-        .getElementById(
-            "newStatus"
-        )
-        .value;
-
-
-    let progress =
-        Number(
-            document
-            .getElementById(
-                "newProgress"
-            )
-            .value
-        );
-
-
-    progress =
-        Math.max(
-            0,
-            Math.min(
-                100,
-                progress || 0
-            )
-        );
-
-
-    if(
-        !title ||
-        !description
-    ){
-
-        alert(
-            "Complete el nombre y la descripción."
-        );
-
-        return;
-
-    }
-
-
-    projects.push({
-
-        category,
-        title,
-        description,
-        status,
-        progress
+        gallery.appendChild(div);
 
     });
 
-
-    saveProjects();
-
-    renderProjects();
-
-
-    document
-    .getElementById(
-        "projectForm"
-    )
-    .innerHTML =
-    "";
-
-
-    alert(
-        "Proyecto creado correctamente."
-    );
-
 }
 
-
-/* =========================================================
-   EDITAR PROYECTO
-========================================================= */
-
-function editProject(
-index
-){
-
-    if(!isAdmin){
-
-        return;
-
-    }
-
-
-    const project =
-        projects[index];
-
-
-    const title =
-        prompt(
-            "Nombre del proyecto:",
-            project.title
-        );
-
-
-    if(title === null){
-
-        return;
-
-    }
-
-
-    const description =
-        prompt(
-            "Descripción:",
-            project.description
-        );
-
-
-    if(description === null){
-
-        return;
-
-    }
-
-
-    const status =
-        prompt(
-            "Estado:",
-            project.status
-        );
-
-
-    if(status === null){
-
-        return;
-
-    }
-
-
-    const progress =
-        prompt(
-            "Avance 0-100:",
-            project.progress
-        );
-
-
-    if(progress === null){
-
-        return;
-
-    }
-
-
-    project.title =
-        title.trim();
-
-
-    project.description =
-        description.trim();
-
-
-    project.status =
-        status.trim();
-
-
-    project.progress =
-        Math.max(
-            0,
-            Math.min(
-                100,
-                Number(progress) || 0
-            )
-        );
-
-
-    saveProjects();
-
-    renderProjects();
-
-
-    alert(
-        "Proyecto actualizado."
-    );
-
-}
-
-
-/* =========================================================
-   ELIMINAR PROYECTO
-========================================================= */
-
-function deleteProject(
-index
-){
-
-    if(!isAdmin){
-
-        return;
-
-    }
-
-
-    const project =
-        projects[index];
-
-
-    if(
-        !confirm(
-            "¿Desea eliminar \"" +
-            project.title +
-            "\"?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    projects.splice(
-        index,
-        1
-    );
-
-
-    saveProjects();
-
-    renderProjects();
-
-
-    alert(
-        "Proyecto eliminado."
-    );
-
-}
-
-
-/* =========================================================
-   EXPORTAR PROYECTOS
-========================================================= */
 
 document
-.getElementById(
-"exportBtn"
-)
-.addEventListener(
-"click",
-function(){
+.getElementById("addPhoto")
+.addEventListener("click",()=>{
 
-    if(!isAdmin){
+    const file =
+    document.getElementById("photoFile")
+    .files[0];
+
+    const title =
+    document.getElementById("photoTitle")
+    .value.trim() || "Yarinal";
+
+
+    if(!file){
+
+        alert(
+            "Selecciona una fotografía."
+        );
 
         return;
 
     }
 
 
-    const data =
-        JSON.stringify(
-            projects,
-            null,
-            2
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        const data =
+        JSON.parse(
+            localStorage.getItem("yarinalGallery") || "[]"
         );
 
 
-    const blob =
-        new Blob(
-            [data],
-            {
-                type:
-                "application/json"
-            }
-        );
+        data.push({
+
+            title:title,
+
+            src:e.target.result
+
+        });
 
 
-    const url =
-        URL.createObjectURL(
-            blob
-        );
+        try{
+
+            localStorage.setItem(
+                "yarinalGallery",
+                JSON.stringify(data)
+            );
 
 
-    const link =
-        document.createElement(
-            "a"
-        );
+            loadGallery();
 
 
-    link.href =
-        url;
+            document
+            .getElementById("photoFile")
+            .value="";
 
 
-    link.download =
-        "proyectos_yarinal.json";
+            document
+            .getElementById("photoTitle")
+            .value="";
 
 
-    document.body.appendChild(
-        link
-    );
+            alert(
+                "Fotografía agregada correctamente."
+            );
 
 
-    link.click();
+        }catch(error){
+
+            alert(
+                "No hay suficiente espacio. "
+                +
+                "Para una galería permanente debemos "
+                +
+                "conectarla a almacenamiento en la nube."
+            );
+
+        }
+
+    };
 
 
-    link.remove();
-
-
-    URL.revokeObjectURL(
-        url
-    );
+    reader.readAsDataURL(file);
 
 });
 
 
-/* =========================================================
-   CERTIFICADOS
-========================================================= */
+loadGallery();
+
+
+/* ==========================================
+   CERTIFICADO
+========================================== */
 
 document
-.getElementById(
-"generate"
-)
-.addEventListener(
-"click",
-function(){
+.getElementById("generate")
+.addEventListener("click",()=>{
 
     const name =
-        document
-        .getElementById(
-            "name"
-        )
-        .value
-        .trim();
+    document
+    .getElementById("name")
+    .value
+    .trim();
 
 
     const doc =
-        document
-        .getElementById(
-            "doc"
-        )
-        .value
-        .trim();
+    document
+    .getElementById("doc")
+    .value
+    .trim();
 
 
     const community =
-        document
-        .getElementById(
-            "community"
-        )
-        .value
-        .trim();
+    document
+    .getElementById("community")
+    .value;
 
 
-    if(
-        !name ||
-        !doc
-    ){
+    if(!name || !doc){
 
         alert(
-            "Ingrese nombre completo y documento."
+            "Escribe el nombre completo "
+            +
+            "y el número de documento."
         );
 
         return;
@@ -4996,101 +2370,75 @@ function(){
     }
 
 
+    document
+    .getElementById("cName")
+    .textContent = name;
+
+
+    document
+    .getElementById("cDoc")
+    .textContent = doc;
+
+
+    document
+    .getElementById("cCommunity")
+    .textContent = community;
+
+
     const date =
-        new Date()
-        .toLocaleDateString(
-            "es-CO"
-        );
+    new Date()
+    .toLocaleDateString("es-CO");
+
+
+    document
+    .getElementById("cDate")
+    .textContent = date;
 
 
     const number =
-        "YAR-" +
-        new Date()
-        .getFullYear() +
-        "-" +
-        Math.random()
-        .toString(36)
-        .substring(2,8)
-        .toUpperCase();
+    "YAR-" +
+    Date.now()
+    .toString()
+    .slice(-8);
 
 
     document
-    .getElementById(
-        "cName"
-    )
-    .textContent =
-    name;
+    .getElementById("cNumber")
+    .textContent = number;
+
+
+    const verify =
+    window.location.href
+    .split("#")[0]
+    +
+    "#verificar="
+    +
+    encodeURIComponent(number);
 
 
     document
-    .getElementById(
-        "cDoc"
-    )
-    .textContent =
-    doc;
-
-
-    document
-    .getElementById(
-        "cCommunity"
-    )
-    .textContent =
-    community;
-
-
-    document
-    .getElementById(
-        "cDate"
-    )
-    .textContent =
-    date;
-
-
-    document
-    .getElementById(
-        "cNumber"
-    )
-    .textContent =
-    number;
-
-
-    const verification =
-        window.location.href
-        .split("#")[0]
-        +
-        "#verificar="
-        +
-        encodeURIComponent(
-            number
-        );
-
-
-    document
-    .getElementById(
-        "qr"
-    )
+    .getElementById("qr")
     .src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="
-        +
-        encodeURIComponent(
-            verification
-        );
+    "https://api.qrserver.com/v1/create-qr-code/"
+    +
+    "?size=160x160"
+    +
+    "&data="
+    +
+    encodeURIComponent(verify);
 
 
+    const certificate =
     document
-    .getElementById(
-        "certificate"
-    )
+    .getElementById("certificate");
+
+
+    certificate
     .classList
-    .add(
-        "show"
-    );
+    .add("show");
 
 
-    document
-    .getElementById(
-        "certificate"
-    )
+    certificate
     .scrollIntoView({
         behavior:"smooth"
     });
@@ -5098,61 +2446,98 @@ function(){
 });
 
 
-/* =========================================================
+/* ==========================================
    IMPRIMIR CERTIFICADO
-========================================================= */
+========================================== */
 
 document
-.getElementById(
-"print"
-)
-.addEventListener(
-"click",
-function(){
+.getElementById("print")
+.addEventListener("click",()=>{
 
     window.print();
 
 });
 
 
-/* =========================================================
-   VERIFICACIÓN
-========================================================= */
+/* ==========================================
+   BOTÓN VOLVER ARRIBA
+========================================== */
 
-function verifyCertificate(){
+const topButton =
+document.getElementById("top");
+
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        if(window.scrollY > 500){
+
+            topButton.style.display =
+            "block";
+
+        }else{
+
+            topButton.style.display =
+            "none";
+
+        }
+
+    }
+);
+
+
+topButton.addEventListener(
+    "click",
+    ()=>{
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
+
+
+/* ==========================================
+   VERIFICACIÓN VISUAL DEL QR
+========================================== */
+
+function checkCertificate(){
 
     const hash =
-        window.location.hash;
+    window.location.hash;
 
 
     if(
-        hash.startsWith(
-            "#verificar="
-        )
+        hash.startsWith("#verificar=")
     ){
 
-        const code =
-            decodeURIComponent(
-                hash.substring(
-                    11
-                )
-            );
+        const number =
+        decodeURIComponent(
+            hash.replace(
+                "#verificar=",
+                ""
+            )
+        );
 
 
         alert(
-
-            "Código de certificado:\n\n"
+            "Código de certificado: "
             +
-            code
+            number
             +
             "\n\n"
             +
-            "En la versión institucional "
+            "La verificación oficial estará "
             +
-            "este código deberá consultar "
+            "disponible cuando conectemos "
             +
-            "una base de datos oficial."
-
+            "la base de datos del Cabildo."
         );
 
     }
@@ -5161,124 +2546,11 @@ function verifyCertificate(){
 
 
 window.addEventListener(
-"hashchange",
-verifyCertificate
-);
-
-
-verifyCertificate();
-
-
-/* =========================================================
-   BOTÓN ARRIBA
-========================================================= */
-
-window.addEventListener(
-"scroll",
-function(){
-
-    const top =
-        document.getElementById(
-            "top"
-        );
-
-
-    if(
-        window.scrollY > 500
-    ){
-
-        top.style.display =
-            "block";
-
-    }else{
-
-        top.style.display =
-            "none";
-
-    }
-
-});
-
-
-document
-.getElementById(
-"top"
-)
-.addEventListener(
-"click",
-function(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-});
-
-
-/* =========================================================
-   INICIO
-========================================================= */
-
-renderProjects();
-
-renderGallery();
-
-
-console.log(
-"Portal Yarinal cargado correctamente."
+    "load",
+    checkCertificate
 );
 
 </script>
 
-
 </body>
-
 </html>
-```
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <img src="IMAGEN3.jpg" alt="Entrada a Yarinal">
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <img src="IMAGEN4.jpg" alt="Territorio de Yarinal">
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <img src="IMAGEN5.jpg" alt="Comunidad indígena Yarinal">
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <img src="IMAGEN6.jpg" alt="Paisaje amazónico de Yarinal">
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </section>
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <section id="contacto">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <h2>Contacto</h2>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="bienvenida">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <strong>Cabildo Indígena Yarinal</strong>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </p>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Alto Resguardo Predio Putumayo
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </p>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <a class="boton"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             href="https://www.facebook.com/share/1bZr8F2V4F/"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      target="_blank">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Visitar Facebook
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </section>
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <footer>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>© 2026 Cabildo Indígena Yarinal</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p>Alto Resguardo Predio Putumayo</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>Conservando la vida en el territorio amazónico</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </footer>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </html>
