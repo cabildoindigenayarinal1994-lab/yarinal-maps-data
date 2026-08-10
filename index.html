@@ -2,16 +2,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Comunidad Indígena Murui de Yarinal</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
+<title>
+Comunidad Indígena Murui de Yarinal
+</title>
+
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -22,26 +37,39 @@ body {
     line-height: 1.6;
 }
 
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
 header {
     background: #234d32;
     color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 header p {
-    margin: 5px 0 0;
+    margin: 8px 0 0;
 }
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
 
 nav {
     background: #173b25;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 nav a {
@@ -50,6 +78,15 @@ nav a {
     margin: 0 12px;
     font-weight: bold;
 }
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
 
 main {
     max-width: 1100px;
@@ -60,7 +97,7 @@ main {
 section {
     background: white;
     margin-bottom: 25px;
-    padding: 25px;
+    padding: 28px;
     border-radius: 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,.08);
 }
@@ -73,11 +110,16 @@ h2 {
     text-align: center;
 }
 
+
+/* =========================================================
+   DIMENSIONES DEL PLAN DE VIDA
+   ========================================================= */
+
 .dimensiones {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .dimension {
@@ -89,9 +131,14 @@ h2 {
     font-weight: bold;
 }
 
+
+/* =========================================================
+   FORMULARIOS
+   ========================================================= */
+
 input {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     margin: 8px 0;
     border: 1px solid #bbb;
     border-radius: 8px;
@@ -105,6 +152,7 @@ input {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    margin-top: 8px;
 }
 
 .primary {
@@ -115,6 +163,11 @@ input {
 .primary:hover {
     background: #1f4e2d;
 }
+
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
 
 #resultado {
     margin-top: 20px;
@@ -136,6 +189,11 @@ input {
     color: #8a2020;
 }
 
+
+/* =========================================================
+   CERTIFICADO
+   ========================================================= */
+
 .certificado {
     background: white;
     border: 8px double #2e6b3e;
@@ -145,27 +203,49 @@ input {
 }
 
 .certificado h2 {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 30px;
 }
 
 .certificado .nombre {
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
     color: #234d32;
-    margin: 15px;
+    margin: 20px;
 }
 
 .certificado .dato {
     font-size: 18px;
-    margin: 8px;
+    margin: 10px;
 }
 
 #qr {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     margin-top: 20px;
 }
+
+
+/* =========================================================
+   DATOS DEL COMUNERO
+   ========================================================= */
+
+.datos-comunero {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f3f7ef;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.datos-comunero div {
+    margin: 6px 0;
+}
+
+
+/* =========================================================
+   GALERIA
+   ========================================================= */
 
 .galeria {
     display: grid;
@@ -191,13 +271,22 @@ input {
     font-weight: bold;
 }
 
+
+/* =========================================================
+   PIE DE PAGINA
+   ========================================================= */
+
 footer {
     background: #173b25;
     color: white;
     text-align: center;
     padding: 30px;
-    margin-top: 30px;
 }
+
+
+/* =========================================================
+   MOVILES
+   ========================================================= */
 
 @media (max-width: 700px) {
 
@@ -217,7 +306,16 @@ footer {
     .certificado {
         padding: 25px 15px;
     }
+
+    header h1 {
+        font-size: 24px;
+    }
 }
+
+
+/* =========================================================
+   IMPRESION
+   ========================================================= */
 
 @media print {
 
@@ -235,90 +333,174 @@ footer {
         left: 0;
         top: 0;
         width: 100%;
+        margin: 0;
     }
 
     #print {
         display: none;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ========================================================
+     ENCABEZADO
+     ======================================================== -->
+
 <header>
-    <h1>Comunidad Indígena Murui de Yarinal</h1>
-    <p>Alto Resguardo Predio Putumayo · Leguízamo · Putumayo</p>
+
+    <h1>
+        Comunidad Indígena Murui de Yarinal
+    </h1>
+
+    <p>
+        Alto Resguardo Predio Putumayo ·
+        Leguízamo · Putumayo
+    </p>
+
 </header>
 
+
+<!-- ========================================================
+     MENU
+     ======================================================== -->
+
 <nav>
-    <a href="#plan">Plan de Vida</a>
-    <a href="#galeria">Memoria</a>
-    <a href="#certificados">Certificados</a>
-    <a href="#contacto">Contacto</a>
+
+    <a href="#plan">
+        Plan de Vida
+    </a>
+
+    <a href="#galeria">
+        Memoria
+    </a>
+
+    <a href="#certificados">
+        Certificados
+    </a>
+
+    <a href="#contacto">
+        Contacto
+    </a>
+
 </nav>
+
 
 <main>
 
+
+<!-- ========================================================
+     PLAN DE VIDA
+     ======================================================== -->
+
 <section id="plan" class="intro">
 
-    <h2>Plan de Vida de la Comunidad Indígena de Yarinal</h2>
+    <h2>
+        Plan de Vida de la Comunidad Indígena de Yarinal
+    </h2>
 
     <p>
-        El Plan de Vida de la Comunidad Indígena de Yarinal recoge
-        la memoria, la identidad, la cosmovisión, la organización,
-        el territorio y los procesos comunitarios que hacen parte
-        de la vida de la comunidad.
+        El Plan de Vida de la Comunidad Indígena de Yarinal
+        recoge la memoria, la identidad, la cosmovisión,
+        la organización, el territorio y los procesos
+        comunitarios que hacen parte de la vida de la comunidad.
     </p>
+
 
     <div class="dimensiones">
 
         <div class="dimension">
+
             👨‍👩‍👧‍👦
-            <br>Familia
+
+            <br>
+
+            Familia
+
         </div>
 
+
         <div class="dimension">
+
             🪶
-            <br>Cultura
+
+            <br>
+
+            Cultura
+
         </div>
 
+
         <div class="dimension">
+
             🌿
-            <br>Territorio
+
+            <br>
+
+            Territorio
+
         </div>
 
+
         <div class="dimension">
+
             🤝
-            <br>Comunidad
+
+            <br>
+
+            Comunidad
+
         </div>
 
     </div>
 
+
     <p>
+
         La familia y el diálogo entre generaciones permiten
         transmitir conocimientos sobre el cuidado del territorio,
         la cultura y la vida comunitaria.
+
     </p>
 
+
     <p>
-        El Plan de Vida desarrolla diferentes dimensiones de la vida
-        comunitaria, incluyendo la gobernanza, el territorio,
-        la educación, la cultura y la salud.
+
+        El Plan de Vida desarrolla diferentes dimensiones
+        de la vida comunitaria, incluyendo la gobernanza,
+        el territorio, la educación, la cultura y la salud.
+
     </p>
 
 </section>
 
 
+
+<!-- ========================================================
+     GALERIA
+     ======================================================== -->
+
 <section id="galeria">
 
-    <h2>📸 Memoria y territorio</h2>
+    <h2>
+        📸 Memoria y territorio
+    </h2>
+
 
     <p>
+
         Aquí podrás ir incorporando fotografías de la comunidad,
         actividades, territorio, encuentros, cultura y memoria
         colectiva.
+
     </p>
+
 
     <input
         id="photoTitle"
@@ -326,47 +508,174 @@ footer {
         placeholder="Título de la fotografía"
     >
 
+
     <input
         id="photoFile"
         type="file"
         accept="image/*"
     >
 
+
     <button
         class="btn primary"
         id="addPhoto"
     >
+
         Agregar a la galería
+
     </button>
 
-    <div id="galeriaFotos" class="galeria"></div>
+
+    <div
+        id="galeriaFotos"
+        class="galeria"
+    ></div>
+
+
+    <p>
+
+        <strong>Importante:</strong>
+
+        esta versión guarda las fotografías solamente
+        en el navegador. Posteriormente podremos conectar
+        la galería con almacenamiento en la nube para que
+        las fotografías queden disponibles para todos
+        los visitantes.
+
+    </p>
 
 </section>
 
 
+
+<!-- ========================================================
+     CERTIFICADOS
+     ======================================================== -->
+
 <section id="certificados">
 
-    <h2>📄 Consulta de pertenencia comunitaria</h2>
+    <h2>
+        📄 Consulta de pertenencia comunitaria
+    </h2>
+
 
     <p>
-        Ingrese el número de documento registrado en el
-        censo de la Comunidad Indígena de Yarinal.
+
+        Ingrese el número de documento registrado
+        en el censo de la Comunidad Indígena de Yarinal.
+
     </p>
+
 
     <input
         id="doc"
         type="text"
+        inputmode="numeric"
         placeholder="Número de documento"
     >
+
 
     <button
         class="btn primary"
         id="generate"
     >
+
         Consultar en el censo
+
     </button>
 
+
     <div id="resultado"></div>
+
+
+
+    <!-- ====================================================
+         DATOS DEL COMUNERO
+         ==================================================== -->
+
+    <div
+        id="datosComunero"
+        class="datos-comunero"
+        style="display:none;"
+    >
+
+        <h3>
+            Información encontrada en el censo
+        </h3>
+
+
+        <div>
+            <strong>Documento:</strong>
+            <span id="datoDocumento"></span>
+        </div>
+
+
+        <div>
+            <strong>Nombres:</strong>
+            <span id="datoNombres"></span>
+        </div>
+
+
+        <div>
+            <strong>Apellidos:</strong>
+            <span id="datoApellidos"></span>
+        </div>
+
+
+        <div>
+            <strong>Comunidad:</strong>
+            <span id="datoComunidad"></span>
+        </div>
+
+
+        <div>
+            <strong>Resguardo:</strong>
+            <span id="datoResguardo"></span>
+        </div>
+
+
+        <div>
+            <strong>Tipo de identificación:</strong>
+            <span id="datoTipo"></span>
+        </div>
+
+
+        <div>
+            <strong>Parentesco:</strong>
+            <span id="datoParentesco"></span>
+        </div>
+
+
+        <div>
+            <strong>Sexo:</strong>
+            <span id="datoSexo"></span>
+        </div>
+
+
+        <div>
+            <strong>Estado civil:</strong>
+            <span id="datoEstadoCivil"></span>
+        </div>
+
+
+        <div>
+            <strong>Profesión:</strong>
+            <span id="datoProfesion"></span>
+        </div>
+
+
+        <div>
+            <strong>Escolaridad:</strong>
+            <span id="datoEscolaridad"></span>
+        </div>
+
+    </div>
+
+
+
+    <!-- ====================================================
+         CERTIFICADO
+         ==================================================== -->
 
     <div
         id="certificado"
@@ -374,67 +683,108 @@ footer {
         style="display:none;"
     >
 
-        <h2>CERTIFICACIÓN</h2>
+
+        <h2>
+            CERTIFICACIÓN
+        </h2>
+
 
         <p>
-            La Comunidad Indígena Murui de Yarinal certifica que:
+
+            La Comunidad Indígena Murui de Yarinal
+            certifica que:
+
         </p>
+
 
         <div
             id="certNombre"
             class="nombre"
         ></div>
 
-        <div class="dato">
-            Identificado(a) con documento No.
-            <strong id="certDocumento"></strong>
-        </div>
 
         <div class="dato">
+
+            Identificado(a) con documento No.
+
+            <strong id="certDocumento"></strong>
+
+        </div>
+
+
+        <div class="dato">
+
             pertenece a la
+
             <strong>
                 Comunidad Indígena Murui de Yarinal
-            </strong>.
+            </strong>
+
         </div>
 
-        <div class="dato">
-            Alto Resguardo Predio Putumayo
-        </div>
 
         <div class="dato">
+
+            <strong>
+                Alto Resguardo Predio Putumayo
+            </strong>
+
+        </div>
+
+
+        <div class="dato">
+
             Municipio de Leguízamo –
             Departamento del Putumayo
+
         </div>
+
 
         <br>
 
-        <div class="dato">
-            Fecha de expedición:
-            <strong id="certFecha"></strong>
-        </div>
 
         <div class="dato">
-            Número de certificado:
-            <strong id="certNumero"></strong>
+
+            Fecha de expedición:
+
+            <strong id="certFecha"></strong>
+
         </div>
+
+
+        <div class="dato">
+
+            Número de certificado:
+
+            <strong id="certNumero"></strong>
+
+        </div>
+
 
         <img
             id="qr"
             alt="Código QR de verificación"
         >
 
+
         <p>
-            Este documento constituye un modelo de consulta
-            y demostración. La emisión oficial del certificado
-            deberá ser validada y autorizada por la autoridad
+
+            Este modelo es una demostración.
+
+            La emisión oficial del certificado deberá ser
+            realizada, validada y autorizada por la autoridad
             competente de la Comunidad Indígena de Yarinal.
+
         </p>
+
 
         <button
             class="btn primary"
             id="print"
         >
+
             Imprimir / Guardar como PDF
+
         </button>
 
     </div>
@@ -442,62 +792,100 @@ footer {
 </section>
 
 
+
+<!-- ========================================================
+     CONTACTO
+     ======================================================== -->
+
 <section id="contacto">
 
-    <h2>📞 Contacto institucional</h2>
+    <h2>
+        📞 Contacto institucional
+    </h2>
+
 
     <p>
-        Para información institucional, trámites, certificados
-        y comunicaciones con el Cabildo.
+
+        Para información institucional, trámites,
+        certificados y comunicaciones con el Cabildo.
+
     </p>
 
-    <p>
-        📧 cabildoindigenayarinal1994@gmail.com
-    </p>
 
     <p>
-        📱 310 674 9306
+        📧
+        cabildoindigenayarinal1994@gmail.com
     </p>
 
+
     <p>
-        📍 Municipio de Leguízamo<br>
-        Departamento del Putumayo<br>
+        📱
+        310 674 9306
+    </p>
+
+
+    <p>
+
+        📍 Municipio de Leguízamo
+
+        <br>
+
+        Departamento del Putumayo
+
+        <br>
+
         Alto Resguardo Predio Putumayo
+
     </p>
 
 </section>
 
+
 </main>
 
+
+
+<!-- ========================================================
+     PIE DE PAGINA
+     ======================================================== -->
 
 <footer>
 
     <p>
+
         © 2026 Comunidad Indígena Murui de Yarinal.
+
         Todos los derechos reservados.
+
     </p>
 
+
     <p>
+
         El contenido relacionado con conocimientos propios,
         cultura y memoria comunitaria debe ser utilizado
         respetando las autorizaciones correspondientes
         del Cabildo y de la comunidad.
+
     </p>
 
 </footer>
 
 
+
 <script>
 
 /* ==========================================================
-   SUPABASE
+   CONFIGURACIÓN SUPABASE
    ========================================================== */
 
 const SUPABASE_URL =
     "https://uzglmhfrfmzlyrexojjr.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable_ZugDHtIVUDkfl0FR3q3bew_1KcRFg35";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -507,7 +895,7 @@ const supabaseClient =
 
 
 /* ==========================================================
-   CONSULTAR COMUNERO
+   BOTÓN CONSULTAR
    ========================================================== */
 
 document
@@ -518,7 +906,12 @@ document
     );
 
 
+/* ==========================================================
+   CONSULTAR COMUNERO
+   ========================================================== */
+
 async function consultarComunero() {
+
 
     const documento =
         document
@@ -526,167 +919,479 @@ async function consultarComunero() {
             .value
             .trim();
 
+
     const resultado =
         document.getElementById("resultado");
+
 
     const certificado =
         document.getElementById("certificado");
 
 
+    const datosComunero =
+        document.getElementById("datosComunero");
+
+
+    /* Ocultar resultados anteriores */
+
     certificado.style.display = "none";
 
+    datosComunero.style.display = "none";
+
+
+    /* Validar documento */
 
     if (!documento) {
 
         resultado.innerHTML = `
+
             <div class="mensaje error">
-                Por favor ingrese el número de documento.
+
+                Por favor ingrese el número
+                de documento.
+
             </div>
+
         `;
 
         return;
     }
 
 
+    /* Mensaje de espera */
+
     resultado.innerHTML = `
+
         <div class="mensaje">
-            Consultando el censo de la Comunidad...
+
+            Consultando el censo
+            de Yarinal...
+
         </div>
+
     `;
 
 
     try {
 
-        /*
-         * CORRECCIÓN:
-         * La columna correcta es numero_documento
-         */
+
+        /* ==================================================
+           CONSULTA A SUPABASE
+
+           TABLA:
+           COMUNEROS
+
+           COLUMNA DOCUMENTO:
+           numero_documento
+           ================================================== */
+
 
         const { data, error } =
+
             await supabaseClient
+
                 .from("COMUNEROS")
-                .select("*")
+
+                .select(`
+                    numero_documento,
+                    nombres,
+                    apellidos,
+                    tipo_identificacion,
+                    comunidad_indigena,
+                    resguardo_indigena,
+                    fecha_nacimiento,
+                    parentesco,
+                    sexo,
+                    estado_civil,
+                    profesion,
+                    escolaridad,
+                    integrantes,
+                    direccion,
+                    telefono,
+                    vigencia,
+                    usuario,
+                    novedad
+                `)
+
                 .eq(
                     "numero_documento",
                     documento
-                )
-                .maybeSingle();
+                );
 
+
+        console.log(
+            "Documento consultado:",
+            documento
+        );
+
+
+        console.log(
+            "Resultado Supabase:",
+            data
+        );
+
+
+        console.log(
+            "Error Supabase:",
+            error
+        );
+
+
+        /* ==================================================
+           ERROR DE SUPABASE
+           ================================================== */
 
         if (error) {
 
-            console.error(
-                "Error Supabase:",
-                error
-            );
 
             resultado.innerHTML = `
+
                 <div class="mensaje error">
-                    No fue posible consultar el censo.
-                    Revise la configuración de Supabase.
+
+                    <strong>
+                        Error al consultar el censo.
+                    </strong>
+
+                    <br><br>
+
+                    ${error.message}
+
                 </div>
+
             `;
+
 
             return;
         }
 
 
-        if (!data) {
+        /* ==================================================
+           DOCUMENTO NO ENCONTRADO
+           ================================================== */
+
+        if (
+            !data ||
+            data.length === 0
+        ) {
+
 
             resultado.innerHTML = `
+
                 <div class="mensaje error">
+
                     El documento
-                    <strong>${documento}</strong>
-                    no aparece registrado en el censo
-                    de la Comunidad.
+
+                    <strong>
+                        ${documento}
+                    </strong>
+
+                    no aparece registrado
+                    en el censo de la Comunidad.
+
                 </div>
+
             `;
+
 
             return;
         }
 
 
-        /* ==============================================
+        /* ==================================================
            REGISTRO ENCONTRADO
-           ============================================== */
+           ================================================== */
 
-        const nombre =
-            obtenerNombre(data);
+        const comunero =
+            data[0];
 
 
-        const fecha =
+        /* ==================================================
+           NOMBRE COMPLETO
+           ================================================== */
+
+        const nombres =
+            String(
+                comunero.nombres || ""
+            ).trim();
+
+
+        const apellidos =
+            String(
+                comunero.apellidos || ""
+            ).trim();
+
+
+        const nombreCompleto =
+            (
+                nombres +
+                " " +
+                apellidos
+            ).trim();
+
+
+        /* ==================================================
+           MOSTRAR DATOS DEL CENSO
+           ================================================== */
+
+        document
+            .getElementById(
+                "datoDocumento"
+            )
+            .textContent =
+                comunero.numero_documento || "";
+
+
+        document
+            .getElementById(
+                "datoNombres"
+            )
+            .textContent =
+                nombres;
+
+
+        document
+            .getElementById(
+                "datoApellidos"
+            )
+            .textContent =
+                apellidos;
+
+
+        document
+            .getElementById(
+                "datoComunidad"
+            )
+            .textContent =
+                comunero.comunidad_indigena || "";
+
+
+        document
+            .getElementById(
+                "datoResguardo"
+            )
+            .textContent =
+                comunero.resguardo_indigena || "";
+
+
+        document
+            .getElementById(
+                "datoTipo"
+            )
+            .textContent =
+                comunero.tipo_identificacion || "";
+
+
+        document
+            .getElementById(
+                "datoParentesco"
+            )
+            .textContent =
+                comunero.parentesco || "";
+
+
+        document
+            .getElementById(
+                "datoSexo"
+            )
+            .textContent =
+                comunero.sexo || "";
+
+
+        document
+            .getElementById(
+                "datoEstadoCivil"
+            )
+            .textContent =
+                comunero.estado_civil || "";
+
+
+        document
+            .getElementById(
+                "datoProfesion"
+            )
+            .textContent =
+                comunero.profesion || "";
+
+
+        document
+            .getElementById(
+                "datoEscolaridad"
+            )
+            .textContent =
+                comunero.escolaridad || "";
+
+
+        datosComunero.style.display =
+            "block";
+
+
+        /* ==================================================
+           MENSAJE DE ÉXITO
+           ================================================== */
+
+        resultado.innerHTML = `
+
+            <div class="mensaje exito">
+
+                <strong>
+                    ✓ Registro encontrado
+                </strong>
+
+                <br><br>
+
+                <strong>
+                    ${nombreCompleto}
+                </strong>
+
+                <br>
+
+                Documento:
+                ${comunero.numero_documento}
+
+            </div>
+
+        `;
+
+
+        /* ==================================================
+           DATOS DEL CERTIFICADO
+           ================================================== */
+
+        document
+            .getElementById(
+                "certNombre"
+            )
+            .textContent =
+                nombreCompleto;
+
+
+        document
+            .getElementById(
+                "certDocumento"
+            )
+            .textContent =
+                comunero.numero_documento;
+
+
+        /* ==================================================
+           FECHA
+           ================================================== */
+
+        const fechaActual =
             new Date()
-                .toLocaleDateString("es-CO");
+                .toLocaleDateString(
+                    "es-CO"
+                );
 
+
+        document
+            .getElementById(
+                "certFecha"
+            )
+            .textContent =
+                fechaActual;
+
+
+        /* ==================================================
+           NÚMERO DE CERTIFICADO
+           ================================================== */
 
         const numeroCertificado =
+
             "YARINAL-" +
-            new Date().getFullYear() +
+
+            new Date()
+                .getFullYear() +
+
             "-" +
-            documento;
+
+            comunero.numero_documento;
 
 
         document
-            .getElementById("certNombre")
-            .textContent = nombre;
-
-
-        document
-            .getElementById("certDocumento")
-            .textContent = documento;
-
-
-        document
-            .getElementById("certFecha")
-            .textContent = fecha;
-
-
-        document
-            .getElementById("certNumero")
+            .getElementById(
+                "certNumero"
+            )
             .textContent =
                 numeroCertificado;
 
 
+        /* ==================================================
+           QR
+           ================================================== */
+
         const textoQR =
+
             encodeURIComponent(
-                "Consulta Yarinal - " +
-                documento +
-                " - " +
-                nombre
+
+                "Comunidad Indígena Murui de Yarinal" +
+
+                " | Documento: " +
+
+                comunero.numero_documento +
+
+                " | Nombre: " +
+
+                nombreCompleto
+
             );
 
 
         document
-            .getElementById("qr")
+            .getElementById(
+                "qr"
+            )
             .src =
+
                 "https://api.qrserver.com/v1/create-qr-code/" +
+
                 "?size=150x150&data=" +
+
                 textoQR;
 
 
-        resultado.innerHTML = `
-            <div class="mensaje exito">
-                <strong>Registro encontrado.</strong><br>
-                La persona aparece registrada en el censo
-                de la Comunidad.
-            </div>
-        `;
-
+        /* ==================================================
+           MOSTRAR CERTIFICADO
+           ================================================== */
 
         certificado.style.display =
             "block";
 
+
+        /* ==================================================
+           REGISTRO EN CONSOLA
+           ================================================== */
+
+        console.log(
+            "COMUNERO ENCONTRADO:",
+            comunero
+        );
+
     }
+
 
     catch (error) {
 
-        console.error(error);
+
+        console.error(
+            "Error general:",
+            error
+        );
+
 
         resultado.innerHTML = `
+
             <div class="mensaje error">
-                Ocurrió un error al realizar
-                la consulta.
+
+                Ocurrió un error inesperado
+                al consultar el censo.
+
+                <br><br>
+
+                ${error.message}
+
             </div>
+
         `;
 
     }
@@ -695,70 +1400,7 @@ async function consultarComunero() {
 
 
 /* ==========================================================
-   OBTENER NOMBRE
-   ========================================================== */
-
-function obtenerNombre(data) {
-
-    const posiblesNombres = [
-
-        "nombre_completo",
-        "nombre",
-        "nombres",
-        "nombre_comunero",
-        "nombres_apellidos",
-        "nombre_y_apellidos"
-
-    ];
-
-
-    for (
-        const campo of posiblesNombres
-    ) {
-
-        if (
-            data[campo] !== undefined &&
-            data[campo] !== null &&
-            String(data[campo]).trim() !== ""
-        ) {
-
-            return String(
-                data[campo]
-            ).trim();
-
-        }
-
-    }
-
-
-    const nombres =
-        data.nombres || "";
-
-    const apellidos =
-        data.apellidos || "";
-
-
-    if (
-        String(nombres).trim() ||
-        String(apellidos).trim()
-    ) {
-
-        return (
-            String(nombres).trim() +
-            " " +
-            String(apellidos).trim()
-        ).trim();
-
-    }
-
-
-    return "Comunero registrado";
-
-}
-
-
-/* ==========================================================
-   IMPRIMIR
+   IMPRIMIR CERTIFICADO
    ========================================================== */
 
 document
@@ -774,7 +1416,7 @@ document
 
 
 /* ==========================================================
-   GALERÍA
+   GALERÍA DE FOTOGRAFÍAS
    ========================================================== */
 
 document
@@ -783,15 +1425,21 @@ document
         "click",
         function() {
 
+
             const titulo =
                 document
-                    .getElementById("photoTitle")
+                    .getElementById(
+                        "photoTitle"
+                    )
                     .value
                     .trim();
 
+
             const archivo =
                 document
-                    .getElementById("photoFile")
+                    .getElementById(
+                        "photoFile"
+                    )
                     .files[0];
 
 
@@ -812,6 +1460,7 @@ document
             reader.onload =
                 function(e) {
 
+
                     const contenedor =
                         document
                             .getElementById(
@@ -824,6 +1473,7 @@ document
                             "div"
                         );
 
+
                     div.className =
                         "foto";
 
@@ -832,6 +1482,7 @@ document
                         document.createElement(
                             "img"
                         );
+
 
                     img.src =
                         e.target.result;
@@ -842,15 +1493,22 @@ document
                             "p"
                         );
 
+
                     p.textContent =
+
                         titulo ||
+
                         "Memoria de Yarinal";
 
 
                     div.appendChild(img);
+
                     div.appendChild(p);
 
-                    contenedor.appendChild(div);
+
+                    contenedor.appendChild(
+                        div
+                    );
 
 
                     document
@@ -876,9 +1534,11 @@ document
         }
     );
 
+
 </script>
 
 </body>
 </html>
 ```
+
 
