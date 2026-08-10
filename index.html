@@ -142,7 +142,6 @@ input {
     padding: 45px;
     margin-top: 25px;
     text-align: center;
-    position: relative;
 }
 
 .certificado h2 {
@@ -201,6 +200,7 @@ footer {
 }
 
 @media (max-width: 700px) {
+
     .dimensiones {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -220,6 +220,7 @@ footer {
 }
 
 @media print {
+
     body * {
         visibility: hidden;
     }
@@ -274,26 +275,22 @@ footer {
 
         <div class="dimension">
             👨‍👩‍👧‍👦
-            <br>
-            Familia
+            <br>Familia
         </div>
 
         <div class="dimension">
             🪶
-            <br>
-            Cultura
+            <br>Cultura
         </div>
 
         <div class="dimension">
             🌿
-            <br>
-            Territorio
+            <br>Territorio
         </div>
 
         <div class="dimension">
             🤝
-            <br>
-            Comunidad
+            <br>Comunidad
         </div>
 
     </div>
@@ -344,13 +341,6 @@ footer {
 
     <div id="galeriaFotos" class="galeria"></div>
 
-    <p>
-        <strong>Nota:</strong> esta versión guarda las fotografías
-        solamente en el navegador. Para que las fotografías queden
-        publicadas para todos los visitantes de GitHub, posteriormente
-        conectaremos un almacenamiento en la nube.
-    </p>
-
 </section>
 
 
@@ -359,9 +349,8 @@ footer {
     <h2>📄 Consulta de pertenencia comunitaria</h2>
 
     <p>
-        Este módulo consulta la base de datos oficial conectada
-        a Supabase. Ingrese el número de documento registrado
-        en el censo de la Comunidad.
+        Ingrese el número de documento registrado en el
+        censo de la Comunidad Indígena de Yarinal.
     </p>
 
     <input
@@ -379,7 +368,11 @@ footer {
 
     <div id="resultado"></div>
 
-    <div id="certificado" class="certificado" style="display:none;">
+    <div
+        id="certificado"
+        class="certificado"
+        style="display:none;"
+    >
 
         <h2>CERTIFICACIÓN</h2>
 
@@ -387,7 +380,10 @@ footer {
             La Comunidad Indígena Murui de Yarinal certifica que:
         </p>
 
-        <div id="certNombre" class="nombre"></div>
+        <div
+            id="certNombre"
+            class="nombre"
+        ></div>
 
         <div class="dato">
             Identificado(a) con documento No.
@@ -396,7 +392,9 @@ footer {
 
         <div class="dato">
             pertenece a la
-            <strong>Comunidad Indígena Murui de Yarinal</strong>.
+            <strong>
+                Comunidad Indígena Murui de Yarinal
+            </strong>.
         </div>
 
         <div class="dato">
@@ -404,7 +402,8 @@ footer {
         </div>
 
         <div class="dato">
-            Municipio de Leguízamo – Departamento del Putumayo
+            Municipio de Leguízamo –
+            Departamento del Putumayo
         </div>
 
         <br>
@@ -425,10 +424,10 @@ footer {
         >
 
         <p>
-            Este documento constituye un modelo de consulta y
-            demostración. La emisión oficial del certificado deberá
-            ser validada y autorizada por la autoridad competente
-            de la Comunidad Indígena de Yarinal.
+            Este documento constituye un modelo de consulta
+            y demostración. La emisión oficial del certificado
+            deberá ser validada y autorizada por la autoridad
+            competente de la Comunidad Indígena de Yarinal.
         </p>
 
         <button
@@ -490,9 +489,9 @@ footer {
 
 <script>
 
-/* ============================================================
-   CONEXIÓN CON SUPABASE
-   ============================================================ */
+/* ==========================================================
+   SUPABASE
+   ========================================================== */
 
 const SUPABASE_URL =
     "https://uzglmhfrfmzlyrexojjr.supabase.co";
@@ -507,22 +506,25 @@ const supabaseClient =
     );
 
 
-/* ============================================================
-   CONSULTA DEL CENSO
-   ============================================================ */
+/* ==========================================================
+   CONSULTAR COMUNERO
+   ========================================================== */
 
 document
-.getElementById("generate")
-.addEventListener("click", consultarComunero);
+    .getElementById("generate")
+    .addEventListener(
+        "click",
+        consultarComunero
+    );
 
 
 async function consultarComunero() {
 
     const documento =
         document
-        .getElementById("doc")
-        .value
-        .trim();
+            .getElementById("doc")
+            .value
+            .trim();
 
     const resultado =
         document.getElementById("resultado");
@@ -530,7 +532,9 @@ async function consultarComunero() {
     const certificado =
         document.getElementById("certificado");
 
+
     certificado.style.display = "none";
+
 
     if (!documento) {
 
@@ -553,23 +557,33 @@ async function consultarComunero() {
 
     try {
 
+        /*
+         * CORRECCIÓN:
+         * La columna correcta es numero_documento
+         */
+
         const { data, error } =
             await supabaseClient
-            .from("COMUNEROS")
-            .select("*")
-            .eq("documento", documento)
-            .maybeSingle();
+                .from("COMUNEROS")
+                .select("*")
+                .eq(
+                    "numero_documento",
+                    documento
+                )
+                .maybeSingle();
 
 
         if (error) {
 
-            console.error(error);
+            console.error(
+                "Error Supabase:",
+                error
+            );
 
             resultado.innerHTML = `
                 <div class="mensaje error">
                     No fue posible consultar el censo.
-                    Revise la configuración de la tabla
-                    y vuelva a intentarlo.
+                    Revise la configuración de Supabase.
                 </div>
             `;
 
@@ -581,7 +595,8 @@ async function consultarComunero() {
 
             resultado.innerHTML = `
                 <div class="mensaje error">
-                    El documento <strong>${documento}</strong>
+                    El documento
+                    <strong>${documento}</strong>
                     no aparece registrado en el censo
                     de la Comunidad.
                 </div>
@@ -591,9 +606,9 @@ async function consultarComunero() {
         }
 
 
-        /* ====================================================
-           PERSONA ENCONTRADA
-           ==================================================== */
+        /* ==============================================
+           REGISTRO ENCONTRADO
+           ============================================== */
 
         const nombre =
             obtenerNombre(data);
@@ -601,7 +616,7 @@ async function consultarComunero() {
 
         const fecha =
             new Date()
-            .toLocaleDateString("es-CO");
+                .toLocaleDateString("es-CO");
 
 
         const numeroCertificado =
@@ -612,26 +627,26 @@ async function consultarComunero() {
 
 
         document
-        .getElementById("certNombre")
-        .textContent = nombre;
+            .getElementById("certNombre")
+            .textContent = nombre;
 
 
         document
-        .getElementById("certDocumento")
-        .textContent = documento;
+            .getElementById("certDocumento")
+            .textContent = documento;
 
 
         document
-        .getElementById("certFecha")
-        .textContent = fecha;
+            .getElementById("certFecha")
+            .textContent = fecha;
 
 
         document
-        .getElementById("certNumero")
-        .textContent = numeroCertificado;
+            .getElementById("certNumero")
+            .textContent =
+                numeroCertificado;
 
 
-        /* Código QR */
         const textoQR =
             encodeURIComponent(
                 "Consulta Yarinal - " +
@@ -642,10 +657,11 @@ async function consultarComunero() {
 
 
         document
-        .getElementById("qr")
-        .src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
-        + textoQR;
+            .getElementById("qr")
+            .src =
+                "https://api.qrserver.com/v1/create-qr-code/" +
+                "?size=150x150&data=" +
+                textoQR;
 
 
         resultado.innerHTML = `
@@ -657,7 +673,8 @@ async function consultarComunero() {
         `;
 
 
-        certificado.style.display = "block";
+        certificado.style.display =
+            "block";
 
     }
 
@@ -667,7 +684,8 @@ async function consultarComunero() {
 
         resultado.innerHTML = `
             <div class="mensaje error">
-                Ocurrió un error al realizar la consulta.
+                Ocurrió un error al realizar
+                la consulta.
             </div>
         `;
 
@@ -676,16 +694,11 @@ async function consultarComunero() {
 }
 
 
-/* ============================================================
+/* ==========================================================
    OBTENER NOMBRE
-   ============================================================ */
+   ========================================================== */
 
 function obtenerNombre(data) {
-
-    /*
-       Intentamos reconocer diferentes nombres posibles
-       de columnas del archivo Excel.
-    */
 
     const posiblesNombres = [
 
@@ -699,7 +712,9 @@ function obtenerNombre(data) {
     ];
 
 
-    for (const campo of posiblesNombres) {
+    for (
+        const campo of posiblesNombres
+    ) {
 
         if (
             data[campo] !== undefined &&
@@ -707,17 +722,14 @@ function obtenerNombre(data) {
             String(data[campo]).trim() !== ""
         ) {
 
-            return String(data[campo]).trim();
+            return String(
+                data[campo]
+            ).trim();
 
         }
 
     }
 
-
-    /*
-       Si el nombre está dividido en varias columnas,
-       intentamos construirlo.
-    */
 
     const nombres =
         data.nombres || "";
@@ -745,103 +757,128 @@ function obtenerNombre(data) {
 }
 
 
-/* ============================================================
-   IMPRIMIR CERTIFICADO
-   ============================================================ */
+/* ==========================================================
+   IMPRIMIR
+   ========================================================== */
 
 document
-.getElementById("print")
-.addEventListener("click", function() {
+    .getElementById("print")
+    .addEventListener(
+        "click",
+        function() {
 
-    window.print();
+            window.print();
 
-});
+        }
+    );
 
 
-/* ============================================================
-   GALERÍA LOCAL
-   ============================================================ */
+/* ==========================================================
+   GALERÍA
+   ========================================================== */
 
 document
-.getElementById("addPhoto")
-.addEventListener("click", function() {
+    .getElementById("addPhoto")
+    .addEventListener(
+        "click",
+        function() {
 
-    const titulo =
-        document
-        .getElementById("photoTitle")
-        .value
-        .trim();
+            const titulo =
+                document
+                    .getElementById("photoTitle")
+                    .value
+                    .trim();
 
-    const archivo =
-        document
-        .getElementById("photoFile")
-        .files[0];
-
-
-    if (!archivo) {
-
-        alert("Seleccione una fotografía.");
-
-        return;
-
-    }
+            const archivo =
+                document
+                    .getElementById("photoFile")
+                    .files[0];
 
 
-    const reader =
-        new FileReader();
+            if (!archivo) {
+
+                alert(
+                    "Seleccione una fotografía."
+                );
+
+                return;
+            }
 
 
-    reader.onload =
-    function(e) {
-
-        const contenedor =
-            document
-            .getElementById("galeriaFotos");
+            const reader =
+                new FileReader();
 
 
-        const div =
-            document.createElement("div");
+            reader.onload =
+                function(e) {
 
-        div.className = "foto";
-
-
-        const img =
-            document.createElement("img");
-
-        img.src =
-            e.target.result;
+                    const contenedor =
+                        document
+                            .getElementById(
+                                "galeriaFotos"
+                            );
 
 
-        const p =
-            document.createElement("p");
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
 
-        p.textContent =
-            titulo || "Memoria de Yarinal";
-
-
-        div.appendChild(img);
-        div.appendChild(p);
-
-        contenedor.appendChild(div);
+                    div.className =
+                        "foto";
 
 
-        document
-        .getElementById("photoTitle")
-        .value = "";
+                    const img =
+                        document.createElement(
+                            "img"
+                        );
 
-        document
-        .getElementById("photoFile")
-        .value = "";
-
-    };
+                    img.src =
+                        e.target.result;
 
 
-    reader.readAsDataURL(archivo);
+                    const p =
+                        document.createElement(
+                            "p"
+                        );
 
-});
+                    p.textContent =
+                        titulo ||
+                        "Memoria de Yarinal";
+
+
+                    div.appendChild(img);
+                    div.appendChild(p);
+
+                    contenedor.appendChild(div);
+
+
+                    document
+                        .getElementById(
+                            "photoTitle"
+                        )
+                        .value = "";
+
+
+                    document
+                        .getElementById(
+                            "photoFile"
+                        )
+                        .value = "";
+
+                };
+
+
+            reader.readAsDataURL(
+                archivo
+            );
+
+        }
+    );
 
 </script>
 
 </body>
 </html>
 ```
+
