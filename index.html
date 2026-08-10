@@ -1,817 +1,467 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Comunidad Indígena Murui de Yarinal</title>
-
-<meta
-  name="description"
-  content="Comunidad Indígena Murui de Yarinal — Plan de Vida, territorio, cultura, comunidad y servicios institucionales."
->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 <style>
 :root{
-  --verde:#285943;
-  --verde-oscuro:#173b2a;
-  --verde-claro:#eaf3ed;
-  --dorado:#b58b45;
-  --crema:#f7f4ec;
-  --blanco:#ffffff;
-  --texto:#26342d;
-  --gris:#66736c;
-  --borde:#dbe4dd;
-  --sombra:0 10px 30px rgba(25,55,39,.10);
-  --radio:18px;
+  --verde:#092117;
+  --verde2:#123b27;
+  --oro:#d6ad51;
+  --crema:#f7f0d9;
+  --texto:#edf4ec;
+  --gris:#aab9ac;
+  --borde:#2d513b;
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  background:var(--verde);
   color:var(--texto);
-  background:#f8faf8;
-  line-height:1.6;
+  font-family:Arial,sans-serif;
 }
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
 
-button,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* =========================
-   ENCABEZADO
-========================= */
-
-.header{
+header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(10px);
+  z-index:10;
+  background:#06170fee;
   border-bottom:1px solid var(--borde);
 }
-
-.nav{
-  max-width:1180px;
+nav{
+  max-width:1200px;
   margin:auto;
-  padding:14px 20px;
+  min-height:68px;
+  padding:10px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
 }
-
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
-  font-weight:800;
-  color:var(--verde-oscuro);
+  gap:10px;
 }
-
-.brand-mark{
-  width:46px;
-  height:46px;
+.brandmark{
+  border:1px solid var(--oro);
   border-radius:50%;
+  width:40px;
+  height:40px;
   display:grid;
   place-items:center;
-  background:var(--verde);
-  color:white;
-  font-size:23px;
 }
-
-.brand-text{
-  line-height:1.15;
-}
-
-.brand-text small{
+.brand small{
   display:block;
-  color:var(--gris);
-  font-size:11px;
-  font-weight:600;
-  margin-top:4px;
+  color:var(--oro);
+  font-size:10px;
+  letter-spacing:1.5px;
 }
-
-.menu{
+.links{
   display:flex;
-  gap:6px;
-  align-items:center;
+  gap:16px;
+  font-size:13px;
+  color:#c9d4ca;
 }
-
-.menu a{
-  padding:9px 12px;
-  border-radius:10px;
-  color:#44534b;
-  font-size:14px;
-  font-weight:600;
-}
-
-.menu a:hover{
-  background:var(--verde-claro);
-  color:var(--verde-oscuro);
-}
-
-.menu-toggle{
+.menu{
   display:none;
-  border:0;
-  background:var(--verde-claro);
-  color:var(--verde-oscuro);
-  width:44px;
-  height:44px;
-  border-radius:12px;
-  font-size:22px;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
-  background:
-    radial-gradient(circle at 80% 20%, rgba(181,139,69,.18), transparent 28%),
-    linear-gradient(135deg,#173b2a 0%,#285943 55%,#3e7456 100%);
-  color:white;
-  padding:90px 20px 80px;
-}
-
-.hero-inner{
-  max-width:1180px;
-  margin:auto;
+  min-height:78vh;
   display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:60px;
-  align-items:center;
+  place-items:center;
+  text-align:center;
+  padding:80px 20px;
+  background:radial-gradient(circle at 50% 20%,#1d5435 0,#092117 58%);
 }
-
-.eyebrow{
+.hero>div{
+  max-width:900px;
+}
+.tag{
   display:inline-block;
-  padding:7px 13px;
-  border:1px solid rgba(255,255,255,.3);
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.5px;
-  margin-bottom:18px;
+  border:1px solid var(--borde);
+  padding:7px 15px;
+  border-radius:30px;
+  color:var(--oro);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
-
 .hero h1{
-  font-family:Georgia,serif;
-  font-size:clamp(38px,6vw,68px);
-  line-height:1.03;
-  margin:0 0 22px;
+  font:normal clamp(48px,9vw,100px)/.95 Georgia,serif;
+  color:#fff6d8;
+  margin:25px 0 10px;
 }
-
+.hero h2{
+  font:normal clamp(22px,4vw,35px) Georgia,serif;
+  color:var(--oro);
+  margin:0;
+}
 .hero p{
-  max-width:700px;
-  font-size:18px;
-  color:rgba(255,255,255,.9);
+  color:#c4d0c4;
+  font-size:17px;
+  max-width:760px;
+  margin:22px auto;
+}
+.buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+.btn{
+  display:inline-block;
+  border:1px solid var(--oro);
+  border-radius:10px;
+  padding:11px 17px;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+}
+.primary{
+  background:var(--oro);
+  color:#172015;
+  font-weight:bold;
 }
 
-.hero-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+section{
+  padding:75px 20px;
+}
+.alt{
+  background:#0b291a;
+  border-block:1px solid #173622;
+}
+.wrap{
+  max-width:1200px;
+  margin:auto;
+}
+.label{
+  color:var(--oro);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+h2{
+  font:normal clamp(31px,5vw,52px) Georgia,serif;
+  margin:8px 0 10px;
+}
+.intro{
+  color:var(--gris);
+  max-width:850px;
+}
+.grid{
+  display:grid;
+  gap:18px;
   margin-top:28px;
 }
-
-.btn{
-  border:0;
-  border-radius:12px;
-  padding:12px 18px;
-  font-weight:700;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-1px);
-}
-
-.btn-primary{
-  background:var(--dorado);
-  color:white;
-}
-
-.btn-light{
-  background:white;
-  color:var(--verde-oscuro);
-}
-
-.btn-secondary{
-  background:var(--verde-claro);
-  color:var(--verde-oscuro);
-}
-
-.btn-danger{
-  background:#fff0f0;
-  color:#8b3030;
-}
-
-.hero-symbol{
-  min-height:300px;
-  display:grid;
-  place-items:center;
-}
-
-.symbol-circle{
-  width:270px;
-  height:270px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.3);
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.08);
-  box-shadow:0 30px 70px rgba(0,0,0,.18);
-  font-size:90px;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-.section{
-  padding:76px 20px;
-}
-
-.section.alt{
-  background:var(--crema);
-}
-
-.container{
-  max-width:1180px;
-  margin:auto;
-}
-
-.section-head{
-  max-width:760px;
-  margin-bottom:38px;
-}
-
-.section-head .kicker{
-  color:var(--dorado);
-  font-weight:800;
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:1.3px;
-}
-
-.section-head h2{
-  font-family:Georgia,serif;
-  color:var(--verde-oscuro);
-  font-size:clamp(30px,4vw,46px);
-  line-height:1.15;
-  margin:8px 0 14px;
-}
-
-.section-head p{
-  color:var(--gris);
-}
-
-/* =========================
-   TARJETAS PLAN DE VIDA
-========================= */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
 
 .card{
-  background:white;
+  background:linear-gradient(145deg,#153d28,#0a2115);
   border:1px solid var(--borde);
-  border-radius:var(--radio);
-  padding:25px;
-  box-shadow:var(--sombra);
+  border-radius:18px;
+  padding:23px;
 }
-
-.card-icon{
-  font-size:32px;
-  margin-bottom:13px;
-}
-
 .card h3{
-  margin:0 0 8px;
-  color:var(--verde-oscuro);
-  font-family:Georgia,serif;
-  font-size:23px;
+  font:normal 22px Georgia,serif;
+  color:#f0d78e;
+  margin:7px 0;
 }
-
 .card p{
-  margin:0;
   color:var(--gris);
+  margin:0;
+}
+.icon{font-size:33px}
+
+.timeline{
+  margin-top:30px;
+  border-left:2px solid var(--oro);
+  padding-left:25px;
+}
+.event{
+  margin:0 0 25px;
+}
+.event b{
+  color:var(--oro);
+}
+.event p{
+  color:var(--gris);
+  margin:3px 0;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:22px;
+}
+.project{
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:20px;
+  background:#102e1e;
+}
+.project small{
+  color:var(--oro);
+}
+.project h3{
+  font:normal 20px Georgia,serif;
+  margin:7px 0;
+}
+.project p{
   font-size:14px;
+  color:var(--gris);
 }
-
-.dimensions{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  margin-top:24px;
+.bar{
+  height:5px;
+  background:#06120b;
+  border-radius:10px;
 }
-
-.dimension{
-  background:white;
-  border:1px solid var(--borde);
-  border-left:5px solid var(--verde);
-  padding:24px;
-  border-radius:14px;
-}
-
-.dimension h3{
-  margin:0 0 8px;
-  color:var(--verde-oscuro);
-}
-
-/* =========================
-   GALERÍA
-========================= */
-
-.gallery-form{
-  display:grid;
-  grid-template-columns:1fr 1fr auto;
-  gap:12px;
-  margin-bottom:28px;
-}
-
-.input{
-  width:100%;
-  border:1px solid var(--borde);
-  background:white;
-  border-radius:11px;
-  padding:12px 14px;
-  outline:none;
-}
-
-.input:focus{
-  border-color:var(--verde);
-  box-shadow:0 0 0 3px rgba(40,89,67,.10);
-}
-
-.file{
-  padding:9px;
+.bar span{
+  display:block;
+  height:100%;
+  background:var(--oro);
 }
 
 .gallery{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
 }
-
 .photo{
-  background:white;
-  border-radius:16px;
-  overflow:hidden;
+  height:210px;
   border:1px solid var(--borde);
-  box-shadow:var(--sombra);
+  border-radius:15px;
+  overflow:hidden;
+  background:#102e1e;
 }
-
 .photo img{
   width:100%;
-  aspect-ratio:16/10;
+  height:100%;
   object-fit:cover;
-  display:block;
 }
-
-.photo-info{
-  padding:14px;
-}
-
-.photo-title{
-  font-weight:800;
-  color:var(--verde-oscuro);
-}
-
-/* =========================
-   CENSO
-========================= */
-
-.censo{
-  background:
-    linear-gradient(135deg,#f0f6f2,#ffffff);
-}
-
-.search-box{
-  background:white;
-  padding:28px;
-  border:1px solid var(--borde);
-  border-radius:var(--radio);
-  box-shadow:var(--sombra);
-  max-width:850px;
-}
-
-.search-row{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:12px;
-}
-
-.status{
+.empty{
+  color:var(--gris);
   margin-top:15px;
-  min-height:24px;
-  font-size:14px;
 }
 
-.status.ok{
-  color:#23613d;
-}
-
-.status.error{
-  color:#9b3333;
-}
-
-.member{
-  margin-top:25px;
-  display:none;
-  background:white;
+.formbox{
+  background:#0a2416;
   border:1px solid var(--borde);
-  border-radius:var(--radio);
-  padding:28px;
-  box-shadow:var(--sombra);
+  border-radius:18px;
+  padding:22px;
+  margin-top:22px;
 }
-
-.member.visible{
-  display:block;
-}
-
-.member-header{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:start;
-  margin-bottom:24px;
-}
-
-.member-header h3{
-  margin:0;
-  color:var(--verde-oscuro);
-  font-family:Georgia,serif;
-  font-size:28px;
-}
-
-.badge{
-  display:inline-block;
-  background:var(--verde-claro);
-  color:var(--verde-oscuro);
-  padding:6px 11px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.member-grid{
+.form{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:12px;
 }
-
-.data{
-  padding:14px;
-  border-radius:12px;
-  background:#f7faf8;
-  border:1px solid #e5ece7;
-}
-
-.data small{
-  display:block;
-  color:var(--gris);
-  font-size:11px;
-  text-transform:uppercase;
-  font-weight:800;
-  letter-spacing:.4px;
-}
-
-.data strong{
-  display:block;
-  margin-top:3px;
-  color:var(--texto);
-}
-
-/* =========================
-   CERTIFICADO
-========================= */
-
-.certificate-area{
-  margin-top:35px;
-}
-
-.certificate{
-  background:white;
-  border:2px solid #c8ad77;
-  max-width:850px;
-  margin:auto;
-  padding:55px 60px;
-  position:relative;
-  box-shadow:var(--sombra);
-}
-
-.certificate:before{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:1px solid #dfcda8;
-  pointer-events:none;
-}
-
-.certificate-content{
-  position:relative;
-  z-index:1;
-}
-
-.cert-top{
-  text-align:center;
-}
-
-.cert-top .seal{
-  font-size:45px;
-}
-
-.cert-top h2{
-  font-family:Georgia,serif;
-  color:var(--verde-oscuro);
-  margin:7px 0 3px;
-}
-
-.cert-top p{
-  margin:0;
-  color:var(--gris);
-  font-size:13px;
-}
-
-.cert-title{
-  text-align:center;
-  margin:35px 0;
-  font-family:Georgia,serif;
-  color:#8c6c32;
-  font-size:25px;
-  letter-spacing:1px;
-}
-
-.cert-body{
-  text-align:center;
-  font-family:Georgia,serif;
-  font-size:17px;
-}
-
-.cert-name{
-  font-size:25px;
-  font-weight:bold;
-  color:var(--verde-oscuro);
-  margin:15px 0;
-}
-
-.cert-details{
+.row{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin:30px 0;
-  text-align:left;
-  font-family:inherit;
+}
+.form input,
+.form textarea,
+.form select{
+  background:#06170f;
+  color:white;
+  border:1px solid var(--borde);
+  border-radius:9px;
+  padding:11px;
+}
+.form textarea{
+  min-height:100px;
+}
+.status{
+  padding:10px;
+  border-radius:9px;
+  background:#0c2b1b;
+  color:var(--gris);
   font-size:13px;
 }
+.ok{color:#8be39a}
+.error{color:#ff9d9d}
 
-.cert-detail{
-  border-bottom:1px solid #ddd3bd;
-  padding:8px 0;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+  font-size:13px;
 }
-
-.qr-box{
-  display:flex;
-  justify-content:center;
-  margin:25px 0;
+th,td{
+  text-align:left;
+  padding:8px;
+  border-bottom:1px solid var(--borde);
 }
+th{color:var(--oro)}
+td{color:#cbd5cb}
+.scroll{overflow:auto}
 
-.cert-footer{
-  margin-top:35px;
+.metrics{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  text-align:center;
-  font-family:Georgia,serif;
-}
-
-.signature{
-  border-top:1px solid #777;
-  padding-top:8px;
-  margin-top:45px;
-}
-
-.cert-actions{
-  display:flex;
-  justify-content:center;
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
   margin-top:20px;
 }
-
-/* =========================
-   CONTACTO
-========================= */
-
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-
-.contact-box{
-  background:white;
+.metric{
+  background:#0c2b1b;
   border:1px solid var(--borde);
-  border-radius:var(--radio);
-  padding:28px;
+  border-radius:15px;
+  padding:18px;
+}
+.metric strong{
+  display:block;
+  font-size:30px;
+  color:var(--oro);
+}
+.metric span{
+  font-size:12px;
+  color:var(--gris);
 }
 
-.contact-box h3{
+.hidden{
+  display:none!important;
+}
+
+.cert{
+  max-width:800px;
+  margin:25px auto;
+  background:var(--crema);
+  color:#1b241b;
+  padding:38px;
+  border:7px double #9b7530;
   font-family:Georgia,serif;
-  color:var(--verde-oscuro);
-  margin-top:0;
 }
-
-/* =========================
-   FOOTER
-========================= */
+.certhead{
+  text-align:center;
+  border-bottom:1px solid #8c8c7c;
+  padding-bottom:14px;
+}
+.certhead strong{
+  font-size:18px;
+}
+.certhead small{
+  font-family:Arial;
+}
+.cert h3{
+  text-align:center;
+  font-size:24px;
+}
+.cert p{
+  line-height:1.8;
+}
+.qr{
+  text-align:center;
+  margin:18px;
+}
+.qr canvas{
+  background:white;
+  padding:6px;
+}
+.signature{
+  text-align:center;
+  margin-top:35px;
+  font-family:Arial;
+}
+.certfoot{
+  font:11px Arial;
+  border-top:1px solid #aaa;
+  padding-top:12px;
+}
+.print{
+  font-family:Arial;
+  text-align:center;
+  margin-top:12px;
+}
 
 footer{
-  background:#173b2a;
-  color:white;
   padding:45px 20px;
+  background:#030b07;
+  border-top:1px solid var(--borde);
+  color:var(--gris);
+}
+footer .wrap{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+footer b{
+  color:var(--oro);
 }
 
-.footer-inner{
-  max-width:1180px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.5fr 1fr;
-  gap:40px;
-}
-
-footer h3{
-  font-family:Georgia,serif;
-  margin-top:0;
-}
-
-.footer-note{
-  color:rgba(255,255,255,.72);
-  font-size:13px;
-}
-
-.copyright{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.15);
-  color:rgba(255,255,255,.6);
-  font-size:12px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-  .hero-inner{
-    grid-template-columns:1fr;
-  }
-
-  .hero-symbol{
+@media(max-width:850px){
+  .links{
     display:none;
   }
-
-  .cards{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .gallery{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .member-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-
-@media(max-width:700px){
-
-  .menu-toggle{
-    display:block;
-  }
-
   .menu{
-    display:none;
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:74px;
-    background:white;
+    display:block;
+    background:none;
+    color:white;
     border:1px solid var(--borde);
-    border-radius:15px;
-    padding:10px;
-    box-shadow:var(--sombra);
-    flex-direction:column;
-    align-items:stretch;
+    padding:8px;
   }
-
-  .menu.open{
+  .links.open{
     display:flex;
-  }
-
-  .menu a{
-    padding:12px;
-  }
-
-  .cards,
-  .dimensions,
-  .gallery,
-  .contact,
-  .member-grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-form,
-  .search-row{
-    grid-template-columns:1fr;
-  }
-
-  .certificate{
-    padding:35px 25px;
-  }
-
-  .cert-details,
-  .cert-footer{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:55px 16px;
-  }
-
-  .hero{
-    padding:65px 16px;
-  }
-
-}
-
-/* =========================
-   IMPRESIÓN
-========================= */
-
-@media print{
-
-  body{
-    background:white;
-  }
-
-  body *{
-    visibility:hidden;
-  }
-
-  #certificate,
-  #certificate *{
-    visibility:visible;
-  }
-
-  #certificate{
     position:absolute;
     left:0;
-    top:0;
-    width:100%;
-    box-shadow:none;
-    border:0;
+    right:0;
+    top:68px;
+    background:#06170f;
+    flex-direction:column;
+    padding:18px;
   }
+  .g4,
+  .projects,
+  .gallery,
+  .metrics{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
 
-  .cert-actions{
+@media(max-width:600px){
+  .g2,
+  .g4,
+  .projects,
+  .gallery,
+  .metrics,
+  .row{
+    grid-template-columns:1fr;
+  }
+  .hero h1{
+    font-size:54px;
+  }
+  section{
+    padding:55px 16px;
+  }
+}
+
+@media print{
+  header,
+  footer,
+  .no-print{
+    display:none!important;
+  }
+  .cert{
+    display:block!important;
+    margin:0;
+    border:7px double #9b7530;
+  }
+  .cert .print{
     display:none;
-  }
-
-  @page{
-    size:A4;
-    margin:12mm;
   }
 }
 </style>
@@ -819,1614 +469,1360 @@ footer h3{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<header>
+<nav>
+<a class="brand" href="#inicio">
+<span class="brandmark">🌿</span>
+<span>
+<b>YARINAL</b>
+<small>EINAMAK+ UAI JENUANO</small>
+</span>
+</a>
 
-<header class="header">
+<button class="menu" id="menu">☰</button>
 
-  <nav class="nav">
-
-    <a href="#inicio" class="brand">
-
-      <div class="brand-mark">
-        🌿
-      </div>
-
-      <div class="brand-text">
-        Comunidad Indígena Murui de Yarinal
-        <small>Alto Resguardo Predio Putumayo</small>
-      </div>
-
-    </a>
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Abrir menú"
-    >
-      ☰
-    </button>
-
-    <div class="menu" id="menu">
-
-      <a href="#plan">Plan de Vida</a>
-      <a href="#galeria">Galería</a>
-      <a href="#censo">Censo</a>
-      <a href="#certificado">Certificados</a>
-      <a href="#contacto">Contacto</a>
-
-    </div>
-
-  </nav>
-
+<div class="links" id="links">
+<a href="#plan">Plan de Vida</a>
+<a href="#historia">Historia</a>
+<a href="#pilares">Pilares</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#galeria">Galería</a>
+<a href="#certificados">Certificados</a>
+<a href="#admin">Administrador</a>
+</div>
+</nav>
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero" id="inicio">
+<div>
+<span class="tag">Comunidad Indígena Murui de Yarinal</span>
 
-  <div class="hero-inner">
+<h1>Einamak+ Uai Jenuano</h1>
 
-    <div>
+<h2>“Buscando huellas ancestrales”</h2>
 
-      <span class="eyebrow">
-        COMUNIDAD INDÍGENA MURUI DE YARINAL
-      </span>
+<p>
+Portal institucional de la Comunidad Indígena Murui de Yarinal ·
+Alto Resguardo Predio Putumayo · Leguízamo, Putumayo.
+</p>
 
-      <h1>
-        Memoria, territorio,
-        cultura y comunidad.
-      </h1>
-
-      <p>
-        El Plan de Vida de la Comunidad Indígena de Yarinal
-        recoge la memoria, la identidad, la cosmovisión,
-        la organización, el territorio y los procesos
-        comunitarios que hacen parte de la vida de la comunidad.
-      </p>
-
-      <div class="hero-actions">
-
-        <a
-          href="#plan"
-          class="btn btn-primary"
-        >
-          Conocer el Plan de Vida
-        </a>
-
-        <a
-          href="#censo"
-          class="btn btn-light"
-        >
-          Consultar comunero
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="hero-symbol">
-      <div class="symbol-circle">
-        🪶
-      </div>
-    </div>
-
-  </div>
-
+<div class="buttons">
+<a class="btn primary" href="#plan">Conocer el Plan de Vida</a>
+<a class="btn" href="#certificados">Verificar certificado</a>
+</div>
+</div>
 </section>
 
+<section id="plan">
+<div class="wrap">
 
-<!-- =========================
-     PLAN DE VIDA
-========================= -->
+<span class="label">Plan de Vida</span>
 
-<section class="section" id="plan">
+<h2>Un camino comunitario</h2>
 
-  <div class="container">
+<p class="intro">
+Este portal organiza la información pública del Plan de Vida y deja
+los contenidos reservados bajo control de las autoridades de la comunidad.
+</p>
 
-    <div class="section-head">
+<div class="grid g4">
 
-      <span class="kicker">
-        Plan de Vida
-      </span>
+<div class="card">
+<div class="icon">📜</div>
+<h3>Memoria</h3>
+<p>Historia y memoria colectiva.</p>
+</div>
 
-      <h2>
-        La vida comunitaria como memoria y futuro
-      </h2>
+<div class="card">
+<div class="icon">🪶</div>
+<h3>Espiritualidad</h3>
+<p>Palabra, orientación y conocimientos propios.</p>
+</div>
 
-      <p>
-        El Plan de Vida desarrolla diferentes dimensiones
-        de la vida comunitaria, incluyendo la gobernanza,
-        el territorio, la educación, la cultura y la salud.
-      </p>
+<div class="card">
+<div class="icon">🌿</div>
+<h3>Territorio</h3>
+<p>Cuidado, protección y manejo territorial.</p>
+</div>
 
-    </div>
+<div class="card">
+<div class="icon">🤝</div>
+<h3>Comunidad</h3>
+<p>Gobernanza, familia y participación.</p>
+</div>
 
-
-    <div class="cards">
-
-      <article class="card">
-
-        <div class="card-icon">👨‍👩‍👧‍👦</div>
-
-        <h3>Familia</h3>
-
-        <p>
-          La familia y el diálogo entre generaciones
-          permiten transmitir conocimientos sobre el
-          cuidado del territorio, la cultura y la vida
-          comunitaria.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="card-icon">🪶</div>
-
-        <h3>Cultura</h3>
-
-        <p>
-          La cultura, la memoria y los conocimientos
-          propios hacen parte de la identidad y de la
-          continuidad de la comunidad.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="card-icon">🌿</div>
-
-        <h3>Territorio</h3>
-
-        <p>
-          El territorio constituye un espacio de vida,
-          memoria, conocimiento, protección y relación
-          comunitaria.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="card-icon">🤝</div>
-
-        <h3>Comunidad</h3>
-
-        <p>
-          La organización comunitaria, la participación
-          y el diálogo fortalecen los procesos colectivos
-          de la comunidad.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="dimensions">
-
-      <div class="dimension">
-
-        <h3>Gobernanza</h3>
-
-        <p>
-          Organización, autoridad, participación y
-          procesos comunitarios orientados al bienestar
-          colectivo y al ejercicio de la autonomía.
-        </p>
-
-      </div>
-
-
-      <div class="dimension">
-
-        <h3>Educación</h3>
-
-        <p>
-          Transmisión de conocimientos y diálogo entre
-          saberes, generaciones y procesos de formación
-          comunitaria.
-        </p>
-
-      </div>
-
-
-      <div class="dimension">
-
-        <h3>Cultura</h3>
-
-        <p>
-          Protección de la identidad, memoria colectiva,
-          conocimientos propios y prácticas culturales.
-        </p>
-
-      </div>
-
-
-      <div class="dimension">
-
-        <h3>Salud</h3>
-
-        <p>
-          Bienestar comunitario y reconocimiento de los
-          conocimientos y prácticas relacionados con
-          el cuidado de la vida.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
+</div>
 </section>
 
+<section class="alt" id="historia">
+<div class="wrap">
 
-<!-- =========================
-     GALERÍA
-========================= -->
+<span class="label">Nuestra memoria</span>
 
-<section class="section alt" id="galeria">
+<h2>Historia de Yarinal</h2>
 
-  <div class="container">
+<div class="timeline">
 
-    <div class="section-head">
+<div class="event">
+<b>1903</b>
+<p>El Plan de Vida sitúa en este año la llegada de Víctor Manuel Charry a la Amazonia.</p>
+</div>
 
-      <span class="kicker">
-        Memoria colectiva
-      </span>
+<div class="event">
+<b>1969 – 1971</b>
+<p>Se organiza una Junta de Acción Comunal y se funda la escuela de Bellavista.</p>
+</div>
 
-      <h2>
-        Galería de la comunidad
-      </h2>
+<div class="event">
+<b>1987 – 1988</b>
+<p>La población de la parte baja de Bellavista busca independencia territorial y adopta el nombre Yarinal.</p>
+</div>
 
-      <p>
-        Aquí podrás incorporar fotografías de la comunidad,
-        actividades, territorio, encuentros, cultura y
-        memoria colectiva.
-      </p>
+<div class="event">
+<b>1994</b>
+<p>La comunidad decide conformarse como cabildo indígena y elige su primera gobernadora.</p>
+</div>
 
-    </div>
+<div class="event">
+<b>2020</b>
+<p>Se conforma el Colectivo de Jóvenes de Yarinal para fortalecer el rescate y la pervivencia cultural.</p>
+</div>
 
+<div class="event">
+<b>2021 – 2022</b>
+<p>Se construye el Jumarako y se desarrollan proyectos comunitarios; a finales de 2022 se formula el Plan de Vida.</p>
+</div>
 
-    <div class="gallery-form">
-
-      <input
-        id="photoTitle"
-        class="input"
-        type="text"
-        placeholder="Título de la fotografía"
-      >
-
-      <input
-        id="photoFile"
-        class="input file"
-        type="file"
-        accept="image/*"
-      >
-
-      <button
-        class="btn btn-primary"
-        id="addPhoto"
-      >
-        Agregar fotografía
-      </button>
-
-    </div>
-
-
-    <div id="gallery" class="gallery"></div>
-
-    <p class="footer-note" style="color:#66736c;margin-top:18px;">
-      Las fotografías agregadas desde esta versión se guardan
-      solamente en el navegador del dispositivo. Para publicarlas
-      permanentemente para todos los visitantes se deberá conectar
-      posteriormente un almacenamiento de archivos.
-    </p>
-
-  </div>
-
+</div>
+</div>
 </section>
 
+<section id="pilares">
+<div class="wrap">
 
-<!-- =========================
-     CENSO
-========================= -->
+<span class="label">Planificación</span>
 
-<section class="section censo" id="censo">
+<h2>Pilares del Plan de Vida</h2>
 
-  <div class="container">
+<div class="grid g2">
 
-    <div class="section-head">
+<div class="card">
+<div class="icon">⚖️</div>
+<h3>Gobernanza Propia</h3>
+<p>
+Gobierno, organización, justicia propia, liderazgo,
+mujer, recreación y deporte.
+</p>
+</div>
 
-      <span class="kicker">
-        Registro comunitario
-      </span>
+<div class="card">
+<div class="icon">🌎</div>
+<h3>Territorio y Ambiente</h3>
+<p>
+Ordenamiento, límites, ambiente, reforestación,
+residuos, REDD+ y economía sostenible.
+</p>
+</div>
 
-      <h2>
-        Consulta del censo
-      </h2>
+<div class="card">
+<div class="icon">📚</div>
+<h3>Educación y Cultura Propia</h3>
+<p>
+Idioma, TIC, infraestructura, PEC, formación docente,
+educación superior y comunicaciones.
+</p>
+</div>
 
-      <p>
-        Consulta de información comunitaria mediante el número
-        de documento. La consulta utiliza la base de datos
-        autorizada por el Cabildo.
-      </p>
+<div class="card">
+<div class="icon">🩺</div>
+<h3>Salud</h3>
+<p>
+Salud propia, prevención, medicina tradicional y
+occidental y huerta medicinal.
+</p>
+</div>
 
-    </div>
-
-
-    <div class="search-box">
-
-      <div class="search-row">
-
-        <input
-          id="doc"
-          class="input"
-          type="text"
-          inputmode="numeric"
-          autocomplete="off"
-          placeholder="Número de documento"
-        >
-
-        <button
-          id="searchMember"
-          class="btn btn-primary"
-        >
-          Buscar comunero
-        </button>
-
-      </div>
-
-      <div
-        id="searchStatus"
-        class="status"
-      ></div>
-
-
-      <div
-        id="member"
-        class="member"
-      >
-
-        <div class="member-header">
-
-          <div>
-
-            <span class="badge" id="memberStatus">
-              ACTIVO
-            </span>
-
-            <h3 id="memberName">
-              —
-            </h3>
-
-          </div>
-
-          <button
-            class="btn btn-secondary"
-            id="useForCertificate"
-          >
-            Usar para certificado
-          </button>
-
-        </div>
-
-
-        <div class="member-grid">
-
-          <div class="data">
-            <small>Tipo de identificación</small>
-            <strong id="mTipo">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Número de documento</small>
-            <strong id="mDocumento">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Comunidad</small>
-            <strong id="mComunidad">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Resguardo</small>
-            <strong id="mResguardo">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Familia</small>
-            <strong id="mFamilia">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Parentesco</small>
-            <strong id="mParentesco">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Fecha de nacimiento</small>
-            <strong id="mNacimiento">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Sexo</small>
-            <strong id="mSexo">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Estado civil</small>
-            <strong id="mEstadoCivil">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Profesión</small>
-            <strong id="mProfesion">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Escolaridad</small>
-            <strong id="mEscolaridad">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Integrantes</small>
-            <strong id="mIntegrantes">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Dirección</small>
-            <strong id="mDireccion">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Teléfono</small>
-            <strong id="mTelefono">—</strong>
-          </div>
-
-          <div class="data">
-            <small>Usuario / registro</small>
-            <strong id="mUsuario">—</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
+</div>
 </section>
 
+<section class="alt" id="proyectos">
+<div class="wrap">
 
-<!-- =========================
-     CERTIFICADO
-========================= -->
+<span class="label">Proyección</span>
 
-<section class="section" id="certificado">
+<h2>Portafolio de proyectos</h2>
 
-  <div class="container">
+<p class="intro">
+Los avances y estados pueden ser actualizados por el administrador.
+</p>
 
-    <div class="section-head">
+<div class="formbox no-print">
 
-      <span class="kicker">
-        Certificación
-      </span>
+<div class="row">
 
-      <h2>
-        Modelo de certificado
-      </h2>
+<input
+id="projectSearch"
+placeholder="Buscar proyecto">
 
-      <p>
-        Este módulo genera un modelo de demostración a partir
-        de la información consultada en la base de datos.
-        La emisión oficial debe ser validada y autorizada
-        por la autoridad competente del Cabildo.
-      </p>
+<select id="projectFilter">
+<option>Todos</option>
+<option>Gobernanza</option>
+<option>Territorio</option>
+<option>Economía</option>
+<option>Educación</option>
+<option>Salud</option>
+</select>
 
-    </div>
+</div>
+</div>
 
+<div class="projects" id="projects"></div>
 
-    <div
-      id="certificate"
-      class="certificate"
-    >
-
-      <div class="certificate-content">
-
-        <div class="cert-top">
-
-          <div class="seal">
-            🌿
-          </div>
-
-          <h2>
-            COMUNIDAD INDÍGENA MURUI DE YARINAL
-          </h2>
-
-          <p>
-            Alto Resguardo Predio Putumayo
-          </p>
-
-          <p>
-            Municipio de Leguízamo · Departamento del Putumayo
-          </p>
-
-        </div>
-
-
-        <div class="cert-title">
-          CERTIFICACIÓN
-        </div>
-
-
-        <div class="cert-body">
-
-          <p>
-            Se certifica que:
-          </p>
-
-          <div
-            id="certName"
-            class="cert-name"
-          >
-            —
-          </div>
-
-          <p>
-            identificado(a) con
-            <strong id="certTipo">
-              —
-            </strong>
-            No.
-            <strong id="certDocumento">
-              —
-            </strong>
-          </p>
-
-          <p>
-            pertenece a la
-            <strong id="certCommunity">
-              Comunidad Indígena Murui de Yarinal
-            </strong>.
-          </p>
-
-        </div>
-
-
-        <div class="cert-details">
-
-          <div class="cert-detail">
-            <strong>Resguardo:</strong>
-            <span id="certResguardo">
-              Alto Resguardo Predio Putumayo
-            </span>
-          </div>
-
-          <div class="cert-detail">
-            <strong>Fecha de expedición:</strong>
-            <span id="certFecha">
-              —
-            </span>
-          </div>
-
-          <div class="cert-detail">
-            <strong>Número de certificado:</strong>
-            <span id="certNumero">
-              —
-            </span>
-          </div>
-
-          <div class="cert-detail">
-            <strong>Estado del registro:</strong>
-            <span id="certEstado">
-              —
-            </span>
-          </div>
-
-        </div>
-
-
-        <div
-          id="qr"
-          class="qr-box"
-        ></div>
-
-
-        <p
-          style="
-            text-align:center;
-            font-size:11px;
-            color:#777;
-          "
-        >
-          Código de verificación del modelo de demostración.
-        </p>
-
-
-        <div class="cert-footer">
-
-          <div>
-
-            <div class="signature">
-              Autoridad competente
-            </div>
-
-            <small>
-              Comunidad Indígena Murui de Yarinal
-            </small>
-
-          </div>
-
-
-          <div>
-
-            <div class="signature">
-              Cabildo
-            </div>
-
-            <small>
-              Validación institucional
-            </small>
-
-          </div>
-
-        </div>
-
-
-        <p
-          style="
-            text-align:center;
-            margin-top:35px;
-            font-size:11px;
-            color:#777;
-          "
-        >
-          Este modelo es una demostración.
-          La emisión oficial del certificado deberá ser realizada,
-          validada y autorizada por la autoridad competente
-          de la Comunidad Indígena de Yarinal.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="cert-actions">
-
-      <button
-        class="btn btn-primary"
-        id="generate"
-      >
-        Generar certificado
-      </button>
-
-      <button
-        class="btn btn-secondary"
-        id="print"
-      >
-        Imprimir / Guardar como PDF
-      </button>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
 
+<section id="galeria">
+<div class="wrap">
 
-<!-- =========================
-     CONTACTO
-========================= -->
+<span class="label">Memoria visual</span>
 
-<section class="section alt" id="contacto">
+<h2>Galería</h2>
 
-  <div class="container">
+<p class="intro">
+Las fotografías publicadas desde el administrador aparecen aquí.
+</p>
 
-    <div class="section-head">
+<div class="gallery" id="gallery"></div>
 
-      <span class="kicker">
-        Información institucional
-      </span>
+<div class="empty" id="galleryEmpty">
+No hay fotografías publicadas todavía.
+</div>
 
-      <h2>
-        Contacto del Cabildo
-      </h2>
-
-      <p>
-        Para información institucional, trámites,
-        certificados y comunicaciones con el Cabildo.
-      </p>
-
-    </div>
-
-
-    <div class="contact">
-
-      <div class="contact-box">
-
-        <h3>
-          Comunidad Indígena Murui de Yarinal
-        </h3>
-
-        <p>
-          📧
-          <strong>
-            cabildoindigenayarinal1994@gmail.com
-          </strong>
-        </p>
-
-        <p>
-          📱
-          <strong>
-            310 674 9306
-          </strong>
-        </p>
-
-      </div>
-
-
-      <div class="contact-box">
-
-        <h3>
-          Ubicación
-        </h3>
-
-        <p>
-          Municipio de Leguízamo
-        </p>
-
-        <p>
-          Departamento del Putumayo
-        </p>
-
-        <p>
-          Alto Resguardo Predio Putumayo
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
 
+<section class="alt" id="certificados">
+<div class="wrap">
 
-<!-- =========================
-     FOOTER
-========================= -->
+<span class="label">Verificación</span>
+
+<h2>Certificados</h2>
+
+<p class="intro">
+Consulta por número de certificado. El QR también lleva directamente a esta verificación.
+</p>
+
+<div class="formbox no-print">
+
+<div class="row">
+
+<input
+id="verifyNumber"
+placeholder="Número de certificado">
+
+<button class="btn primary" id="verifyBtn">
+Verificar
+</button>
+
+</div>
+
+<div class="status" id="verifyStatus">
+Listo para consultar.
+</div>
+
+</div>
+
+<div id="verification"></div>
+
+</div>
+</section>
+
+<section id="admin">
+<div class="wrap">
+
+<span class="label">Acceso restringido</span>
+
+<h2>Administrador</h2>
+
+<div class="formbox" id="loginBox">
+
+<div class="form">
+
+<div class="row">
+
+<input
+id="email"
+type="email"
+placeholder="Correo del administrador">
+
+<input
+id="password"
+type="password"
+placeholder="Contraseña">
+
+</div>
+
+<button class="btn primary" id="loginBtn">
+Ingresar
+</button>
+
+<div class="status" id="loginStatus">
+Inicia sesión con Supabase Auth.
+</div>
+
+</div>
+</div>
+
+<div class="hidden" id="adminPanel">
+
+<div class="buttons" style="justify-content:flex-start">
+<button class="btn" id="logoutBtn">
+Cerrar sesión
+</button>
+</div>
+
+<div class="metrics">
+
+<div class="metric">
+<strong id="mCenso">—</strong>
+<span>Registros del censo</span>
+</div>
+
+<div class="metric">
+<strong id="mCert">—</strong>
+<span>Certificados</span>
+</div>
+
+<div class="metric">
+<strong id="mPost">—</strong>
+<span>Publicaciones</span>
+</div>
+
+<div class="metric">
+<strong id="mMedia">—</strong>
+<span>Medios</span>
+</div>
+
+</div>
+
+<div class="formbox">
+
+<h3>Consultar censo</h3>
+
+<div class="row">
+
+<input
+id="censoSearch"
+placeholder="Número de documento o nombre">
+
+<button class="btn primary" id="censoBtn">
+Buscar
+</button>
+
+</div>
+
+<div class="scroll">
+
+<table>
+
+<thead>
+<tr>
+<th>Documento</th>
+<th>Nombres</th>
+<th>Apellidos</th>
+<th>Comunidad</th>
+<th>Vigencia</th>
+</tr>
+</thead>
+
+<tbody id="censoBody"></tbody>
+
+</table>
+
+</div>
+</div>
+
+<div class="formbox">
+
+<h3>Generar certificado</h3>
+
+<div class="form">
+
+<div class="row">
+
+<input
+id="certDoc"
+placeholder="Número de documento">
+
+<input
+id="certLugar"
+placeholder="Lugar de expedición">
+
+</div>
+
+<button class="btn primary" id="makeCert">
+Generar certificado
+</button>
+
+<div class="status" id="certStatus"></div>
+
+</div>
+</div>
+
+<div class="formbox">
+
+<h3>Publicar en la página</h3>
+
+<div class="form">
+
+<input
+id="postTitle"
+placeholder="Título">
+
+<textarea
+id="postContent"
+placeholder="Contenido"></textarea>
+
+<div class="row">
+
+<select id="postType">
+<option value="noticia">Noticia</option>
+<option value="comunicado">Comunicado</option>
+<option value="actividad">Actividad</option>
+</select>
+
+<button class="btn primary" id="publish">
+Publicar
+</button>
+
+</div>
+
+<div class="status" id="postStatus"></div>
+
+</div>
+</div>
+
+<div class="formbox">
+
+<h3>Portada y galería</h3>
+
+<div class="form">
+
+<label>
+Foto de galería
+<input id="galleryFile" type="file" accept="image/*">
+</label>
+
+<input
+id="galleryTitle"
+placeholder="Título de la foto">
+
+<button class="btn primary" id="uploadGallery">
+Subir foto
+</button>
+
+<label>
+Foto de portada
+<input id="coverFile" type="file" accept="image/*">
+</label>
+
+<button class="btn primary" id="uploadCover">
+Cambiar portada
+</button>
+
+<div class="status" id="mediaStatus">
+Requiere el bucket público "site-media".
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
 
 <footer>
 
-  <div class="footer-inner">
+<div class="wrap">
 
-    <div>
+<div>
+<b>YARINAL · EINAMAK+ UAI JENUANO</b>
+<br>
+Comunidad Indígena Murui de Yarinal.
+</div>
 
-      <h3>
-        Comunidad Indígena Murui de Yarinal
-      </h3>
+<div>
+NIT: <b>901846682-2</b>
+<br>
+Alto Resguardo Predio Putumayo.
+</div>
 
-      <p class="footer-note">
-        El contenido relacionado con conocimientos propios,
-        cultura y memoria comunitaria debe ser utilizado
-        respetando las autorizaciones correspondientes
-        del Cabildo y de la comunidad.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Plan de Vida
-      </h3>
-
-      <p class="footer-note">
-        Memoria · Identidad · Cosmovisión · Organización ·
-        Territorio · Comunidad
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="container copyright">
-
-    © 2026 Comunidad Indígena Murui de Yarinal.
-    Todos los derechos reservados.
-
-  </div>
+</div>
 
 </footer>
 
-
 <script>
 
-/* =========================================================
-   CONFIGURACIÓN SUPABASE
-========================================================= */
-
 const SUPABASE_URL =
-  "https://uzglmhfrfmzlyrexojjr.supabase.co";
+"https://uzglmhfrfmzlyrexojjr.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_ZugDHtIVUDkfl0FR3q3bew_1KcRFg35";
+"sb_publishable_ZugDHtIVUDkfl0FR3q3bew_1KcRFg35";
 
-const supabaseClient =
-  supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+const NIT="901846682-2";
 
+const TABLE_CENSO="comuneros";
+const TABLE_CERT="certificados";
+const TABLE_POST="publicaciones";
+const TABLE_MEDIA="media_publica";
+const BUCKET="site-media";
 
-/* =========================================================
-   MENÚ MÓVIL
-========================================================= */
+const db=supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
-const menuToggle =
-  document.getElementById("menuToggle");
+const $=id=>document.getElementById(id);
 
-const menu =
-  document.getElementById("menu");
+const esc=x=>String(x??"").replace(
+/[&<>"']/g,
+c=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[c])
+);
 
-menuToggle.addEventListener("click", () => {
+function msg(id,t,c=""){
+if($(id)){
+$(id).textContent=t;
+$(id).className="status "+c;
+}
+}
 
-  menu.classList.toggle("open");
+$("menu").onclick=()=>{
+$("links").classList.toggle("open");
+};
+
+const projects=[
+
+["Gobernanza","Casa Cabildo","Gestión para construcción de la casa cabildo."],
+["Gobernanza","Casa de Justicia Propia","Gestión para construcción de la casa de justicia propia."],
+["Gobernanza","Casa de la Mujer","Gestión para construcción de la casa de la mujer."],
+["Gobernanza","Fortalecimiento de la Guardia Indígena","Reestructuración, formación y fortalecimiento."],
+["Gobernanza","Liderazgo de la Mujer Murui","Formación de liderazgo de la mujer."],
+
+["Territorio","Acuerdo de límites","Ratificación y fortalecimiento del acuerdo de límites."],
+["Territorio","Cartografía territorial","Capacitación en cartografía y ubicación de mojones."],
+["Territorio","Reforestación","Siembra de alimentos y árboles frutales y maderables."],
+["Territorio","REDD+","Continuidad de la ejecución del proyecto REDD+."],
+["Territorio","Puesto ecológico","Manejo de residuos e infraestructura ecológica."],
+
+["Economía","Fortalecimiento de Chagras","Producción, recolección, venta y comercialización."],
+["Economía","Proyecto Piscícola","Proyecto piscícola con tilapias."],
+["Economía","Reactivación del Trapiche","Reactivación productiva."],
+["Economía","Infraestructura para arroz","Infraestructura para producción de arroz."],
+["Economía","Proyecto avícola","Gallinas ponedoras para seguridad alimentaria."],
+["Economía","Ecoturismo","Proyecto identificado dentro de economía y modos de vida."],
+
+["Educación","Fortalecimiento del idioma propio","Enseñanza y aprendizaje del idioma propio."],
+["Educación","Diccionario de idioma propio","Creación de diccionario de idioma propio."],
+["Educación","Equipos tecnológicos educativos","Adquisición y capacitación tecnológica."],
+["Educación","Restaurante escolar","Construcción y ampliación."],
+["Educación","Biblioteca educativa","Construcción de biblioteca educativa."],
+["Educación","Material pedagógico cultural","Creación de material pedagógico propio."],
+["Educación","Formación de etnoeducadores","Formación continua."],
+
+["Salud","Nuevo puesto de salud","Construcción con enfoque diferencial."],
+["Salud","Prevención comunitaria","Charlas, visitas y caracterización."],
+["Salud","Medicina tradicional y occidental","Fortalecimiento de atención y formación."],
+["Salud","Huerta medicinal","Implementación de huerta medicinal."]
+];
+
+function renderProjects(){
+
+let q=$("projectSearch").value.toLowerCase();
+
+let f=$("projectFilter").value;
+
+let a=projects.filter(x=>
+(f=="Todos"||x[0]==f)&&
+x.join(" ").toLowerCase().includes(q)
+);
+
+$("projects").innerHTML=a.map(x=>`
+
+<article class="project">
+
+<small>${esc(x[0])}</small>
+
+<h3>${esc(x[1])}</h3>
+
+<p>${esc(x[2])}</p>
+
+<div class="bar">
+<span style="width:0"></span>
+</div>
+
+</article>
+
+`).join("");
+}
+
+$("projectSearch").oninput=renderProjects;
+$("projectFilter").onchange=renderProjects;
+
+renderProjects();
+
+async function censo(term){
+
+let t=String(term||"").trim();
+
+if(!t)
+throw Error(
+"Escribe un número de documento o nombre."
+);
+
+let q=db
+.from(TABLE_CENSO)
+.select(
+"id,vigencia,resguardo_indigena,comunidad_indigena,familia,tipo_identificacion,numero_documento,nombres,apellidos,fecha_nacimiento,parentesco,sexo,estado_civil,profesion,escolaridad,integrantes,direccion,telefono,usuario,novedad,estado_registro"
+);
+
+q=/^[0-9.\-]+$/.test(t)
+?q.eq("numero_documento",t)
+:q.or(
+`nombres.ilike.%${t}%,apellidos.ilike.%${t}%`
+);
+
+let r=await q.limit(20);
+
+if(r.error)
+throw r.error;
+
+return r.data||[];
+}
+
+$("censoBtn").onclick=async()=>{
+
+try{
+
+let r=await censo(
+$("censoSearch").value
+);
+
+$("censoBody").innerHTML=
+
+r.map(x=>`
+
+<tr>
+
+<td>${esc(x.numero_documento)}</td>
+
+<td>${esc(x.nombres)}</td>
+
+<td>${esc(x.apellidos)}</td>
+
+<td>${esc(x.comunidad_indigena)}</td>
+
+<td>${esc(x.vigencia)}</td>
+
+</tr>
+
+`).join("")
+
+||
+
+"<tr><td colspan=5>No encontrado.</td></tr>";
+
+}
+
+catch(e){
+
+alert(e.message);
+
+}
+
+};
+
+async function gallery(){
+
+let r=await db
+.from(TABLE_MEDIA)
+.select(
+"titulo,url,tipo,publicado,created_at"
+)
+.eq("publicado",true)
+.eq("tipo","galeria")
+.order("created_at",{ascending:false});
+
+if(r.error)return;
+
+$("gallery").innerHTML=(r.data||[])
+
+.map(x=>`
+
+<div class="photo">
+
+<img
+src="${esc(x.url)}"
+alt="${esc(x.titulo)}">
+
+</div>
+
+`).join("");
+
+$("galleryEmpty").classList.toggle(
+"hidden",
+(r.data||[]).length>0
+);
+
+}
+
+gallery();
+
+async function verify(){
+
+let n=$("verifyNumber").value.trim();
+
+if(!n){
+
+return msg(
+"verifyStatus",
+"Escribe el número del certificado.",
+"error"
+);
+
+}
+
+msg(
+"verifyStatus",
+"Consultando..."
+);
+
+let r=await db
+.from(TABLE_CERT)
+.select("*")
+.eq("numero_certificado",n)
+.maybeSingle();
+
+if(r.error){
+
+return msg(
+"verifyStatus",
+"No se pudo consultar: "+r.error.message,
+"error"
+);
+
+}
+
+if(!r.data){
+
+return msg(
+"verifyStatus",
+"Certificado no encontrado.",
+"error"
+);
+
+}
+
+msg(
+"verifyStatus",
+"Certificado encontrado.",
+"ok"
+);
+
+let x=r.data;
+
+$("verification").innerHTML=`
+
+<div class="formbox">
+
+<h3>Certificado válido en el registro</h3>
+
+<p>
+<b>Número:</b>
+${esc(x.numero_certificado)}
+</p>
+
+<p>
+<b>Nombre:</b>
+${esc(x.nombre_completo)}
+</p>
+
+<p>
+<b>Documento:</b>
+${esc(x.numero_documento)}
+</p>
+
+<p>
+<b>Fecha:</b>
+${esc(x.fecha_expedicion)}
+</p>
+
+<p>
+<b>Comunidad:</b>
+${esc(
+x.comunidad ||
+"Comunidad Indígena Murui de Yarinal"
+)}
+</p>
+
+</div>
+
+`;
+
+}
+
+$("verifyBtn").onclick=verify;
+
+async function session(){
+
+let r=await db.auth.getSession();
+
+let ok=!!r.data.session;
+
+$("loginBox").classList.toggle(
+"hidden",
+ok
+);
+
+$("adminPanel").classList.toggle(
+"hidden",
+!ok
+);
+
+if(ok)
+metrics();
+
+}
+
+async function metrics(){
+
+for(
+let [id,t]
+of [
+["mCenso",TABLE_CENSO],
+["mCert",TABLE_CERT],
+["mPost",TABLE_POST],
+["mMedia",TABLE_MEDIA]
+]
+){
+
+let r=await db
+.from(t)
+.select("*",{count:"exact",head:true});
+
+$(id).textContent=
+r.error
+?"—"
+:(r.count??"0");
+
+}
+
+}
+
+$("loginBtn").onclick=async()=>{
+
+let r=await db.auth.signInWithPassword({
+
+email:$("email").value.trim(),
+
+password:$("password").value
 
 });
 
+if(r.error){
 
-document.querySelectorAll(".menu a")
-.forEach(link => {
+return msg(
+"loginStatus",
+r.error.message,
+"error"
+);
 
-  link.addEventListener("click", () => {
+}
 
-    menu.classList.remove("open");
+msg(
+"loginStatus",
+"Sesión iniciada.",
+"ok"
+);
 
-  });
+session();
+
+};
+
+$("logoutBtn").onclick=async()=>{
+
+await db.auth.signOut();
+
+session();
+
+};
+
+db.auth.onAuthStateChange(
+()=>setTimeout(session,100)
+);
+
+session();
+
+async function makeCert(){
+
+try{
+
+let rows=await censo(
+$("certDoc").value
+);
+
+if(!rows[0])
+throw Error(
+"No se encontró el documento."
+);
+
+let r=rows[0];
+
+let num=
+"YAR-"+
+new Date().getFullYear()+
+"-"+
+crypto.randomUUID()
+.slice(0,8)
+.toUpperCase();
+
+let fecha=
+new Date()
+.toISOString()
+.slice(0,10);
+
+let ins=await db
+.from(TABLE_CERT)
+.insert({
+
+numero_certificado:num,
+
+numero_documento:
+r.numero_documento,
+
+nombre_completo:
+`${r.nombres} ${r.apellidos}`.trim(),
+
+fecha_expedicion:fecha,
+
+comunidad:
+"Comunidad Indígena Murui de Yarinal",
+
+estado:"ACTIVO"
+
+})
+.select()
+.single();
+
+if(ins.error)
+throw ins.error;
+
+let url=new URL(
+location.href
+);
+
+url.hash=
+"verificar="+
+encodeURIComponent(num);
+
+let box=document.createElement("div");
+
+box.className="cert";
+
+box.innerHTML=`
+
+<div class="certhead">
+
+<strong>
+CABILDO INDÍGENA YARINAL
+</strong>
+
+<br>
+
+<span>
+ALTO RESGUARDO PREDIO PUTUMAYO
+</span>
+
+<br>
+
+<small>
+NIT ${NIT}
+</small>
+
+<h3>
+CERTIFICADO DE PERTENENCIA INDÍGENA
+</h3>
+
+</div>
+
+<p>
+EL SUSCRITO GOBERNADOR DEL CABILDO INDÍGENA YARINAL,
+</p>
+
+<p>
+<b>CERTIFICA:</b>
+</p>
+
+<p>
+
+Que
+<b>
+${esc(r.nombres)}
+${esc(r.apellidos)}
+</b>,
+
+identificado(a) con
+${esc(r.tipo_identificacion||"documento")}
+
+No.
+<b>
+${esc(r.numero_documento)}
+</b>,
+
+figura registrado(a) en el censo de la
+Comunidad Indígena Murui de Yarinal.
+
+</p>
+
+<p>
+
+Se expide el presente certificado
+a solicitud del interesado para los
+fines que estime convenientes.
+
+</p>
+
+<p>
+
+Lugar:
+<b>
+${esc(
+$("certLugar").value ||
+"Leguízamo – Putumayo"
+)}
+</b>
+
+<br>
+
+Fecha:
+<b>${fecha}</b>
+
+<br>
+
+Número:
+<b>${num}</b>
+
+</p>
+
+<div class="qr" id="qr"></div>
+
+<div class="certfoot">
+
+Verificación electrónica:
+escanee el código QR o consulte
+el número de certificado en el portal.
+
+</div>
+
+<div class="signature">
+
+<b>
+WILLIAM GASCA CHARRY - GOBERNADOR
+</b>
+
+<br>
+
+Cabildo Indígena Yarinal
+
+</div>
+
+<div class="print no-print">
+
+<button
+class="btn primary"
+onclick="window.print()">
+
+Imprimir / Guardar PDF
+
+</button>
+
+</div>
+
+`;
+
+$("adminPanel").appendChild(box);
+
+box.scrollIntoView({
+behavior:"smooth"
+});
+
+new QRCode(
+$("qr"),
+{
+text:url.toString(),
+width:130,
+height:130
+}
+);
+
+msg(
+"certStatus",
+"Certificado generado: "+num,
+"ok"
+);
+
+metrics();
+
+}
+
+catch(e){
+
+msg(
+"certStatus",
+e.message,
+"error"
+);
+
+}
+
+}
+
+$("makeCert").onclick=makeCert;
+
+$("publish").onclick=async()=>{
+
+try{
+
+let u=
+(await db.auth.getUser())
+.data.user;
+
+if(!u)
+throw Error(
+"Debes iniciar sesión."
+);
+
+let r=await db
+.from(TABLE_POST)
+.insert({
+
+titulo:
+$("postTitle").value.trim(),
+
+contenido:
+$("postContent").value.trim(),
+
+tipo:
+$("postType").value,
+
+publicado:true,
+
+autor:u.id
 
 });
 
+if(r.error)
+throw r.error;
 
-/* =========================================================
-   GALERÍA
-========================================================= */
+msg(
+"postStatus",
+"Publicación creada.",
+"ok"
+);
 
-const photoTitle =
-  document.getElementById("photoTitle");
-
-const photoFile =
-  document.getElementById("photoFile");
-
-const addPhoto =
-  document.getElementById("addPhoto");
-
-const gallery =
-  document.getElementById("gallery");
-
-
-function loadGallery(){
-
-  const saved =
-    JSON.parse(
-      localStorage.getItem(
-        "yarinal_gallery"
-      ) || "[]"
-    );
-
-  gallery.innerHTML = "";
-
-  saved.forEach((photo, index) => {
-
-    const article =
-      document.createElement("article");
-
-    article.className = "photo";
-
-    article.innerHTML = `
-      <img
-        src="${photo.image}"
-        alt="${escapeHtml(photo.title)}"
-      >
-
-      <div class="photo-info">
-
-        <div class="photo-title">
-          ${escapeHtml(photo.title)}
-        </div>
-
-        <button
-          class="btn btn-danger"
-          style="margin-top:10px;padding:7px 10px;font-size:12px;"
-          onclick="deletePhoto(${index})"
-        >
-          Eliminar
-        </button>
-
-      </div>
-    `;
-
-    gallery.appendChild(article);
-
-  });
+metrics();
 
 }
 
+catch(e){
 
-function deletePhoto(index){
-
-  const saved =
-    JSON.parse(
-      localStorage.getItem(
-        "yarinal_gallery"
-      ) || "[]"
-    );
-
-  saved.splice(index,1);
-
-  localStorage.setItem(
-    "yarinal_gallery",
-    JSON.stringify(saved)
-  );
-
-  loadGallery();
+msg(
+"postStatus",
+e.message,
+"error"
+);
 
 }
 
+};
 
-addPhoto.addEventListener("click", () => {
+async function upload(
+file,
+title,
+type
+){
 
-  const title =
-    photoTitle.value.trim();
+let u=
+(await db.auth.getUser())
+.data.user;
 
-  const file =
-    photoFile.files[0];
+if(!u)
+throw Error(
+"Debes iniciar sesión."
+);
 
-  if(!title){
+if(!file)
+throw Error(
+"Selecciona una imagen."
+);
 
-    alert(
-      "Escribe un título para la fotografía."
-    );
+let ext=
+file.name
+.split(".")
+.pop()
+.toLowerCase();
 
-    return;
-  }
+let path=
+`${type}/${
+Date.now()
+}-${
+crypto.randomUUID()
+}.${ext}`;
 
-  if(!file){
+let up=await db
+.storage
+.from(BUCKET)
+.upload(
+path,
+file,
+{
+contentType:file.type
+}
+);
 
-    alert(
-      "Selecciona una fotografía."
-    );
+if(up.error)
+throw up.error;
 
-    return;
-  }
+let p=
+db.storage
+.from(BUCKET)
+.getPublicUrl(path)
+.data.publicUrl;
 
-  const reader =
-    new FileReader();
+let r=await db
+.from(TABLE_MEDIA)
+.insert({
 
-  reader.onload = function(event){
+titulo:
+title||type,
 
-    const saved =
-      JSON.parse(
-        localStorage.getItem(
-          "yarinal_gallery"
-        ) || "[]"
-      );
+url:p,
 
-    saved.push({
-      title:title,
-      image:event.target.result
-    });
+tipo:type,
 
-    localStorage.setItem(
-      "yarinal_gallery",
-      JSON.stringify(saved)
-    );
+publicado:true,
 
-    photoTitle.value = "";
-    photoFile.value = "";
-
-    loadGallery();
-
-  };
-
-  reader.readAsDataURL(file);
+creado_por:u.id
 
 });
 
+if(r.error)
+throw r.error;
 
-loadGallery();
+return p;
 
+}
 
-/* =========================================================
-   CONSULTA DEL CENSO
-========================================================= */
+$("uploadGallery").onclick=async()=>{
 
-const docInput =
-  document.getElementById("doc");
+try{
 
-const searchMember =
-  document.getElementById("searchMember");
+await upload(
 
-const searchStatus =
-  document.getElementById("searchStatus");
+$("galleryFile").files[0],
 
-const member =
-  document.getElementById("member");
+$("galleryTitle").value,
 
-let currentMember = null;
+"galeria"
 
-
-searchMember.addEventListener(
-  "click",
-  buscarComunero
 );
 
-
-docInput.addEventListener(
-  "keydown",
-  event => {
-
-    if(event.key === "Enter"){
-
-      buscarComunero();
-
-    }
-
-  }
+msg(
+"mediaStatus",
+"Fotografía publicada.",
+"ok"
 );
 
+gallery();
 
-async function buscarComunero(){
-
-  const documento =
-    docInput.value.trim();
-
-  member.classList.remove("visible");
-
-  searchStatus.className =
-    "status";
-
-  if(!documento){
-
-    searchStatus.textContent =
-      "Escribe un número de documento.";
-
-    searchStatus.classList.add("error");
-
-    return;
-  }
-
-
-  searchStatus.textContent =
-    "Consultando el registro comunitario...";
-
-
-  try{
-
-    const { data, error } =
-      await supabaseClient
-
-      .from("comuneros")
-
-      .select("*")
-
-      .eq(
-        "numero_documento",
-        documento
-      )
-
-      .maybeSingle();
-
-
-    if(error){
-
-      console.error(error);
-
-      searchStatus.textContent =
-        "No fue posible consultar el censo. Revisa la conexión o las políticas de acceso.";
-
-      searchStatus.classList.add("error");
-
-      return;
-    }
-
-
-    if(!data){
-
-      searchStatus.textContent =
-        "No se encontró un comunero con ese número de documento.";
-
-      searchStatus.classList.add("error");
-
-      return;
-    }
-
-
-    currentMember = data;
-
-    mostrarComunero(data);
-
-    searchStatus.textContent =
-      "Registro encontrado correctamente.";
-
-    searchStatus.classList.add("ok");
-
-  }
-  catch(error){
-
-    console.error(error);
-
-    searchStatus.textContent =
-      "Ocurrió un error al realizar la consulta.";
-
-    searchStatus.classList.add("error");
-
-  }
+metrics();
 
 }
 
+catch(e){
 
-function mostrarComunero(data){
-
-  const nombre =
-    [
-      data.nombres,
-      data.apellidos
-    ]
-    .filter(Boolean)
-    .join(" ");
-
-
-  document.getElementById(
-    "memberName"
-  ).textContent =
-    nombre || "Sin nombre";
-
-
-  document.getElementById(
-    "memberStatus"
-  ).textContent =
-    data.estado_registro ||
-    "ACTIVO";
-
-
-  setText(
-    "mTipo",
-    data.tipo_identificacion
-  );
-
-  setText(
-    "mDocumento",
-    data.numero_documento
-  );
-
-  setText(
-    "mComunidad",
-    data.comunidad_indigena
-  );
-
-  setText(
-    "mResguardo",
-    data.resguardo_indigena
-  );
-
-  setText(
-    "mFamilia",
-    data.familia
-  );
-
-  setText(
-    "mParentesco",
-    data.parentesco
-  );
-
-  setText(
-    "mNacimiento",
-    formatDate(data.fecha_nacimiento)
-  );
-
-  setText(
-    "mSexo",
-    data.sexo
-  );
-
-  setText(
-    "mEstadoCivil",
-    data.estado_civil
-  );
-
-  setText(
-    "mProfesion",
-    data.profesion
-  );
-
-  setText(
-    "mEscolaridad",
-    data.escolaridad
-  );
-
-  setText(
-    "mIntegrantes",
-    data.integrantes
-  );
-
-  setText(
-    "mDireccion",
-    data.direccion
-  );
-
-  setText(
-    "mTelefono",
-    data.telefono
-  );
-
-  setText(
-    "mUsuario",
-    data.usuario
-  );
-
-
-  member.classList.add("visible");
-
-}
-
-
-document
-  .getElementById("useForCertificate")
-  .addEventListener(
-    "click",
-    () => {
-
-      if(!currentMember){
-
-        return;
-      }
-
-      llenarCertificado(
-        currentMember
-      );
-
-      document
-        .getElementById("certificado")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-    }
-  );
-
-
-/* =========================================================
-   CERTIFICADO
-========================================================= */
-
-const generate =
-  document.getElementById("generate");
-
-const print =
-  document.getElementById("print");
-
-
-generate.addEventListener(
-  "click",
-  () => {
-
-    if(!currentMember){
-
-      alert(
-        "Primero consulta un comunero por número de documento."
-      );
-
-      document
-        .getElementById("censo")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-      return;
-    }
-
-    llenarCertificado(
-      currentMember
-    );
-
-  }
+msg(
+"mediaStatus",
+e.message,
+"error"
 );
 
+}
 
-print.addEventListener(
-  "click",
-  () => {
+};
 
-    window.print();
+$("uploadCover").onclick=async()=>{
 
-  }
+try{
+
+await upload(
+
+$("coverFile").files[0],
+
+"Portada",
+
+"portada"
+
 );
 
+msg(
+"mediaStatus",
+"Portada subida correctamente.",
+"ok"
+);
 
-function llenarCertificado(data){
-
-  const nombre =
-    [
-      data.nombres,
-      data.apellidos
-    ]
-    .filter(Boolean)
-    .join(" ");
-
-
-  document.getElementById(
-    "certName"
-  ).textContent =
-    nombre || "—";
-
-
-  document.getElementById(
-    "certTipo"
-  ).textContent =
-    data.tipo_identificacion || "—";
-
-
-  document.getElementById(
-    "certDocumento"
-  ).textContent =
-    data.numero_documento || "—";
-
-
-  document.getElementById(
-    "certCommunity"
-  ).textContent =
-    data.comunidad_indigena
-      ? "Comunidad Indígena " +
-        titleCase(data.comunidad_indigena)
-      : "Comunidad Indígena Murui de Yarinal";
-
-
-  document.getElementById(
-    "certResguardo"
-  ).textContent =
-    data.resguardo_indigena || 
-    "Alto Resguardo Predio Putumayo";
-
-
-  const fecha =
-    new Date();
-
-
-  document.getElementById(
-    "certFecha"
-  ).textContent =
-    fecha.toLocaleDateString(
-      "es-CO",
-      {
-        day:"2-digit",
-        month:"2-digit",
-        year:"numeric"
-      }
-    );
-
-
-  const numeroCertificado =
-    generarNumeroCertificado(
-      data.numero_documento
-    );
-
-
-  document.getElementById(
-    "certNumero"
-  ).textContent =
-    numeroCertificado;
-
-
-  document.getElementById(
-    "certEstado"
-  ).textContent =
-    data.estado_registro ||
-    "ACTIVO";
-
-
-  generarQR(
-    data,
-    numeroCertificado
-  );
+metrics();
 
 }
 
+catch(e){
 
-function generarNumeroCertificado(
-  documento
+msg(
+"mediaStatus",
+e.message,
+"error"
+);
+
+}
+
+};
+
+if(
+location.hash.startsWith(
+"#verificar="
+)
 ){
 
-  const fecha =
-    new Date();
+let n=
+decodeURIComponent(
+location.hash.slice(11)
+);
 
-  const year =
-    fecha.getFullYear();
+$("verifyNumber").value=n;
 
-  const month =
-    String(
-      fecha.getMonth()+1
-    ).padStart(2,"0");
-
-  const day =
-    String(
-      fecha.getDate()
-    ).padStart(2,"0");
-
-
-  return (
-    "YAR-" +
-    year +
-    month +
-    day +
-    "-" +
-    String(documento)
-      .replace(/\D/g,"")
-      .slice(-6)
-  );
+setTimeout(
+verify,
+500
+);
 
 }
-
-
-function generarQR(
-  data,
-  numeroCertificado
-){
-
-  const qr =
-    document.getElementById("qr");
-
-  qr.innerHTML = "";
-
-
-  const contenido =
-    [
-      "Comunidad Indígena Murui de Yarinal",
-      "Documento: " +
-        (data.numero_documento || ""),
-      "Certificado: " +
-        numeroCertificado,
-      "Estado: " +
-        (data.estado_registro || "")
-    ]
-    .join("\n");
-
-
-  if(
-    typeof QRCode !== "undefined"
-  ){
-
-    new QRCode(
-      qr,
-      {
-        text:contenido,
-        width:120,
-        height:120,
-        correctLevel:
-          QRCode.CorrectLevel.M
-      }
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   UTILIDADES
-========================================================= */
-
-function setText(
-  id,
-  value
-){
-
-  document.getElementById(
-    id
-  ).textContent =
-    value === null ||
-    value === undefined ||
-    value === ""
-      ? "—"
-      : value;
-
-}
-
-
-function formatDate(
-  value
-){
-
-  if(!value){
-
-    return "—";
-
-  }
-
-  const date =
-    new Date(value);
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return value;
-
-  }
-
-  return date.toLocaleDateString(
-    "es-CO",
-    {
-      day:"2-digit",
-      month:"2-digit",
-      year:"numeric"
-    }
-  );
-
-}
-
-
-function titleCase(
-  text
-){
-
-  return String(text)
-    .toLowerCase()
-    .replace(
-      /\b\w/g,
-      letter =>
-        letter.toUpperCase()
-    );
-
-}
-
-
-function escapeHtml(
-  value
-){
-
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-/* =========================================================
-   CERTIFICADO INICIAL
-========================================================= */
-
-document.getElementById(
-  "certFecha"
-).textContent =
-  new Date().toLocaleDateString(
-    "es-CO",
-    {
-      day:"2-digit",
-      month:"2-digit",
-      year:"numeric"
-    }
-  );
 
 </script>
 
