@@ -6,6 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root{--bg:#071a11;--bg2:#0c2a1a;--gold:#d7ad4d;--cream:#f6f0dd;--ink:#172017;--muted:#b8c6ba;--line:#31543e}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#edf3ed;font-family:Arial,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}
@@ -49,69 +50,30 @@ async function downloadCertificate(){
   const el=$('certificatePage');
   const code=$('outCode').textContent.replace('Certificado No. ','')||'YAR';
   if(!el) throw new Error('No se encontró el certificado.');
-
-  if(document.fonts&&document.fonts.ready) await document.fonts.ready;
-
-  // Capturamos EL CERTIFICADO REAL, no un clon. Esto conserva imágenes, firma y QR.
-  const modal=$('certModal');
-  const old={
-    modalPosition:modal.style.position,
-    modalOverflow:modal.style.overflow,
-    modalPadding:modal.style.padding,
-    modalTransform:el.style.transform,
-    modalTransformOrigin:el.style.transformOrigin,
-    elMargin:el.style.margin,
-    elWidth:el.style.width,
-    elHeight:el.style.height,
-    elMinHeight:el.style.minHeight,
-    elMaxHeight:el.style.maxHeight
-  };
-
-  modal.style.position='fixed';
-  modal.style.overflow='hidden';
-  modal.style.padding='0';
-  el.style.transform='none';
-  el.style.transformOrigin='top left';
-  el.style.margin='0';
-  el.style.width='794px';
-  el.style.height='1123px';
-  el.style.minHeight='1123px';
-  el.style.maxHeight='1123px';
-
-  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-
+  if(typeof html2canvas!=='function' || typeof window.jspdf==='undefined') throw new Error('No se pudo cargar el módulo de PDF. Recargue la página e intente nuevamente.');
+  const old={transform:el.style.transform,transformOrigin:el.style.transformOrigin,width:el.style.width,height:el.style.height,minHeight:el.style.minHeight,maxHeight:el.style.maxHeight,margin:el.style.margin,boxShadow:el.style.boxShadow};
   try{
-    const canvas=await html2canvas(el,{
-      scale:2,
-      useCORS:true,
-      allowTaint:false,
-      backgroundColor:'#fff',
-      logging:false,
-      width:794,
-      height:1123,
-      windowWidth:794,
-      windowHeight:1123,
-      scrollX:0,
-      scrollY:0
-    });
-
-    // PDF A4 exacto: una sola página, sin que html2pdf haga paginación automática.
+    if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    el.style.transform='none';
+    el.style.transformOrigin='top left';
+    el.style.width='794px';
+    el.style.height='1123px';
+    el.style.minHeight='1123px';
+    el.style.maxHeight='1123px';
+    el.style.margin='0 auto';
+    el.style.boxShadow='none';
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+    const canvas=await html2canvas(el,{scale:2,useCORS:true,allowTaint:false,backgroundColor:'#fff',logging:false,width:794,height:1123,windowWidth:794,windowHeight:1123,scrollX:0,scrollY:0});
+    const img=canvas.toDataURL('image/jpeg',0.98);
     const {jsPDF}=window.jspdf;
     const pdf=new jsPDF({unit:'mm',format:'a4',orientation:'portrait',compress:true});
-    const imgData=canvas.toDataURL('image/jpeg',0.98);
-    pdf.addImage(imgData,'JPEG',0,0,210,297,'FAST');
+    pdf.addImage(img,'JPEG',0,0,210,297,undefined,'FAST');
     pdf.save('Certificado-'+code+'.pdf');
+  }catch(e){
+    console.error('Error al descargar certificado:',e);
+    alert('No se pudo generar el PDF: '+e.message);
   }finally{
-    modal.style.position=old.modalPosition;
-    modal.style.overflow=old.modalOverflow;
-    modal.style.padding=old.modalPadding;
-    el.style.transform=old.modalTransform;
-    el.style.transformOrigin=old.modalTransformOrigin;
-    el.style.margin=old.elMargin;
-    el.style.width=old.elWidth;
-    el.style.height=old.elHeight;
-    el.style.minHeight=old.elMinHeight;
-    el.style.maxHeight=old.elMaxHeight;
+    Object.assign(el.style,old);
   }
 }
 
